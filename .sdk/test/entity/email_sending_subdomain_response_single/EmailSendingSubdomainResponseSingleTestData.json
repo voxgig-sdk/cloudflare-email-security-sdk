@@ -1,0 +1,60 @@
+{
+  "existing": {
+    "email_sending_subdomain_response_single": {
+      "EMAIL_SENDING_SUBDOMAIN_RESPONSE_SINGLE00": {
+        "drop_suppressed_recipients": true,
+        "name": "s29",
+        "preview_enabled": true,
+        "result": "s2b",
+        "zone_id": "ZONE01",
+        "subdomain_id": "SUBDOMAIN01",
+        "id": "EMAIL_SENDING_SUBDOMAIN_RESPONSE_SINGLE00"
+      },
+      "EMAIL_SENDING_SUBDOMAIN_RESPONSE_SINGLE01": {
+        "drop_suppressed_recipients": true,
+        "name": "s51",
+        "preview_enabled": true,
+        "result": "s53",
+        "zone_id": "ZONE01",
+        "subdomain_id": "SUBDOMAIN01",
+        "id": "EMAIL_SENDING_SUBDOMAIN_RESPONSE_SINGLE01"
+      },
+      "EMAIL_SENDING_SUBDOMAIN_RESPONSE_SINGLE02": {
+        "drop_suppressed_recipients": true,
+        "name": "s79",
+        "preview_enabled": true,
+        "result": "s7b",
+        "zone_id": "ZONE01",
+        "subdomain_id": "SUBDOMAIN01",
+        "id": "EMAIL_SENDING_SUBDOMAIN_RESPONSE_SINGLE02"
+      }
+    }
+  },
+  "new": {
+    "email_sending_subdomain_response_single": {
+      "email_sending_subdomain_response_single_ref01": {
+        "drop_suppressed_recipients": true,
+        "name": "sa1",
+        "preview_enabled": true,
+        "result": "sa3"
+      }
+    }
+  },
+  "requests": {
+    "POST /zones/{zone_id}/email/sending/subdomains": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /zones/{zone_id}/email/sending/subdomains/{subdomain_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /zones/{zone_id}/email/sending/subdomains/{subdomain_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

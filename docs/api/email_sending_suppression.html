@@ -1,0 +1,2388 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>EmailSendingSuppression | Cloudflare Email Security</title><link rel="stylesheet" href="../assets/style.css"></head>
+<body><a class="skip" href="#content">Skip to content</a>
+<header class="site-header"><a class="site-title" href="../index.html">Cloudflare Email Security<span>SDK documentation</span></a><div class="site-links"><a class="repo-link" href="https://github.com/voxgig-sdk/cloudflare-email-security-sdk">voxgig-sdk/cloudflare-email-security-sdk</a></div></header>
+<div class="site-notice" role="note"></div>
+<div class="shell"><nav class="site-nav" aria-label="Documentation"><div class="search"><label for="search">Search documentation</label><input id="search" type="search" data-base="../" placeholder="Find a guide or reference"><div id="results" aria-live="polite"></div></div><details><summary>Overview</summary><a href="../index.html">Cloudflare Email Security</a></details>
+<details open><summary>API</summary><a href="../api/index.html">API overview</a>
+<a href="../api/email_account_rules_plan_response_single.html">EmailAccountRulesPlanResponseSingle</a>
+<a href="../api/email_account_rules_response_collection.html">EmailAccountRulesResponseCollection</a>
+<a href="../api/email_auth.html">EmailAuth</a>
+<a href="../api/email_catch_all_rule_response_single.html">EmailCatchAllRuleResponseSingle</a>
+<a href="../api/email_destination_address_response_single.html">EmailDestinationAddressResponseSingle</a>
+<a href="../api/email_destination_addresses_response_collection.html">EmailDestinationAddressesResponseCollection</a>
+<a href="../api/email_dns_settings_response_collection.html">EmailDnsSettingsResponseCollection</a>
+<a href="../api/email_email_settings_response_single.html">EmailEmailSettingsResponseSingle</a>
+<a href="../api/email_routing_suppression.html">EmailRoutingSuppression</a>
+<a href="../api/email_rule_response_single.html">EmailRuleResponseSingle</a>
+<a href="../api/email_rules_response_collection.html">EmailRulesResponseCollection</a>
+<a href="../api/email_security.html">EmailSecurity</a>
+<a href="../api/email_security_analytics.html">EmailSecurityAnalytics</a>
+<a href="../api/email_security_setting.html">EmailSecuritySetting</a>
+<a href="../api/email_sending.html">EmailSending</a>
+<a href="../api/email_sending_limits_response_single.html">EmailSendingLimitsResponseSingle</a>
+<a href="../api/email_sending_reputation_response_single.html">EmailSendingReputationResponseSingle</a>
+<a href="../api/email_sending_subdomain_dns_status.html">EmailSendingSubdomainDnsStatus</a>
+<a href="../api/email_sending_subdomain_preview.html">EmailSendingSubdomainPreview</a>
+<a href="../api/email_sending_subdomain_reputation_complaint.html">EmailSendingSubdomainReputationComplaint</a>
+<a href="../api/email_sending_subdomain_response_single.html">EmailSendingSubdomainResponseSingle</a>
+<a href="../api/email_sending_subdomains_response_collection.html">EmailSendingSubdomainsResponseCollection</a>
+<a aria-current="page" href="../api/email_sending_suppression.html">EmailSendingSuppression</a><div class="nav-sections"><a class="nav-section" href="#post-accountsaccount_idemailsendingsuppression">POST /accounts/{account_id}/email/sending/suppression</a>
+<a class="nav-section" href="#post-accountsaccount_idemailsendingsuppressions">POST /accounts/{account_id}/email/sending/suppressions</a>
+<a class="nav-section" href="#post-accountsaccount_idemailsendingsuppressionsbulk">POST /accounts/{account_id}/email/sending/suppressions/bulk</a>
+<a class="nav-section" href="#post-zoneszone_idemailsendingsuppression">POST /zones/{zone_id}/email/sending/suppression</a>
+<a class="nav-section" href="#get-accountsaccount_idemailsendingsuppressions">GET /accounts/{account_id}/email/sending/suppressions</a>
+<a class="nav-section" href="#get-accountsaccount_idemailsendingsuppression">GET /accounts/{account_id}/email/sending/suppression</a>
+<a class="nav-section" href="#get-zoneszone_idemailsendingsuppression">GET /zones/{zone_id}/email/sending/suppression</a>
+<a class="nav-section" href="#get-accountsaccount_idemailsendingsuppressionsuppression_id">GET /accounts/{account_id}/email/sending/suppression/{suppression_id}</a>
+<a class="nav-section" href="#get-accountsaccount_idemailsendingsuppressionssuppression_id">GET /accounts/{account_id}/email/sending/suppressions/{suppression_id}</a>
+<a class="nav-section" href="#get-zoneszone_idemailsendingsuppressionsuppression_id">GET /zones/{zone_id}/email/sending/suppression/{suppression_id}</a>
+<a class="nav-section" href="#delete-accountsaccount_idemailsendingsuppressionsuppression_id">DELETE /accounts/{account_id}/email/sending/suppression/{suppression_id}</a>
+<a class="nav-section" href="#delete-accountsaccount_idemailsendingsuppressionssuppression_id">DELETE /accounts/{account_id}/email/sending/suppressions/{suppression_id}</a>
+<a class="nav-section" href="#delete-zoneszone_idemailsendingsuppressionsuppression_id">DELETE /zones/{zone_id}/email/sending/suppression/{suppression_id}</a>
+<a class="nav-section" href="#patch-accountsaccount_idemailsendingsuppressionssuppression_id">PATCH /accounts/{account_id}/email/sending/suppressions/{suppression_id}</a></div>
+<a href="../api/subdomain.html">Subdomain</a></details>
+<details><summary>Guides</summary><a href="../guides/authentication.html">Authentication</a>
+<a href="../guides/first-call.html">Make your first API call</a>
+<a href="../guides/errors.html">Handle errors</a>
+<a href="../guides/concepts.html">Entities, SDKs, and tools</a></details>
+<details><summary>SDKs</summary><a href="../sdks/go.html">Golang</a>
+<a href="../sdks/lua.html">Lua</a>
+<a href="../sdks/php.html">PHP</a>
+<a href="../sdks/py.html">Python</a>
+<a href="../sdks/rb.html">Ruby</a>
+<a href="../sdks/ts.html">TypeScript</a></details>
+<details><summary>Tools</summary><a href="../tools/go-cli.html">Go CLI</a>
+<a href="../tools/go-mcp.html">Go MCP server</a></details>
+<details><summary>Features</summary><a href="../features/test.html">Test transport</a></details></nav><main id="content"><div class="page-context"><span class="section-dot" aria-hidden="true"></span>API</div><h1 id="emailsendingsuppression">EmailSendingSuppression</h1>
+<h2 id="operations">Operations</h2>
+<p>Every route this entity exposes. Each route links to its own reference on this page.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Route</th>
+<th>SDK operation</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-accountsaccount_idemailsendingsuppression"><code>/accounts/{account_id}/email/sending/suppression</code></a></td>
+<td><code>create</code></td>
+<td>Returns suppression</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-accountsaccount_idemailsendingsuppressions"><code>/accounts/{account_id}/email/sending/suppressions</code></a></td>
+<td><code>create</code></td>
+<td>Suppression mutation completed</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-accountsaccount_idemailsendingsuppressionsbulk"><code>/accounts/{account_id}/email/sending/suppressions/bulk</code></a></td>
+<td><code>create</code></td>
+<td>Bulk import result</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-zoneszone_idemailsendingsuppression"><code>/zones/{zone_id}/email/sending/suppression</code></a></td>
+<td><code>create</code></td>
+<td>Returns suppression</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-accountsaccount_idemailsendingsuppressions"><code>/accounts/{account_id}/email/sending/suppressions</code></a></td>
+<td><code>list</code></td>
+<td>Returns Email Sending suppressions</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-accountsaccount_idemailsendingsuppression"><code>/accounts/{account_id}/email/sending/suppression</code></a></td>
+<td><code>list</code></td>
+<td>Returns suppressed emails</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-zoneszone_idemailsendingsuppression"><code>/zones/{zone_id}/email/sending/suppression</code></a></td>
+<td><code>list</code></td>
+<td>Returns suppressed emails</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-accountsaccount_idemailsendingsuppressionsuppression_id"><code>/accounts/{account_id}/email/sending/suppression/{suppression_id}</code></a></td>
+<td><code>load</code></td>
+<td>Returns suppression</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-accountsaccount_idemailsendingsuppressionssuppression_id"><code>/accounts/{account_id}/email/sending/suppressions/{suppression_id}</code></a></td>
+<td><code>load</code></td>
+<td>Returns an Email Sending suppression owned by the account</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-zoneszone_idemailsendingsuppressionsuppression_id"><code>/zones/{zone_id}/email/sending/suppression/{suppression_id}</code></a></td>
+<td><code>load</code></td>
+<td>Returns suppression</td>
+</tr>
+<tr>
+<td><code>DELETE</code></td>
+<td><a href="#delete-accountsaccount_idemailsendingsuppressionsuppression_id"><code>/accounts/{account_id}/email/sending/suppression/{suppression_id}</code></a></td>
+<td><code>remove</code></td>
+<td>Deletes suppression</td>
+</tr>
+<tr>
+<td><code>DELETE</code></td>
+<td><a href="#delete-accountsaccount_idemailsendingsuppressionssuppression_id"><code>/accounts/{account_id}/email/sending/suppressions/{suppression_id}</code></a></td>
+<td><code>remove</code></td>
+<td>Suppression mutation completed</td>
+</tr>
+<tr>
+<td><code>DELETE</code></td>
+<td><a href="#delete-zoneszone_idemailsendingsuppressionsuppression_id"><code>/zones/{zone_id}/email/sending/suppression/{suppression_id}</code></a></td>
+<td><code>remove</code></td>
+<td>Deletes suppression</td>
+</tr>
+<tr>
+<td><code>PATCH</code></td>
+<td><a href="#patch-accountsaccount_idemailsendingsuppressionssuppression_id"><code>/accounts/{account_id}/email/sending/suppressions/{suppression_id}</code></a></td>
+<td><code>update</code></td>
+<td>Returns the updated Email Sending suppression</td>
+</tr>
+</tbody>
+</table>
+<h2 id="examples">Examples</h2>
+<p>One example per SDK, generated from the API model. The argument names are the parameters and fields of this entity, and the values are placeholders. The examples are not compiled or executed.</p>
+<h3 id="golang">Golang</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/go.html#set-up-the-client">Golang setup</a>, then call the operations:</p>
+<pre><code class="language-go">email_sending_suppressions, err := client.EmailSendingSuppression(nil).List(map[string]any{&quot;account_id&quot;: &quot;example&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(email_sending_suppressions)
+email_sending_suppression, err := client.EmailSendingSuppression(nil).Load(map[string]any{&quot;id&quot;: &quot;example_id&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(email_sending_suppression)
+created, err := client.EmailSendingSuppression(nil).Create(map[string]any{&quot;account_id&quot;: &quot;example&quot;, &quot;created_at&quot;: &quot;example&quot;, &quot;email&quot;: &quot;example&quot;, &quot;errors&quot;: []any{}, &quot;expires_at&quot;: &quot;example&quot;, &quot;id&quot;: &quot;example&quot;, &quot;items&quot;: []any{}, &quot;messages&quot;: []any{}, &quot;read_only&quot;: true, &quot;reason&quot;: &quot;example&quot;, &quot;result&quot;: map[string]any{}, &quot;success&quot;: true}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(created)
+updated, err := client.EmailSendingSuppression(nil).Update(map[string]any{&quot;id&quot;: &quot;example_id&quot;, &quot;account_id&quot;: &quot;example&quot;, &quot;created_at&quot;: &quot;example&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(updated)
+removed, err := client.EmailSendingSuppression(nil).Remove(map[string]any{&quot;id&quot;: &quot;example_id&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(removed)
+</code></pre>
+<h3 id="lua">Lua</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/lua.html#set-up-the-client">Lua setup</a>, then call the operations:</p>
+<pre><code class="language-lua">local email_sending_suppressions, err = client:EmailSendingSuppression():list({ account_id = &quot;example&quot; })
+local email_sending_suppression, err = client:EmailSendingSuppression():load({ id = &quot;example_id&quot; })
+local created, err = client:EmailSendingSuppression():create({ account_id = &quot;example&quot;, created_at = &quot;example&quot;, email = &quot;example&quot;, errors = {}, expires_at = &quot;example&quot;, id = &quot;example&quot;, items = {}, messages = {}, read_only = true, reason = &quot;example&quot;, result = {}, success = true })
+local updated, err = client:EmailSendingSuppression():update({ id = &quot;example_id&quot;, account_id = &quot;example&quot;, created_at = &quot;example&quot; })
+local removed, err = client:EmailSendingSuppression():remove({ id = &quot;example_id&quot; })
+</code></pre>
+<h3 id="php">PHP</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/php.html#set-up-the-client">PHP setup</a>, then call the operations:</p>
+<pre><code class="language-php">$email_sending_suppressions = $client-&gt;EmailSendingSuppression()-&gt;list([&quot;account_id&quot; =&gt; &quot;example&quot;]);
+$email_sending_suppression = $client-&gt;EmailSendingSuppression()-&gt;load([&quot;id&quot; =&gt; &quot;example_id&quot;]);
+$created = $client-&gt;EmailSendingSuppression()-&gt;create([&quot;account_id&quot; =&gt; &quot;example&quot;, &quot;created_at&quot; =&gt; &quot;example&quot;, &quot;email&quot; =&gt; &quot;example&quot;, &quot;errors&quot; =&gt; [], &quot;expires_at&quot; =&gt; &quot;example&quot;, &quot;id&quot; =&gt; &quot;example&quot;, &quot;items&quot; =&gt; [], &quot;messages&quot; =&gt; [], &quot;read_only&quot; =&gt; true, &quot;reason&quot; =&gt; &quot;example&quot;, &quot;result&quot; =&gt; [], &quot;success&quot; =&gt; true]);
+$updated = $client-&gt;EmailSendingSuppression()-&gt;update([&quot;id&quot; =&gt; &quot;example_id&quot;, &quot;account_id&quot; =&gt; &quot;example&quot;, &quot;created_at&quot; =&gt; &quot;example&quot;]);
+$client-&gt;EmailSendingSuppression()-&gt;remove([&quot;id&quot; =&gt; &quot;example_id&quot;]);
+</code></pre>
+<h3 id="python">Python</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/py.html#set-up-the-client">Python setup</a>, then call the operations:</p>
+<pre><code class="language-py">email_sending_suppressions = client.EmailSendingSuppression().list({&quot;account_id&quot;: &quot;example&quot;})
+email_sending_suppression = client.EmailSendingSuppression().load({&quot;id&quot;: &quot;example_id&quot;})
+created = client.EmailSendingSuppression().create({ &quot;account_id&quot;: &quot;example&quot;, &quot;created_at&quot;: &quot;example&quot;, &quot;email&quot;: &quot;example&quot;, &quot;errors&quot;: [], &quot;expires_at&quot;: &quot;example&quot;, &quot;id&quot;: &quot;example&quot;, &quot;items&quot;: [], &quot;messages&quot;: [], &quot;read_only&quot;: True, &quot;reason&quot;: &quot;example&quot;, &quot;result&quot;: {}, &quot;success&quot;: True })
+updated = client.EmailSendingSuppression().update({&quot;id&quot;: &quot;example_id&quot;, &quot;account_id&quot;: &quot;example&quot;, &quot;created_at&quot;: &quot;example&quot;})
+client.EmailSendingSuppression().remove({&quot;id&quot;: &quot;example_id&quot;})
+</code></pre>
+<h3 id="ruby">Ruby</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/rb.html#set-up-the-client">Ruby setup</a>, then call the operations:</p>
+<pre><code class="language-rb">email_sending_suppressions = client.EmailSendingSuppression.list({ &quot;account_id&quot; =&gt; &quot;example&quot; })
+email_sending_suppression = client.EmailSendingSuppression.load({ &quot;id&quot; =&gt; &quot;example_id&quot; })
+created = client.EmailSendingSuppression.create({ &quot;account_id&quot; =&gt; &quot;example&quot;, &quot;created_at&quot; =&gt; &quot;example&quot;, &quot;email&quot; =&gt; &quot;example&quot;, &quot;errors&quot; =&gt; [], &quot;expires_at&quot; =&gt; &quot;example&quot;, &quot;id&quot; =&gt; &quot;example&quot;, &quot;items&quot; =&gt; [], &quot;messages&quot; =&gt; [], &quot;read_only&quot; =&gt; true, &quot;reason&quot; =&gt; &quot;example&quot;, &quot;result&quot; =&gt; {}, &quot;success&quot; =&gt; true })
+updated = client.EmailSendingSuppression.update({ &quot;id&quot; =&gt; &quot;example_id&quot;, &quot;account_id&quot; =&gt; &quot;example&quot;, &quot;created_at&quot; =&gt; &quot;example&quot; })
+client.EmailSendingSuppression.remove({ &quot;id&quot; =&gt; &quot;example_id&quot; })
+</code></pre>
+<h3 id="typescript">TypeScript</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/ts.html#set-up-the-client">TypeScript setup</a>, then call the operations:</p>
+<pre><code class="language-ts">const email_sending_suppressions = await client.EmailSendingSuppression().list({ account_id: &quot;example&quot; })
+const email_sending_suppression = await client.EmailSendingSuppression().load({ id: &quot;example_id&quot; })
+const created = await client.EmailSendingSuppression().create({ account_id: &quot;example&quot;, created_at: &quot;example&quot;, email: &quot;example&quot;, errors: [], expires_at: &quot;example&quot;, id: &quot;example&quot;, items: [], messages: [], read_only: true, reason: &quot;example&quot;, result: {}, success: true })
+const updated = await client.EmailSendingSuppression().update({ id: &quot;example_id&quot;, account_id: &quot;example&quot;, created_at: &quot;example&quot; })
+await client.EmailSendingSuppression().remove({ id: &quot;example_id&quot; })
+</code></pre>
+<h2 id="fields">Fields</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>created_at</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>When the suppression was created.</td>
+</tr>
+<tr>
+<td><code>email</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The email address to suppress.</td>
+</tr>
+<tr>
+<td><code>errors</code></td>
+<td><code>array</code></td>
+<td>Yes</td>
+<td>Errors</td>
+</tr>
+<tr>
+<td><code>expires_at</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Expiration timestamp for the suppression.</td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Unique identifier for this suppression.</td>
+</tr>
+<tr>
+<td><code>items</code></td>
+<td><code>array</code></td>
+<td>Yes</td>
+<td>Suppressions to import.</td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array</code></td>
+<td>Yes</td>
+<td>Messages</td>
+</tr>
+<tr>
+<td><code>note</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Advisory note for this suppression.</td>
+</tr>
+<tr>
+<td><code>read_only</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Whether clients may mutate this suppression.</td>
+</tr>
+<tr>
+<td><code>reason</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Why the address is suppressed: <code>manual</code>, <code>complaint</code>, <code>hard_bounce</code>, <code>soft_bounce</code>, or <code>policy</code>.</td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Result</td>
+</tr>
+<tr>
+<td><code>scope</code></td>
+<td><code>any</code></td>
+<td>No</td>
+<td>Where the suppression applies.</td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Success</td>
+</tr>
+<tr>
+<td><code>zones</code></td>
+<td><code>array</code></td>
+<td>No</td>
+<td>Zones</td>
+</tr>
+</tbody>
+</table>
+<h2 id="create">create</h2>
+<h3 id="post-accountsaccount_idemailsendingsuppression" class="operation" data-method="post"><code>POST</code> /accounts/{account_id}/email/sending/suppression</h3>
+<p>Operation ID: <code>post_publicNewSuppressionSending</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="request-body">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>email</code></td>
+<td><code>string (email)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>expires_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses">Responses</h4>
+<h5 id="200-returns-suppression" class="status" data-status="2xx">200: Returns suppression</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.id</code></td>
+<td><code>string (uuid)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="400-bad-request" class="status" data-status="4xx">400: Bad request</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="post-accountsaccount_idemailsendingsuppressions" class="operation" data-method="post"><code>POST</code> /accounts/{account_id}/email/sending/suppressions</h3>
+<p>Operation ID: <code>post_publicCreateSendingSuppression</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-1">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="request-body-1">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>email</code></td>
+<td><code>string (email)</code></td>
+<td>Yes</td>
+<td>The email address to suppress.</td>
+</tr>
+<tr>
+<td><code>expires_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>Expiration timestamp for the suppression. Omit or set to null for a permanent suppression that never expires.</td>
+</tr>
+<tr>
+<td><code>note</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Advisory note for this suppression. Not enforced or validated beyond length.</td>
+</tr>
+<tr>
+<td><code>scope</code></td>
+<td><code>object or object</code></td>
+<td>No</td>
+<td>Where the suppression applies. Omit for <code>&amp;#123; &amp;quot;type&amp;quot;: &amp;quot;account&amp;quot; &amp;#125;</code>, which blocks the recipient for every sending domain of the account.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses-1">Responses</h4>
+<h5 id="200-suppression-mutation-completed" class="status" data-status="2xx">200: Suppression mutation completed</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.id</code></td>
+<td><code>string (uuid)</code></td>
+<td>Yes</td>
+<td>The suppression's identifier.</td>
+</tr>
+<tr>
+<td><code>result.scope</code></td>
+<td><code>object or object</code></td>
+<td>No</td>
+<td>Where the suppression applies: <code>account</code> for every sending domain of the account, or <code>sending_domain</code> for one envelope MAIL FROM domain.</td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="400-invalid-suppression-input" class="status" data-status="4xx">400: Invalid suppression input</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>enum: invalid_scope_value, scope_immutable, scope_value_requires_type</code></td>
+<td>No</td>
+<td>Machine-readable error code, when one applies: <code>invalid_scope_value</code> (the sending domain is not valid), <code>scope_immutable</code> (scope cannot change after creation), or <code>scope_value_requires_type</code> (<code>scope_value</code> needs <code>scope_type`=`sending_domain</code>).</td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="403-this-suppression-is-read-only" class="status" data-status="4xx">403: This suppression is read-only</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>enum: invalid_scope_value, scope_immutable, scope_value_requires_type</code></td>
+<td>No</td>
+<td>Machine-readable error code, when one applies: <code>invalid_scope_value</code> (the sending domain is not valid), <code>scope_immutable</code> (scope cannot change after creation), or <code>scope_value_requires_type</code> (<code>scope_value</code> needs <code>scope_type`=`sending_domain</code>).</td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="404-suppression-not-found" class="status" data-status="4xx">404: Suppression not found</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>enum: invalid_scope_value, scope_immutable, scope_value_requires_type</code></td>
+<td>No</td>
+<td>Machine-readable error code, when one applies: <code>invalid_scope_value</code> (the sending domain is not valid), <code>scope_immutable</code> (scope cannot change after creation), or <code>scope_value_requires_type</code> (<code>scope_value</code> needs <code>scope_type`=`sending_domain</code>).</td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="409-suppression-conflicts-with-this-operation" class="status" data-status="4xx">409: Suppression conflicts with this operation</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>enum: invalid_scope_value, scope_immutable, scope_value_requires_type</code></td>
+<td>No</td>
+<td>Machine-readable error code, when one applies: <code>invalid_scope_value</code> (the sending domain is not valid), <code>scope_immutable</code> (scope cannot change after creation), or <code>scope_value_requires_type</code> (<code>scope_value</code> needs <code>scope_type`=`sending_domain</code>).</td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="post-accountsaccount_idemailsendingsuppressionsbulk" class="operation" data-method="post"><code>POST</code> /accounts/{account_id}/email/sending/suppressions/bulk</h3>
+<p>Operation ID: <code>post_publicBulkCreateSendingSuppressions</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-2">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="request-body-2">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>items</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>Suppressions to import. Items with the same email address and scope are deduplicated before processing.</td>
+</tr>
+<tr>
+<td><code>items[].email</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The email address to suppress.</td>
+</tr>
+<tr>
+<td><code>items[].expires_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>Expiration timestamp for the suppression. Omit or set to null for a permanent suppression that never expires.</td>
+</tr>
+<tr>
+<td><code>items[].note</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Advisory note for this suppression. Not enforced or validated beyond length.</td>
+</tr>
+<tr>
+<td><code>items[].scope</code></td>
+<td><code>object or object</code></td>
+<td>No</td>
+<td>Where the suppression applies. Omit for <code>&amp;#123; &amp;quot;type&amp;quot;: &amp;quot;account&amp;quot; &amp;#125;</code>, which blocks the recipient for every sending domain of the account.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses-2">Responses</h4>
+<h5 id="200-bulk-import-result" class="status" data-status="2xx">200: Bulk import result</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.deduplicated</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Number of items dropped because their email address and scope repeated an earlier item in this request. Counted once and excluded from <code>items</code>.</td>
+</tr>
+<tr>
+<td><code>result.errors</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Number of items that failed to import due to an unexpected error.</td>
+</tr>
+<tr>
+<td><code>result.invalid</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Number of items with an invalid email address or sending domain.</td>
+</tr>
+<tr>
+<td><code>result.items</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>Per-item results, in the same order as the request body.</td>
+</tr>
+<tr>
+<td><code>result.items[].email</code></td>
+<td><code>string (email)</code></td>
+<td>No</td>
+<td>The submitted email address for this item.</td>
+</tr>
+<tr>
+<td><code>result.items[].error</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Human-readable error message. Present when <code>status</code> is <code>invalid</code>, <code>error</code>, or <code>skipped</code>.</td>
+</tr>
+<tr>
+<td><code>result.items[].id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>The created or promoted suppression's identifier. Present when <code>status</code> is <code>processed</code>.</td>
+</tr>
+<tr>
+<td><code>result.items[].index</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Zero-based index of this item in the request body.</td>
+</tr>
+<tr>
+<td><code>result.items[].scope</code></td>
+<td><code>object or object</code></td>
+<td>No</td>
+<td>Where the suppression applies: <code>account</code> for every sending domain of the account, or <code>sending_domain</code> for one envelope MAIL FROM domain.</td>
+</tr>
+<tr>
+<td><code>result.items[].status</code></td>
+<td><code>enum: processed, invalid, error, skipped</code></td>
+<td>Yes</td>
+<td>Outcome for this item.</td>
+</tr>
+<tr>
+<td><code>result.processed</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Number of items successfully created or promoted.</td>
+</tr>
+<tr>
+<td><code>result.skipped</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Number of items skipped because the existing suppression is not customer-managed (for example, a read-only policy suppression).</td>
+</tr>
+<tr>
+<td><code>result.total</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Total number of items in the request body, including duplicates.</td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="429-rate-limited" class="status" data-status="4xx">429: Rate limited</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>enum: invalid_scope_value, scope_immutable, scope_value_requires_type</code></td>
+<td>No</td>
+<td>Machine-readable error code, when one applies: <code>invalid_scope_value</code> (the sending domain is not valid), <code>scope_immutable</code> (scope cannot change after creation), or <code>scope_value_requires_type</code> (<code>scope_value</code> needs <code>scope_type`=`sending_domain</code>).</td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="post-zoneszone_idemailsendingsuppression" class="operation" data-method="post"><code>POST</code> /zones/{zone_id}/email/sending/suppression</h3>
+<p>Operation ID: <code>post_publicNewSuppressionZoneSending</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-3">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>zone_id</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="request-body-3">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>email</code></td>
+<td><code>string (email)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>expires_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses-3">Responses</h4>
+<h5 id="200-returns-suppression-1" class="status" data-status="2xx">200: Returns suppression</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.id</code></td>
+<td><code>string (uuid)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="400-bad-request-1" class="status" data-status="4xx">400: Bad request</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="list">list</h2>
+<h3 id="get-accountsaccount_idemailsendingsuppressions" class="operation" data-method="get"><code>GET</code> /accounts/{account_id}/email/sending/suppressions</h3>
+<p>Operation ID: <code>get_publicListSendingSuppressions</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-4">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>per_page</code> | <code>query</code> | <code>integer</code> | No |  |
+| <code>cursor</code> | <code>query</code> | <code>string</code> | No |  |
+| <code>email</code> | <code>query</code> | <code>string (email)</code> | No |  |
+| <code>search</code> | <code>query</code> | <code>string</code> | No |  |
+| <code>reason</code> | <code>query</code> | <code>enum: manual, complaint, hard_bounce, soft_bounce, policy</code> | No |  |
+| <code>scope_type</code> | <code>query</code> | <code>enum: account, sending_domain</code> | No |  |
+| <code>scope_value</code> | <code>query</code> | <code>string</code> | No |  |</p>
+<h4 id="responses-4">Responses</h4>
+<h5 id="200-returns-email-sending-suppressions" class="status" data-status="2xx">200: Returns Email Sending suppressions</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result[].created_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>When the suppression was created.</td>
+</tr>
+<tr>
+<td><code>result[].email</code></td>
+<td><code>string (email)</code></td>
+<td>Yes</td>
+<td>The suppressed email address.</td>
+</tr>
+<tr>
+<td><code>result[].expires_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>When the suppression expires. Null for a permanent suppression.</td>
+</tr>
+<tr>
+<td><code>result[].id</code></td>
+<td><code>string (uuid)</code></td>
+<td>Yes</td>
+<td>Unique identifier for this suppression.</td>
+</tr>
+<tr>
+<td><code>result[].note</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Advisory note for this suppression, if any.</td>
+</tr>
+<tr>
+<td><code>result[].read_only</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Whether clients may mutate this suppression. This is determined by the server and must not be inferred from <code>reason</code>.</td>
+</tr>
+<tr>
+<td><code>result[].reason</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Why the address is suppressed: <code>manual</code>, <code>complaint</code>, <code>hard_bounce</code>, <code>soft_bounce</code>, or <code>policy</code>.</td>
+</tr>
+<tr>
+<td><code>result[].scope</code></td>
+<td><code>object or object</code></td>
+<td>No</td>
+<td>Where the suppression applies: <code>account</code> for every sending domain of the account, or <code>sending_domain</code> for one envelope MAIL FROM domain.</td>
+</tr>
+<tr>
+<td><code>result_info</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Pagination metadata.</td>
+</tr>
+<tr>
+<td><code>result_info.count</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Number of suppressions in this page.</td>
+</tr>
+<tr>
+<td><code>result_info.next_cursor</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Opaque cursor for the next page. Pass it back as the <code>cursor</code> query parameter and continue until it is <code>null</code>. A bounded large-account scan may return a short intermediate page. Sending-domain suppressions are listed before account suppressions; each group is newest first.</td>
+</tr>
+<tr>
+<td><code>result_info.per_page</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Maximum number of suppressions requested per page.</td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="400-invalid-list-parameters" class="status" data-status="4xx">400: Invalid list parameters</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>enum: invalid_scope_value, scope_immutable, scope_value_requires_type</code></td>
+<td>No</td>
+<td>Machine-readable error code, when one applies: <code>invalid_scope_value</code> (the sending domain is not valid), <code>scope_immutable</code> (scope cannot change after creation), or <code>scope_value_requires_type</code> (<code>scope_value</code> needs <code>scope_type`=`sending_domain</code>).</td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-accountsaccount_idemailsendingsuppression" class="operation" data-method="get"><code>GET</code> /accounts/{account_id}/email/sending/suppression</h3>
+<p>Operation ID: <code>get_publicListSuppressionSending</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-5">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>page</code> | <code>query</code> | <code>integer</code> | No |  |
+| <code>per_page</code> | <code>query</code> | <code>integer</code> | No |  |
+| <code>order</code> | <code>query</code> | <code>enum: email, expires_at, created_at</code> | No |  |
+| <code>direction</code> | <code>query</code> | <code>enum: asc, desc</code> | No |  |</p>
+<h4 id="responses-5">Responses</h4>
+<h5 id="200-returns-suppressed-emails" class="status" data-status="2xx">200: Returns suppressed emails</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>page</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>per_page</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result[].created_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result[].email</code></td>
+<td><code>string (email)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result[].expires_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result[].id</code></td>
+<td><code>string (uuid)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result[].reason</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result[].zones</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>total</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="400-bad-request-2" class="status" data-status="4xx">400: Bad request</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-zoneszone_idemailsendingsuppression" class="operation" data-method="get"><code>GET</code> /zones/{zone_id}/email/sending/suppression</h3>
+<p>Operation ID: <code>get_publicListSuppressionZoneSending</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-6">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>zone_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>page</code> | <code>query</code> | <code>integer</code> | No |  |
+| <code>per_page</code> | <code>query</code> | <code>integer</code> | No |  |
+| <code>order</code> | <code>query</code> | <code>enum: email, expires_at, created_at</code> | No |  |
+| <code>direction</code> | <code>query</code> | <code>enum: asc, desc</code> | No |  |</p>
+<h4 id="responses-6">Responses</h4>
+<h5 id="200-returns-suppressed-emails-1" class="status" data-status="2xx">200: Returns suppressed emails</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>page</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>per_page</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result[].created_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result[].email</code></td>
+<td><code>string (email)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result[].expires_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result[].id</code></td>
+<td><code>string (uuid)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result[].reason</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result[].zones</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>total</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="400-bad-request-3" class="status" data-status="4xx">400: Bad request</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="load">load</h2>
+<h3 id="get-accountsaccount_idemailsendingsuppressionsuppression_id" class="operation" data-method="get"><code>GET</code> /accounts/{account_id}/email/sending/suppression/{suppression_id}</h3>
+<p>Operation ID: <code>get_publicGetSuppressionSending</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-7">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>suppression_id</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="responses-7">Responses</h4>
+<h5 id="200-returns-suppression-2" class="status" data-status="2xx">200: Returns suppression</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.created_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.email</code></td>
+<td><code>string (email)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.expires_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.id</code></td>
+<td><code>string (uuid)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.reason</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.zones</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="404-suppression-not-found-1" class="status" data-status="4xx">404: Suppression not found</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>error</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-accountsaccount_idemailsendingsuppressionssuppression_id" class="operation" data-method="get"><code>GET</code> /accounts/{account_id}/email/sending/suppressions/{suppression_id}</h3>
+<p>Operation ID: <code>get_publicGetSendingSuppression</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-8">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>suppression_id</code> | <code>path</code> | <code>string (uuid)</code> | Yes |  |</p>
+<h4 id="responses-8">Responses</h4>
+<h5 id="200-returns-an-email-sending-suppression-owned-by-the-account" class="status" data-status="2xx">200: Returns an Email Sending suppression owned by the account</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.created_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>When the suppression was created.</td>
+</tr>
+<tr>
+<td><code>result.email</code></td>
+<td><code>string (email)</code></td>
+<td>Yes</td>
+<td>The suppressed email address.</td>
+</tr>
+<tr>
+<td><code>result.expires_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>When the suppression expires. Null for a permanent suppression.</td>
+</tr>
+<tr>
+<td><code>result.id</code></td>
+<td><code>string (uuid)</code></td>
+<td>Yes</td>
+<td>Unique identifier for this suppression.</td>
+</tr>
+<tr>
+<td><code>result.note</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Advisory note for this suppression, if any.</td>
+</tr>
+<tr>
+<td><code>result.read_only</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Whether clients may mutate this suppression. This is determined by the server and must not be inferred from <code>reason</code>.</td>
+</tr>
+<tr>
+<td><code>result.reason</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Why the address is suppressed: <code>manual</code>, <code>complaint</code>, <code>hard_bounce</code>, <code>soft_bounce</code>, or <code>policy</code>.</td>
+</tr>
+<tr>
+<td><code>result.scope</code></td>
+<td><code>object or object</code></td>
+<td>No</td>
+<td>Where the suppression applies: <code>account</code> for every sending domain of the account, or <code>sending_domain</code> for one envelope MAIL FROM domain.</td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="404-suppression-not-found-2" class="status" data-status="4xx">404: Suppression not found</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>enum: invalid_scope_value, scope_immutable, scope_value_requires_type</code></td>
+<td>No</td>
+<td>Machine-readable error code, when one applies: <code>invalid_scope_value</code> (the sending domain is not valid), <code>scope_immutable</code> (scope cannot change after creation), or <code>scope_value_requires_type</code> (<code>scope_value</code> needs <code>scope_type`=`sending_domain</code>).</td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-zoneszone_idemailsendingsuppressionsuppression_id" class="operation" data-method="get"><code>GET</code> /zones/{zone_id}/email/sending/suppression/{suppression_id}</h3>
+<p>Operation ID: <code>get_publicGetSuppressionZoneSending</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-9">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>zone_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>suppression_id</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="responses-9">Responses</h4>
+<h5 id="200-returns-suppression-3" class="status" data-status="2xx">200: Returns suppression</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.created_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.email</code></td>
+<td><code>string (email)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.expires_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.id</code></td>
+<td><code>string (uuid)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.reason</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.zones</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="404-suppression-not-found-3" class="status" data-status="4xx">404: Suppression not found</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>error</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="remove">remove</h2>
+<h3 id="delete-accountsaccount_idemailsendingsuppressionsuppression_id" class="operation" data-method="delete"><code>DELETE</code> /accounts/{account_id}/email/sending/suppression/{suppression_id}</h3>
+<p>Operation ID: <code>delete_publicDeleteSuppressionSending</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-10">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>suppression_id</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="responses-10">Responses</h4>
+<h5 id="200-deletes-suppression" class="status" data-status="2xx">200: Deletes suppression</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="404-suppression-not-found-4" class="status" data-status="4xx">404: Suppression not found</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>error</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="delete-accountsaccount_idemailsendingsuppressionssuppression_id" class="operation" data-method="delete"><code>DELETE</code> /accounts/{account_id}/email/sending/suppressions/{suppression_id}</h3>
+<p>Operation ID: <code>delete_publicDeleteSendingSuppression</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-11">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>suppression_id</code> | <code>path</code> | <code>string (uuid)</code> | Yes |  |</p>
+<h4 id="responses-11">Responses</h4>
+<h5 id="200-suppression-mutation-completed-1" class="status" data-status="2xx">200: Suppression mutation completed</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.id</code></td>
+<td><code>string (uuid)</code></td>
+<td>Yes</td>
+<td>The suppression's identifier.</td>
+</tr>
+<tr>
+<td><code>result.scope</code></td>
+<td><code>object or object</code></td>
+<td>No</td>
+<td>Where the suppression applies: <code>account</code> for every sending domain of the account, or <code>sending_domain</code> for one envelope MAIL FROM domain.</td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="400-invalid-suppression-input-1" class="status" data-status="4xx">400: Invalid suppression input</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>enum: invalid_scope_value, scope_immutable, scope_value_requires_type</code></td>
+<td>No</td>
+<td>Machine-readable error code, when one applies: <code>invalid_scope_value</code> (the sending domain is not valid), <code>scope_immutable</code> (scope cannot change after creation), or <code>scope_value_requires_type</code> (<code>scope_value</code> needs <code>scope_type`=`sending_domain</code>).</td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="403-this-suppression-is-read-only-1" class="status" data-status="4xx">403: This suppression is read-only</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>enum: invalid_scope_value, scope_immutable, scope_value_requires_type</code></td>
+<td>No</td>
+<td>Machine-readable error code, when one applies: <code>invalid_scope_value</code> (the sending domain is not valid), <code>scope_immutable</code> (scope cannot change after creation), or <code>scope_value_requires_type</code> (<code>scope_value</code> needs <code>scope_type`=`sending_domain</code>).</td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="404-suppression-not-found-5" class="status" data-status="4xx">404: Suppression not found</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>enum: invalid_scope_value, scope_immutable, scope_value_requires_type</code></td>
+<td>No</td>
+<td>Machine-readable error code, when one applies: <code>invalid_scope_value</code> (the sending domain is not valid), <code>scope_immutable</code> (scope cannot change after creation), or <code>scope_value_requires_type</code> (<code>scope_value</code> needs <code>scope_type`=`sending_domain</code>).</td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="409-suppression-conflicts-with-this-operation-1" class="status" data-status="4xx">409: Suppression conflicts with this operation</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>enum: invalid_scope_value, scope_immutable, scope_value_requires_type</code></td>
+<td>No</td>
+<td>Machine-readable error code, when one applies: <code>invalid_scope_value</code> (the sending domain is not valid), <code>scope_immutable</code> (scope cannot change after creation), or <code>scope_value_requires_type</code> (<code>scope_value</code> needs <code>scope_type`=`sending_domain</code>).</td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="delete-zoneszone_idemailsendingsuppressionsuppression_id" class="operation" data-method="delete"><code>DELETE</code> /zones/{zone_id}/email/sending/suppression/{suppression_id}</h3>
+<p>Operation ID: <code>delete_publicDeleteSuppressionZoneSending</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-12">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>zone_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>suppression_id</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="responses-12">Responses</h4>
+<h5 id="200-deletes-suppression-1" class="status" data-status="2xx">200: Deletes suppression</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="404-suppression-not-found-6" class="status" data-status="4xx">404: Suppression not found</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>error</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="update">update</h2>
+<h3 id="patch-accountsaccount_idemailsendingsuppressionssuppression_id" class="operation" data-method="patch"><code>PATCH</code> /accounts/{account_id}/email/sending/suppressions/{suppression_id}</h3>
+<p>Operation ID: <code>patch_publicUpdateSendingSuppression</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-13">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>suppression_id</code> | <code>path</code> | <code>string (uuid)</code> | Yes |  |</p>
+<h4 id="request-body-4">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>expires_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>New expiry. Send <code>null</code> to make the suppression permanent; omit to leave it unchanged.</td>
+</tr>
+<tr>
+<td><code>note</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Replacement advisory note. Send an empty string to clear it; omit to leave it unchanged.</td>
+</tr>
+<tr>
+<td><code>scope</code></td>
+<td><code>any</code></td>
+<td>No</td>
+<td>Not editable. Scope is fixed when the suppression is created; any value returns 400 with code <code>scope_immutable</code>. Delete and recreate the suppression to change it.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses-13">Responses</h4>
+<h5 id="200-returns-the-updated-email-sending-suppression" class="status" data-status="2xx">200: Returns the updated Email Sending suppression</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.created_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>When the suppression was created.</td>
+</tr>
+<tr>
+<td><code>result.email</code></td>
+<td><code>string (email)</code></td>
+<td>Yes</td>
+<td>The suppressed email address.</td>
+</tr>
+<tr>
+<td><code>result.expires_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>When the suppression expires. Null for a permanent suppression.</td>
+</tr>
+<tr>
+<td><code>result.id</code></td>
+<td><code>string (uuid)</code></td>
+<td>Yes</td>
+<td>Unique identifier for this suppression.</td>
+</tr>
+<tr>
+<td><code>result.note</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Advisory note for this suppression, if any.</td>
+</tr>
+<tr>
+<td><code>result.read_only</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Whether clients may mutate this suppression. This is determined by the server and must not be inferred from <code>reason</code>.</td>
+</tr>
+<tr>
+<td><code>result.reason</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Why the address is suppressed: <code>manual</code>, <code>complaint</code>, <code>hard_bounce</code>, <code>soft_bounce</code>, or <code>policy</code>.</td>
+</tr>
+<tr>
+<td><code>result.scope</code></td>
+<td><code>object or object</code></td>
+<td>No</td>
+<td>Where the suppression applies: <code>account</code> for every sending domain of the account, or <code>sending_domain</code> for one envelope MAIL FROM domain.</td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="400-no-updatable-fields-supplied-or-scope-supplied" class="status" data-status="4xx">400: No updatable fields supplied, or scope supplied</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>enum: invalid_scope_value, scope_immutable, scope_value_requires_type</code></td>
+<td>No</td>
+<td>Machine-readable error code, when one applies: <code>invalid_scope_value</code> (the sending domain is not valid), <code>scope_immutable</code> (scope cannot change after creation), or <code>scope_value_requires_type</code> (<code>scope_value</code> needs <code>scope_type`=`sending_domain</code>).</td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="403-this-suppression-is-read-only-2" class="status" data-status="4xx">403: This suppression is read-only</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>enum: invalid_scope_value, scope_immutable, scope_value_requires_type</code></td>
+<td>No</td>
+<td>Machine-readable error code, when one applies: <code>invalid_scope_value</code> (the sending domain is not valid), <code>scope_immutable</code> (scope cannot change after creation), or <code>scope_value_requires_type</code> (<code>scope_value</code> needs <code>scope_type`=`sending_domain</code>).</td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="404-suppression-not-found-7" class="status" data-status="4xx">404: Suppression not found</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>enum: invalid_scope_value, scope_immutable, scope_value_requires_type</code></td>
+<td>No</td>
+<td>Machine-readable error code, when one applies: <code>invalid_scope_value</code> (the sending domain is not valid), <code>scope_immutable</code> (scope cannot change after creation), or <code>scope_value_requires_type</code> (<code>scope_value</code> needs <code>scope_type`=`sending_domain</code>).</td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</main></div>
+<script src="../assets/search.js" defer></script></body></html>

@@ -1,0 +1,381 @@
+{
+  "existing": {
+    "email_security_setting": {
+      "EMAIL_SECURITY_SETTING00": {
+        "allowed_delivery_modes": [],
+        "comments": "sb5",
+        "deletes": [],
+        "domain": "sb7",
+        "drop_dispositions": [],
+        "folder": "sb9",
+        "integration_id": "INTEGRATION01",
+        "ip_restrictions": [],
+        "lookback_hops": 188,
+        "patches": [],
+        "pattern": "sbe",
+        "posts": [],
+        "puts": [],
+        "regions": [],
+        "require_tls_inbound": true,
+        "require_tls_outbound": false,
+        "result": {},
+        "transport": "sc5",
+        "account_id": "ACCOUNT01",
+        "domain_id": "DOMAIN01",
+        "impersonation_registry_id": "IMPERSONATION_REGISTRY01",
+        "pattern_id": "PATTERN01",
+        "policy_id": "POLICY01",
+        "sending_domain_restriction_id": "SENDING_DOMAIN_RESTRICTION01",
+        "trusted_domain_id": "TRUSTED_DOMAIN01",
+        "id": "EMAIL_SECURITY_SETTING00"
+      },
+      "EMAIL_SECURITY_SETTING01": {
+        "allowed_delivery_modes": [],
+        "comments": "s169",
+        "deletes": [],
+        "domain": "s16b",
+        "drop_dispositions": [],
+        "folder": "s16d",
+        "integration_id": "INTEGRATION01",
+        "ip_restrictions": [],
+        "lookback_hops": 368,
+        "patches": [],
+        "pattern": "s172",
+        "posts": [],
+        "puts": [],
+        "regions": [],
+        "require_tls_inbound": true,
+        "require_tls_outbound": false,
+        "result": {},
+        "transport": "s179",
+        "account_id": "ACCOUNT01",
+        "domain_id": "DOMAIN01",
+        "impersonation_registry_id": "IMPERSONATION_REGISTRY01",
+        "pattern_id": "PATTERN01",
+        "policy_id": "POLICY01",
+        "sending_domain_restriction_id": "SENDING_DOMAIN_RESTRICTION01",
+        "trusted_domain_id": "TRUSTED_DOMAIN01",
+        "id": "EMAIL_SECURITY_SETTING01"
+      },
+      "EMAIL_SECURITY_SETTING02": {
+        "allowed_delivery_modes": [],
+        "comments": "s21d",
+        "deletes": [],
+        "domain": "s21f",
+        "drop_dispositions": [],
+        "folder": "s221",
+        "integration_id": "INTEGRATION01",
+        "ip_restrictions": [],
+        "lookback_hops": 548,
+        "patches": [],
+        "pattern": "s226",
+        "posts": [],
+        "puts": [],
+        "regions": [],
+        "require_tls_inbound": true,
+        "require_tls_outbound": false,
+        "result": {},
+        "transport": "s22d",
+        "account_id": "ACCOUNT01",
+        "domain_id": "DOMAIN01",
+        "impersonation_registry_id": "IMPERSONATION_REGISTRY01",
+        "pattern_id": "PATTERN01",
+        "policy_id": "POLICY01",
+        "sending_domain_restriction_id": "SENDING_DOMAIN_RESTRICTION01",
+        "trusted_domain_id": "TRUSTED_DOMAIN01",
+        "id": "EMAIL_SECURITY_SETTING02"
+      }
+    }
+  },
+  "new": {
+    "email_security_setting": {
+      "email_security_setting_ref01": {
+        "allowed_delivery_modes": [],
+        "comments": "s2d1",
+        "deletes": [],
+        "domain": "s2d3",
+        "drop_dispositions": [],
+        "folder": "s2d5",
+        "integration_id": "INTEGRATION01",
+        "ip_restrictions": [],
+        "lookback_hops": 728,
+        "patches": [],
+        "pattern": "s2da",
+        "posts": [],
+        "puts": [],
+        "regions": [],
+        "require_tls_inbound": true,
+        "require_tls_outbound": false,
+        "result": {},
+        "transport": "s2e1"
+      }
+    }
+  },
+  "requests": {
+    "POST /accounts/{account_id}/email-security/settings/allow_policies": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /accounts/{account_id}/email-security/settings/allow_policies/batch": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /accounts/{account_id}/email-security/settings/block_senders": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /accounts/{account_id}/email-security/settings/block_senders/batch": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /accounts/{account_id}/email-security/settings/content_policies": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /accounts/{account_id}/email-security/settings/content_policies/batch": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /accounts/{account_id}/email-security/settings/domains": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /accounts/{account_id}/email-security/settings/domains/batch": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /accounts/{account_id}/email-security/settings/impersonation_registry": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /accounts/{account_id}/email-security/settings/sending_domain_restrictions": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /accounts/{account_id}/email-security/settings/sending_domain_restrictions/batch": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /accounts/{account_id}/email-security/settings/trusted_domains": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /accounts/{account_id}/email-security/settings/trusted_domains/batch": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /accounts/{account_id}/email-security/settings/url_ignore_patterns": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /accounts/{account_id}/email-security/settings/url_ignore_patterns/batch": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/email-security/settings/allow_policies": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/email-security/settings/domains": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/email-security/settings/trusted_domains": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/email-security/settings/content_policies": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/email-security/settings/block_senders": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/email-security/settings/impersonation_registry": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/email-security/settings/sending_domain_restrictions": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/email-security/settings/url_ignore_patterns": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/email-security/settings/domains/{domain_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/email-security/settings/domains/{domain_id}/verification": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/email-security/settings/impersonation_registry/{impersonation_registry_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/email-security/settings/block_senders/{pattern_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/email-security/settings/url_ignore_patterns/{pattern_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/email-security/settings/allow_policies/{policy_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/email-security/settings/content_policies/{policy_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/email-security/settings/sending_domain_restrictions/{sending_domain_restriction_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/email-security/settings/trusted_domains/{trusted_domain_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /accounts/{account_id}/email-security/settings/domains/{domain_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /accounts/{account_id}/email-security/settings/impersonation_registry/{impersonation_registry_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /accounts/{account_id}/email-security/settings/block_senders/{pattern_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /accounts/{account_id}/email-security/settings/url_ignore_patterns/{pattern_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /accounts/{account_id}/email-security/settings/allow_policies/{policy_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /accounts/{account_id}/email-security/settings/content_policies/{policy_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /accounts/{account_id}/email-security/settings/sending_domain_restrictions/{sending_domain_restriction_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /accounts/{account_id}/email-security/settings/trusted_domains/{trusted_domain_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /accounts/{account_id}/email-security/settings/domains/{domain_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /accounts/{account_id}/email-security/settings/impersonation_registry/{impersonation_registry_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /accounts/{account_id}/email-security/settings/block_senders/{pattern_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /accounts/{account_id}/email-security/settings/url_ignore_patterns/{pattern_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /accounts/{account_id}/email-security/settings/allow_policies/{policy_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /accounts/{account_id}/email-security/settings/content_policies/{policy_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /accounts/{account_id}/email-security/settings/sending_domain_restrictions/{sending_domain_restriction_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /accounts/{account_id}/email-security/settings/trusted_domains/{trusted_domain_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /accounts/{account_id}/email-security/settings/domains": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /accounts/{account_id}/email-security/settings/domains/{domain_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /accounts/{account_id}/email-security/settings/block_senders/{pattern_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /accounts/{account_id}/email-security/settings/allow_policies/{policy_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /accounts/{account_id}/email-security/settings/trusted_domains/{trusted_domain_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

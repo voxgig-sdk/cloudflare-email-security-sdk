@@ -1,0 +1,38 @@
+{
+  "existing": {
+    "email_sending_subdomain_reputation_complaint": {
+      "EMAIL_SENDING_SUBDOMAIN_REPUTATION_COMPLAINT00": {
+        "result": {},
+        "subdomain_id": "SUBDOMAIN01",
+        "zone_id": "ZONE01",
+        "id": "EMAIL_SENDING_SUBDOMAIN_REPUTATION_COMPLAINT00"
+      },
+      "EMAIL_SENDING_SUBDOMAIN_REPUTATION_COMPLAINT01": {
+        "result": {},
+        "subdomain_id": "SUBDOMAIN01",
+        "zone_id": "ZONE01",
+        "id": "EMAIL_SENDING_SUBDOMAIN_REPUTATION_COMPLAINT01"
+      },
+      "EMAIL_SENDING_SUBDOMAIN_REPUTATION_COMPLAINT02": {
+        "result": {},
+        "subdomain_id": "SUBDOMAIN01",
+        "zone_id": "ZONE01",
+        "id": "EMAIL_SENDING_SUBDOMAIN_REPUTATION_COMPLAINT02"
+      }
+    }
+  },
+  "new": {
+    "email_sending_subdomain_reputation_complaint": {
+      "email_sending_subdomain_reputation_complaint_ref01": {
+        "result": {}
+      }
+    }
+  },
+  "requests": {
+    "GET /zones/{zone_id}/email/sending/subdomains/{subdomain_id}/reputation/complaints": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

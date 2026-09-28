@@ -1,0 +1,82 @@
+# BasicEmailDestinationAddressResponseSingleFlow
+
+main: kit: flow: BasicEmailDestinationAddressResponseSingleFlow:
+{
+  entity: "email_destination_address_response_single",
+  kind: "basic",
+  name: "BasicEmailDestinationAddressResponseSingleFlow",
+  step: [
+    {
+      i: {
+        ref: "email_destination_address_response_single_ref01"
+      }
+
+      m: {
+        account_id: "account01"
+      }
+
+      o: "create"
+    }
+
+    {
+      d: {
+        account_id: "account01"
+      }
+
+      i: {
+        ref: "email_destination_address_response_single_ref01",
+        srcdatavar: "email_destination_address_response_single_ref01_data",
+        suffix: "_up0",
+        textfield: "email"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-email_destination_address_response_single_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "email_destination_address_response_single_ref01",
+        srcdatavar: "email_destination_address_response_single_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        account_id: "account01",
+        id: "email_destination_address_response_single01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-email_destination_address_response_single_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "email_destination_address_response_single_ref01",
+        suffix: "_rm0"
+      }
+
+      m: {
+        account_id: "account01",
+        id: "email_destination_address_response_single01"
+      }
+
+      o: "remove"
+    }
+  ],
+  "key$": "BasicEmailDestinationAddressResponseSingleFlow"
+}

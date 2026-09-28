@@ -1,0 +1,35 @@
+{
+  "existing": {
+    "email_security_analytics": {
+      "EMAIL_SECURITY_ANALYTICS00": {
+        "result": {},
+        "account_id": "ACCOUNT01",
+        "id": "EMAIL_SECURITY_ANALYTICS00"
+      },
+      "EMAIL_SECURITY_ANALYTICS01": {
+        "result": {},
+        "account_id": "ACCOUNT01",
+        "id": "EMAIL_SECURITY_ANALYTICS01"
+      },
+      "EMAIL_SECURITY_ANALYTICS02": {
+        "result": {},
+        "account_id": "ACCOUNT01",
+        "id": "EMAIL_SECURITY_ANALYTICS02"
+      }
+    }
+  },
+  "new": {
+    "email_security_analytics": {
+      "email_security_analytics_ref01": {
+        "result": {}
+      }
+    }
+  },
+  "requests": {
+    "GET /accounts/{account_id}/email-security/analytics/monthly_report": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

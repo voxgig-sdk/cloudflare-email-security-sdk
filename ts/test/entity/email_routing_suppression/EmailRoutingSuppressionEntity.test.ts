@@ -1,0 +1,189 @@
+
+
+import Path from 'node:path'
+import * as Fs from 'node:fs'
+
+import { test, describe, afterEach } from 'node:test'
+import assert from 'node:assert'
+import { createLiveTransport } from '../../live-runner'
+import { runLiveEntity } from '../../live-entity'
+
+
+import { CloudflareEmailSecuritySDK, BaseFeature, stdutil } from '../../..'
+
+import {
+  envOverride,
+  liveClientOptions,
+  liveDelay,
+  loadEnvLocal,
+  makeCtrl,
+  makeMatch,
+  makeReqdata,
+  makeStepData,
+  makeValid,
+  maybeSkipControl,
+} from '../../utility'
+
+
+loadEnvLocal(__dirname + '/../../../.env.local')
+
+
+describe('EmailRoutingSuppressionEntity', async () => {
+
+  // Per-test live pacing. Delay is read from sdk-test-control.json's
+  // `test.live.delayMs`; only sleeps when CLOUDFLARE_EMAIL_SECURITY_TEST_LIVE=TRUE.
+  afterEach(liveDelay('CLOUDFLARE_EMAIL_SECURITY_TEST_LIVE'))
+
+  test('instance', async () => {
+    const testsdk = CloudflareEmailSecuritySDK.test()
+    const ent = testsdk.EmailRoutingSuppression()
+    assert(null != ent)
+  })
+
+
+  test('basic', async (t) => {
+
+    const live = 'TRUE' === process.env.CLOUDFLARE_EMAIL_SECURITY_TEST_LIVE
+    for (const op of ['create', 'list', 'load', 'remove']) {
+      if (!live && maybeSkipControl(t, 'entityOp', 'email_routing_suppression.' + op, live)) return
+    }
+
+    
+    const setup = basicSetup()
+    if (setup.live) {
+      return runLiveEntity(setup, {"active":true,"alias":{"field":{}},"fields":{"created_at":{"a":true,"fo":"date-time","h":"Created At","n":"created_at","r":true,"t":"`$STRING`","key$":"created_at","index$":0},"email":{"a":true,"fo":"email","h":"Email","n":"email","r":true,"t":"`$STRING`","key$":"email","index$":1},"expires_at":{"a":true,"fo":"date-time","h":"Expires At","n":"expires_at","op":{"create":{"req":false,"type":"`$STRING`"}},"r":true,"t":"`$STRING`","key$":"expires_at","index$":2},"id":{"a":true,"fo":"uuid","h":"Id","n":"id","r":true,"t":"`$STRING`","key$":"id","index$":3},"reason":{"a":true,"h":"Reason","n":"reason","r":true,"t":"`$STRING`","key$":"reason","index$":4},"zones":{"a":true,"h":"Zones","n":"zones","r":false,"t":"`$ARRAY`","key$":"zones","index$":5}},"id":{"field":"id","name":"id"},"name":"email_routing_suppression","op":{"create":{"input":"data","name":"create","points":[{"a":true,"co":{"id":"POST /accounts/{account_id}/email/routing/suppression","source":"openapi3","version":2},"g":{"params":[{"a":true,"ex":"54442216","k":"param","n":"account_id","or":"account_id","r":true,"t":"`$STRING`","index$":0}]},"k":"http","m":"POST","o":"/accounts/{account_id}/email/routing/suppression","q":{"exist":["account_id"]},"r":{},"s":[{"lit":"accounts"},{"var":"account_id"},{"lit":"email"},{"lit":"routing"},{"lit":"suppression"}],"t":{"req":"`reqdata`","res":"`body.result`"},"index$":0},{"a":true,"co":{"id":"POST /zones/{zone_id}/email/routing/suppression","source":"openapi3","version":2},"g":{"params":[{"a":true,"ex":"88228822","k":"param","n":"zone_id","or":"zone_id","r":true,"t":"`$STRING`","index$":0}]},"k":"http","m":"POST","o":"/zones/{zone_id}/email/routing/suppression","q":{"exist":["zone_id"]},"r":{},"s":[{"lit":"zones"},{"var":"zone_id"},{"lit":"email"},{"lit":"routing"},{"lit":"suppression"}],"t":{"req":"`reqdata`","res":"`body.result`"},"index$":1}],"key$":"create"},"list":{"input":"data","name":"list","points":[{"a":true,"co":{"id":"GET /accounts/{account_id}/email/routing/suppression","source":"openapi3","version":2},"g":{"params":[{"a":true,"ex":"54442216","k":"param","n":"account_id","or":"account_id","r":true,"t":"`$STRING`","index$":0}],"query":[{"a":true,"ex":"desc","k":"query","n":"direction","or":"direction","r":false,"t":"`$STRING`","index$":0},{"a":true,"ex":"created_at","k":"query","n":"order","or":"order","r":false,"t":"`$STRING`","index$":1},{"a":true,"ex":1,"k":"query","n":"page","or":"page","r":false,"t":"`$INTEGER`","index$":2},{"a":true,"ex":100,"k":"query","n":"per_page","or":"per_page","r":false,"t":"`$INTEGER`","index$":3}]},"k":"http","m":"GET","o":"/accounts/{account_id}/email/routing/suppression","q":{"exist":["account_id","direction","order","page","per_page"]},"r":{},"s":[{"lit":"accounts"},{"var":"account_id"},{"lit":"email"},{"lit":"routing"},{"lit":"suppression"}],"t":{"req":"`reqdata`","res":"`body.result`"},"index$":0},{"a":true,"co":{"id":"GET /zones/{zone_id}/email/routing/suppression","source":"openapi3","version":2},"g":{"params":[{"a":true,"ex":"88228822","k":"param","n":"zone_id","or":"zone_id","r":true,"t":"`$STRING`","index$":0}],"query":[{"a":true,"ex":"desc","k":"query","n":"direction","or":"direction","r":false,"t":"`$STRING`","index$":0},{"a":true,"ex":"created_at","k":"query","n":"order","or":"order","r":false,"t":"`$STRING`","index$":1},{"a":true,"ex":1,"k":"query","n":"page","or":"page","r":false,"t":"`$INTEGER`","index$":2},{"a":true,"ex":100,"k":"query","n":"per_page","or":"per_page","r":false,"t":"`$INTEGER`","index$":3}]},"k":"http","m":"GET","o":"/zones/{zone_id}/email/routing/suppression","q":{"exist":["direction","order","page","per_page","zone_id"]},"r":{},"s":[{"lit":"zones"},{"var":"zone_id"},{"lit":"email"},{"lit":"routing"},{"lit":"suppression"}],"t":{"req":"`reqdata`","res":"`body.result`"},"index$":1}],"key$":"list"},"load":{"input":"data","name":"load","points":[{"a":true,"co":{"id":"GET /accounts/{account_id}/email/routing/suppression/{suppression_id}","source":"openapi3","version":2},"g":{"params":[{"a":true,"ex":"54442216","k":"param","n":"account_id","or":"account_id","r":true,"t":"`$STRING`","index$":0},{"a":true,"ex":"396a5436-d4b0-42a6-b3fc-48e8fa522321","k":"param","n":"id","or":"suppression_id","r":true,"t":"`$STRING`","index$":1}]},"k":"http","m":"GET","o":"/accounts/{account_id}/email/routing/suppression/{suppression_id}","q":{"exist":["account_id","id"]},"r":{"param":{"suppression_id":"id"}},"s":[{"lit":"accounts"},{"var":"account_id"},{"lit":"email"},{"lit":"routing"},{"lit":"suppression"},{"var":"id"}],"t":{"req":"`reqdata`","res":"`body.result`"},"index$":0},{"a":true,"co":{"id":"GET /zones/{zone_id}/email/routing/suppression/{suppression_id}","source":"openapi3","version":2},"g":{"params":[{"a":true,"ex":"396a5436-d4b0-42a6-b3fc-48e8fa522321","k":"param","n":"id","or":"suppression_id","r":true,"t":"`$STRING`","index$":0},{"a":true,"ex":"88228822","k":"param","n":"zone_id","or":"zone_id","r":true,"t":"`$STRING`","index$":1}]},"k":"http","m":"GET","o":"/zones/{zone_id}/email/routing/suppression/{suppression_id}","q":{"exist":["id","zone_id"]},"r":{"param":{"suppression_id":"id"}},"s":[{"lit":"zones"},{"var":"zone_id"},{"lit":"email"},{"lit":"routing"},{"lit":"suppression"},{"var":"id"}],"t":{"req":"`reqdata`","res":"`body.result`"},"index$":1}],"key$":"load"},"remove":{"input":"data","name":"remove","points":[{"a":true,"co":{"id":"DELETE /accounts/{account_id}/email/routing/suppression/{suppression_id}","source":"openapi3","version":2},"g":{"params":[{"a":true,"ex":"54442216","k":"param","n":"account_id","or":"account_id","r":true,"t":"`$STRING`","index$":0},{"a":true,"ex":"396a5436-d4b0-42a6-b3fc-48e8fa522321","k":"param","n":"id","or":"suppression_id","r":true,"t":"`$STRING`","index$":1}]},"k":"http","m":"DELETE","o":"/accounts/{account_id}/email/routing/suppression/{suppression_id}","q":{"exist":["account_id","id"]},"r":{"param":{"suppression_id":"id"}},"s":[{"lit":"accounts"},{"var":"account_id"},{"lit":"email"},{"lit":"routing"},{"lit":"suppression"},{"var":"id"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":0},{"a":true,"co":{"id":"DELETE /zones/{zone_id}/email/routing/suppression/{suppression_id}","source":"openapi3","version":2},"g":{"params":[{"a":true,"ex":"396a5436-d4b0-42a6-b3fc-48e8fa522321","k":"param","n":"id","or":"suppression_id","r":true,"t":"`$STRING`","index$":0},{"a":true,"ex":"88228822","k":"param","n":"zone_id","or":"zone_id","r":true,"t":"`$STRING`","index$":1}]},"k":"http","m":"DELETE","o":"/zones/{zone_id}/email/routing/suppression/{suppression_id}","q":{"exist":["id","zone_id"]},"r":{"param":{"suppression_id":"id"}},"s":[{"lit":"zones"},{"var":"zone_id"},{"lit":"email"},{"lit":"routing"},{"lit":"suppression"},{"var":"id"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":1}],"key$":"remove"}},"relations":{"ancestors":[]},"key$":"email_routing_suppression","name__orig":"email_routing_suppression","Name":"EmailRoutingSuppression","name_":"email_routing_suppression","name-":"email-routing-suppression","NAME":"EMAIL_ROUTING_SUPPRESSION","index$":8}, {"active":true,"entity":"email_routing_suppression","key$":"BasicEmailRoutingSuppressionFlow","kind":"basic","name":"BasicEmailRoutingSuppressionFlow","param":{},"step":[{"a":true,"d":{},"i":{"ref":"email_routing_suppression_ref01"},"m":{"account_id":"account01","zone_id":"zone01"},"o":"create","s":[],"v":[],"index$":0},{"a":true,"d":{},"i":{},"m":{"zone_id":"zone01"},"o":"list","s":[],"v":[{"apply":"ItemExists","def":{"ref":"email_routing_suppression_ref01"}}],"index$":1},{"a":true,"d":{},"i":{"ref":"email_routing_suppression_ref01","srcdatavar":"email_routing_suppression_ref01_data","suffix":"_dt0"},"m":{"id":"email_routing_suppression01","zone_id":"zone01"},"o":"load","s":[],"v":[{"apply":"TextFieldMark","def":{"mark":"Mark01-email_routing_suppression_ref01"}}],"index$":2},{"a":true,"d":{},"i":{"ref":"email_routing_suppression_ref01","suffix":"_rm0"},"m":{"id":"email_routing_suppression01","zone_id":"zone01"},"o":"remove","s":[],"v":[],"index$":3},{"a":true,"d":{},"i":{"suffix":"_rt0"},"m":{"zone_id":"zone01"},"o":"list","s":[],"v":[{"apply":"ItemNotExists","def":{"ref":"email_routing_suppression_ref01"}}],"index$":4}]}, 'EmailRoutingSuppression', {"POST /accounts/{account_id}/email/routing/suppression":{"protocol":"http","requestBody":{"content":{"application/json":{"schema":{"type":"object","properties":{"email":{"type":"string","format":"email","example":"user@example.com","key$":"email"},"expires_at":{"type":"string","format":"date-time","nullable":true,"key$":"expires_at"}},"required":["email"],"index$":1}}}},"parameters":[{"name":"account_id","in":"path","required":true,"schema":{"type":"string","example":"54442216"},"index$":0}]},"POST /zones/{zone_id}/email/routing/suppression":{"protocol":"http","requestBody":{"content":{"application/json":{"schema":{"type":"object","properties":{"email":{"type":"string","format":"email","example":"user@example.com","key$":"email"},"expires_at":{"type":"string","format":"date-time","nullable":true,"key$":"expires_at"}},"required":["email"],"index$":1}}}},"parameters":[{"name":"zone_id","in":"path","required":true,"schema":{"type":"string","example":"88228822"},"index$":0}]},"GET /accounts/{account_id}/email/routing/suppression":{"protocol":"http","parameters":[{"name":"account_id","in":"path","required":true,"schema":{"type":"string","example":"54442216"},"index$":0},{"name":"page","in":"query","schema":{"type":"integer","default":1,"minimum":0},"index$":1},{"name":"per_page","in":"query","schema":{"type":"integer","default":100,"maximum":1000,"minimum":0},"index$":2},{"name":"order","in":"query","schema":{"type":"string","default":"created_at","enum":["email","expires_at","created_at"]},"index$":3},{"name":"direction","in":"query","schema":{"type":"string","default":"desc","enum":["asc","desc"]},"index$":4}]},"GET /zones/{zone_id}/email/routing/suppression":{"protocol":"http","parameters":[{"name":"zone_id","in":"path","required":true,"schema":{"type":"string","example":"88228822"},"index$":0},{"name":"page","in":"query","schema":{"type":"integer","default":1,"minimum":0},"index$":1},{"name":"per_page","in":"query","schema":{"type":"integer","default":100,"maximum":1000,"minimum":0},"index$":2},{"name":"order","in":"query","schema":{"type":"string","default":"created_at","enum":["email","expires_at","created_at"]},"index$":3},{"name":"direction","in":"query","schema":{"type":"string","default":"desc","enum":["asc","desc"]},"index$":4}]},"GET /accounts/{account_id}/email/routing/suppression/{suppression_id}":{"protocol":"http","parameters":[{"name":"account_id","in":"path","required":true,"schema":{"type":"string","example":"54442216"},"index$":0},{"name":"suppression_id","in":"path","required":true,"schema":{"type":"string","example":"396a5436-d4b0-42a6-b3fc-48e8fa522321"},"index$":1}]},"GET /zones/{zone_id}/email/routing/suppression/{suppression_id}":{"protocol":"http","parameters":[{"name":"zone_id","in":"path","required":true,"schema":{"type":"string","example":"88228822"},"index$":0},{"name":"suppression_id","in":"path","required":true,"schema":{"type":"string","example":"396a5436-d4b0-42a6-b3fc-48e8fa522321"},"index$":1}]},"DELETE /accounts/{account_id}/email/routing/suppression/{suppression_id}":{"protocol":"http","parameters":[{"name":"account_id","in":"path","required":true,"schema":{"type":"string","example":"54442216"},"index$":0},{"name":"suppression_id","in":"path","required":true,"schema":{"type":"string","example":"396a5436-d4b0-42a6-b3fc-48e8fa522321"},"index$":1}]},"DELETE /zones/{zone_id}/email/routing/suppression/{suppression_id}":{"protocol":"http","parameters":[{"name":"zone_id","in":"path","required":true,"schema":{"type":"string","example":"88228822"},"index$":0},{"name":"suppression_id","in":"path","required":true,"schema":{"type":"string","example":"396a5436-d4b0-42a6-b3fc-48e8fa522321"},"index$":1}]}})
+    }
+    const client = setup.client
+    const struct = setup.struct
+
+    const isempty = struct.isempty
+    const select = struct.select
+
+
+    // CREATE
+    const email_routing_suppression_ref01_ent = client.EmailRoutingSuppression()
+    let email_routing_suppression_ref01_data = setup.data.new.email_routing_suppression['email_routing_suppression_ref01']
+    email_routing_suppression_ref01_data['account_id'] = setup.idmap['account01']
+    email_routing_suppression_ref01_data['zone_id'] = setup.idmap['zone01']
+
+    email_routing_suppression_ref01_data = (await email_routing_suppression_ref01_ent.create(email_routing_suppression_ref01_data)).data()
+    assert(null != email_routing_suppression_ref01_data.id)
+
+
+    // LIST
+    const email_routing_suppression_ref01_match: any = {}
+    email_routing_suppression_ref01_match['zone_id'] = setup.idmap['zone01']
+
+    const email_routing_suppression_ref01_list = (await email_routing_suppression_ref01_ent.list(email_routing_suppression_ref01_match)).map((e: any) => e.data())
+
+    assert(!isempty(select(email_routing_suppression_ref01_list, { id: email_routing_suppression_ref01_data.id })))
+
+
+    // LOAD
+    const email_routing_suppression_ref01_match_dt0: any = {}
+    email_routing_suppression_ref01_match_dt0.id = email_routing_suppression_ref01_data.id
+    const email_routing_suppression_ref01_data_dt0 = (await email_routing_suppression_ref01_ent.load(email_routing_suppression_ref01_match_dt0)).data()
+    assert(email_routing_suppression_ref01_data_dt0.id === email_routing_suppression_ref01_data.id)
+
+
+    // REMOVE
+    const email_routing_suppression_ref01_match_rm0: any = { id: email_routing_suppression_ref01_data.id }
+    await email_routing_suppression_ref01_ent.remove(email_routing_suppression_ref01_match_rm0)
+  
+
+    // LIST
+    const email_routing_suppression_ref01_match_rt0: any = {}
+    email_routing_suppression_ref01_match_rt0['zone_id'] = setup.idmap['zone01']
+
+    const email_routing_suppression_ref01_list_rt0 = (await email_routing_suppression_ref01_ent.list(email_routing_suppression_ref01_match_rt0)).map((e: any) => e.data())
+
+    assert(isempty(select(email_routing_suppression_ref01_list_rt0, { id: email_routing_suppression_ref01_data.id })))
+
+
+  })
+})
+
+
+
+function basicSetup(extra?: any) {
+  // TODO: fix test def options
+  const options: any = {} // null
+
+  // TODO: needs test utility to resolve path
+  const entityDataFile =
+    Path.resolve(__dirname, 
+      '../../../../.sdk/test/entity/email_routing_suppression/EmailRoutingSuppressionTestData.json')
+
+  // TODO: file ready util needed?
+  const entityDataSource = Fs.readFileSync(entityDataFile).toString('utf8')
+
+  // TODO: need a xlang JSON parse utility in voxgig/struct with better error msgs
+  const entityData = JSON.parse(entityDataSource)
+
+  options.entity = entityData.existing
+
+  let client = CloudflareEmailSecuritySDK.test(options, extra)
+  const struct = client.utility().struct
+  const merge = struct.merge
+  const transform = struct.transform
+
+  let idmap = transform(
+    ['email_routing_suppression01','email_routing_suppression02','email_routing_suppression03','account01','zone01'],
+    {
+      '`$PACK`': ['', {
+        '`$KEY`': '`$COPY`',
+        '`$VAL`': ['`$FORMAT`', 'upper', '`$COPY`']
+      }]
+    })
+
+  const env = envOverride({
+    'CLOUDFLARE_EMAIL_SECURITY_TEST_EMAIL_ROUTING_SUPPRESSION_ENTID': idmap,
+    'CLOUDFLARE_EMAIL_SECURITY_TEST_LIVE': 'FALSE',
+    'CLOUDFLARE_EMAIL_SECURITY_TEST_EXPLAIN': 'FALSE',
+    'CLOUDFLARE_EMAIL_SECURITY_APIKEY': '',
+  })
+
+  idmap = env['CLOUDFLARE_EMAIL_SECURITY_TEST_EMAIL_ROUTING_SUPPRESSION_ENTID']
+
+  const live = 'TRUE' === env.CLOUDFLARE_EMAIL_SECURITY_TEST_LIVE
+
+  const transport = createLiveTransport()
+  if (live) {
+    const rawIds = process.env['CLOUDFLARE_EMAIL_SECURITY_TEST_EMAIL_ROUTING_SUPPRESSION_ENTID']
+    idmap = rawIds && rawIds.trim() ? JSON.parse(rawIds) : {}
+    if (!idmap || Array.isArray(idmap) || typeof idmap !== 'object') {
+      throw new Error('Live ENTID must be a JSON object')
+    }
+    client = new CloudflareEmailSecuritySDK(merge([
+      // FIRST, so the generated fields below win: sdk-test-control.json's
+      // test.client.options adds to the live client, it does not redirect it.
+      liveClientOptions(),
+      {
+        apikey: env.CLOUDFLARE_EMAIL_SECURITY_APIKEY,
+      },
+      // 'extra || {}', not a bare 'extra': struct.merge returns UNDEFINED when the
+      // last entry is undefined, and basicSetup is normally called with no
+      // argument at all - so a bare 'extra' silently discarded the apikey
+      // and server values above and handed the SDK undefined. Harmless
+      // while there was nothing in that object; not harmless now.
+      extra || {},
+      { system: { fetch: transport.fetch } }
+    ]))
+  }
+
+  const setup = {
+    idmap,
+    env,
+    options,
+    client,
+    struct,
+    data: entityData,
+    explain: 'TRUE' === env.CLOUDFLARE_EMAIL_SECURITY_TEST_EXPLAIN,
+    live,
+    transport,
+    now: Date.now(),
+  }
+
+  return setup
+}
+  

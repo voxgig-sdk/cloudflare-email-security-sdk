@@ -1,0 +1,27 @@
+# BasicEmailDnsSettingsResponseCollectionFlow
+
+main: kit: flow: BasicEmailDnsSettingsResponseCollectionFlow:
+{
+  entity: "email_dns_settings_response_collection",
+  kind: "basic",
+  name: "BasicEmailDnsSettingsResponseCollectionFlow",
+  step: [
+    {
+      m: {
+        subdomain_id: "subdomain01",
+        zone_id: "zone01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "email_dns_settings_response_collection_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicEmailDnsSettingsResponseCollectionFlow"
+}

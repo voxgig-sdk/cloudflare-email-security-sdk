@@ -1,0 +1,96 @@
+# BasicEmailRoutingSuppressionFlow
+
+main: kit: flow: BasicEmailRoutingSuppressionFlow:
+{
+  entity: "email_routing_suppression",
+  kind: "basic",
+  name: "BasicEmailRoutingSuppressionFlow",
+  step: [
+    {
+      i: {
+        ref: "email_routing_suppression_ref01"
+      }
+
+      m: {
+        account_id: "account01",
+        zone_id: "zone01"
+      }
+
+      o: "create"
+    }
+
+    {
+      m: {
+        zone_id: "zone01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "email_routing_suppression_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "email_routing_suppression_ref01",
+        srcdatavar: "email_routing_suppression_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "email_routing_suppression01",
+        zone_id: "zone01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-email_routing_suppression_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "email_routing_suppression_ref01",
+        suffix: "_rm0"
+      }
+
+      m: {
+        id: "email_routing_suppression01",
+        zone_id: "zone01"
+      }
+
+      o: "remove"
+    }
+
+    {
+      i: {
+        suffix: "_rt0"
+      }
+
+      m: {
+        zone_id: "zone01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemNotExists",
+          def: {
+            ref: "email_routing_suppression_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicEmailRoutingSuppressionFlow"
+}

@@ -1,0 +1,50 @@
+# BasicEmailAuthFlow
+
+main: kit: flow: BasicEmailAuthFlow:
+{
+  entity: "email_auth",
+  kind: "basic",
+  name: "BasicEmailAuthFlow",
+  step: [
+    {
+      i: {
+        ref: "email_auth_ref01",
+        srcdatavar: "email_auth_ref01_data",
+        suffix: "_up0"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-email_auth_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "email_auth_ref01",
+        srcdatavar: "email_auth_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "email_auth01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-email_auth_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicEmailAuthFlow"
+}

@@ -1,0 +1,76 @@
+# BasicEmailEmailSettingsResponseSingleFlow
+
+main: kit: flow: BasicEmailEmailSettingsResponseSingleFlow:
+{
+  entity: "email_email_settings_response_single",
+  kind: "basic",
+  name: "BasicEmailEmailSettingsResponseSingleFlow",
+  step: [
+    {
+      i: {
+        ref: "email_email_settings_response_single_ref01"
+      }
+
+      m: {
+        zone_id: "zone01"
+      }
+
+      o: "create"
+    }
+
+    {
+      i: {
+        ref: "email_email_settings_response_single_ref01",
+        srcdatavar: "email_email_settings_response_single_ref01_data",
+        suffix: "_up0",
+        textfield: "name"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-email_email_settings_response_single_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "email_email_settings_response_single_ref01",
+        srcdatavar: "email_email_settings_response_single_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "email_email_settings_response_single01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-email_email_settings_response_single_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "email_email_settings_response_single_ref01",
+        suffix: "_rm0"
+      }
+
+      m: {
+        id: "email_email_settings_response_single01"
+      }
+
+      o: "remove"
+    }
+  ],
+  "key$": "BasicEmailEmailSettingsResponseSingleFlow"
+}

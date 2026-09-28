@@ -1,0 +1,3570 @@
+# Entity: email_security_setting
+
+main: kit: entity: email_security_setting: {
+
+  alias: field: {}
+
+  fields: {
+    allowed_delivery_modes: {
+      h: "Allowed Delivery Modes"
+      n: "allowed_delivery_modes"
+      op: {
+        patch: {
+          req: false
+          type: "`$ARRAY`"
+        }
+      }
+      r: true
+      sh: "Delivery modes to onboard the domain through."
+      t: "`$ARRAY`"
+    }
+    comments: {
+      h: "Comments"
+      n: "comments"
+      r: false
+      sh: "Optional note describing the reason for the ignore pattern."
+      t: "`$STRING`"
+    }
+    deletes: {
+      h: "Deletes"
+      n: "deletes"
+      r: true
+      sh: "IDs of the allow policies to delete."
+      t: "`$ARRAY`"
+    }
+    domain: {
+      h: "Domain"
+      n: "domain"
+      r: true
+      sh: "The email domain to protect."
+      t: "`$STRING`"
+    }
+    drop_dispositions: {
+      h: "Drop Dispositions"
+      n: "drop_dispositions"
+      op: {
+        patch: {
+          req: false
+          type: "`$ARRAY`"
+        }
+      }
+      r: true
+      sh: "Dispositions to drop instead of delivering, e.g."
+      t: "`$ARRAY`"
+    }
+    folder: {
+      h: "Folder"
+      n: "folder"
+      r: false
+      sh: "The mailbox folder to scan, for API-scanning domains."
+      t: "`$ANY`"
+    }
+    integration_id: {
+      fo: "uuid"
+      h: "Integration Id"
+      n: "integration_id"
+      r: false
+      sh: "Identifier of the CASB integration that authorizes this domain."
+      t: "`$STRING`"
+    }
+    ip_restrictions: {
+      h: "Ip Restrictions"
+      n: "ip_restrictions"
+      op: {
+        patch: {
+          req: false
+          type: "`$ARRAY`"
+        }
+      }
+      r: true
+      sh: "Source IP ranges mail is accepted from."
+      t: "`$ARRAY`"
+    }
+    lookback_hops: {
+      h: "Lookback Hops"
+      n: "lookback_hops"
+      r: false
+      sh: "Number of hops to trace back through received headers when reconstructing the original message (1-20)."
+      t: "`$INTEGER`"
+    }
+    patches: {
+      h: "Patches"
+      n: "patches"
+      r: true
+      sh: "Partial updates to apply — each entry carries the policy's ID and only the fields to change."
+      t: "`$ARRAY`"
+    }
+    pattern: {
+      h: "Pattern"
+      n: "pattern"
+      op: {
+        patch: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      sh: "Regular expression identifying URLs to exempt from rewriting."
+      t: "`$STRING`"
+    }
+    posts: {
+      h: "Posts"
+      n: "posts"
+      r: true
+      sh: "Allow policies to create."
+      t: "`$ARRAY`"
+    }
+    puts: {
+      h: "Puts"
+      n: "puts"
+      r: true
+      sh: "Full replacements to apply — each entry carries the policy's ID and every field of its new value."
+      t: "`$ARRAY`"
+    }
+    regions: {
+      h: "Regions"
+      n: "regions"
+      op: {
+        patch: {
+          req: false
+          type: "`$ARRAY`"
+        }
+      }
+      r: true
+      sh: "Regions that process messages for this domain, e.g."
+      t: "`$ARRAY`"
+    }
+    require_tls_inbound: {
+      h: "Require Tls Inbound"
+      n: "require_tls_inbound"
+      r: false
+      sh: "Require TLS on inbound connections."
+      t: "`$BOOLEAN`"
+    }
+    require_tls_outbound: {
+      h: "Require Tls Outbound"
+      n: "require_tls_outbound"
+      r: false
+      sh: "Require TLS on outbound connections."
+      t: "`$BOOLEAN`"
+    }
+    result: {
+      h: "Result"
+      n: "result"
+      op: {
+        load: {
+          req: true
+          type: "`$OBJECT`"
+        }
+      }
+      r: false
+      sh: "An impersonation registry entry."
+      t: "`$OBJECT`"
+    }
+    transport: {
+      h: "Transport"
+      n: "transport"
+      r: false
+      sh: "The mail transport hostname for MX/Inline delivery — the MX record Cloudflare delivers email to (e.g."
+      t: "`$STRING`"
+    }
+  }
+
+  name: "email_security_setting"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /accounts/{account_id}/email-security/settings/allow_policies"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/accounts/{account_id}/email-security/settings/allow_policies"
+          q: {
+            exist: [
+              "account_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "email-security"
+            }
+            {
+              lit: "settings"
+            }
+            {
+              lit: "allow_policies"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /accounts/{account_id}/email-security/settings/allow_policies/batch"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/accounts/{account_id}/email-security/settings/allow_policies/batch"
+          q: {
+            exist: [
+              "account_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "email-security"
+            }
+            {
+              lit: "settings"
+            }
+            {
+              lit: "allow_policies"
+            }
+            {
+              lit: "batch"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /accounts/{account_id}/email-security/settings/block_senders"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/accounts/{account_id}/email-security/settings/block_senders"
+          q: {
+            exist: [
+              "account_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "email-security"
+            }
+            {
+              lit: "settings"
+            }
+            {
+              lit: "block_senders"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /accounts/{account_id}/email-security/settings/block_senders/batch"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/accounts/{account_id}/email-security/settings/block_senders/batch"
+          q: {
+            exist: [
+              "account_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "email-security"
+            }
+            {
+              lit: "settings"
+            }
+            {
+              lit: "block_senders"
+            }
+            {
+              lit: "batch"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /accounts/{account_id}/email-security/settings/content_policies"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/accounts/{account_id}/email-security/settings/content_policies"
+          q: {
+            exist: [
+              "account_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "email-security"
+            }
+            {
+              lit: "settings"
+            }
+            {
+              lit: "content_policies"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /accounts/{account_id}/email-security/settings/content_policies/batch"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/accounts/{account_id}/email-security/settings/content_policies/batch"
+          q: {
+            exist: [
+              "account_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "email-security"
+            }
+            {
+              lit: "settings"
+            }
+            {
+              lit: "content_policies"
+            }
+            {
+              lit: "batch"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /accounts/{account_id}/email-security/settings/domains"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/accounts/{account_id}/email-security/settings/domains"
+          q: {
+            exist: [
+              "account_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "email-security"
+            }
+            {
+              lit: "settings"
+            }
+            {
+              lit: "domains"
+            }
+          ]
+          t: {
+            req: {
+              allowed_delivery_modes: "`reqdata.allowed_delivery_mode`"
+              domain: "`reqdata.domain`"
+              drop_dispositions: "`reqdata.drop_disposition`"
+              folder: "`reqdata.folder`"
+              integration_id: "`reqdata.integration_id`"
+              ip_restrictions: "`reqdata.ip_restriction`"
+              lookback_hops: "`reqdata.lookback_hop`"
+              regions: "`reqdata.region`"
+              require_tls_inbound: "`reqdata.require_tls_inbound`"
+              require_tls_outbound: "`reqdata.require_tls_outbound`"
+              transport: "`reqdata.transport`"
+            }
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /accounts/{account_id}/email-security/settings/domains/batch"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/accounts/{account_id}/email-security/settings/domains/batch"
+          q: {
+            exist: [
+              "account_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "email-security"
+            }
+            {
+              lit: "settings"
+            }
+            {
+              lit: "domains"
+            }
+            {
+              lit: "batch"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /accounts/{account_id}/email-security/settings/impersonation_registry"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/accounts/{account_id}/email-security/settings/impersonation_registry"
+          q: {
+            exist: [
+              "account_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "email-security"
+            }
+            {
+              lit: "settings"
+            }
+            {
+              lit: "impersonation_registry"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /accounts/{account_id}/email-security/settings/sending_domain_restrictions"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/accounts/{account_id}/email-security/settings/sending_domain_restrictions"
+          q: {
+            exist: [
+              "account_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "email-security"
+            }
+            {
+              lit: "settings"
+            }
+            {
+              lit: "sending_domain_restrictions"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /accounts/{account_id}/email-security/settings/sending_domain_restrictions/batch"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/accounts/{account_id}/email-security/settings/sending_domain_restrictions/batch"
+          q: {
+            exist: [
+              "account_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "email-security"
+            }
+            {
+              lit: "settings"
+            }
+            {
+              lit: "sending_domain_restrictions"
+            }
+            {
+              lit: "batch"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /accounts/{account_id}/email-security/settings/trusted_domains"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/accounts/{account_id}/email-security/settings/trusted_domains"
+          q: {
+            exist: [
+              "account_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "email-security"
+            }
+            {
+              lit: "settings"
+            }
+            {
+              lit: "trusted_domains"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /accounts/{account_id}/email-security/settings/trusted_domains/batch"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/accounts/{account_id}/email-security/settings/trusted_domains/batch"
+          q: {
+            exist: [
+              "account_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "email-security"
+            }
+            {
+              lit: "settings"
+            }
+            {
+              lit: "trusted_domains"
+            }
+            {
+              lit: "batch"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /accounts/{account_id}/email-security/settings/url_ignore_patterns"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/accounts/{account_id}/email-security/settings/url_ignore_patterns"
+          q: {
+            exist: [
+              "account_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "email-security"
+            }
+            {
+              lit: "settings"
+            }
+            {
+              lit: "url_ignore_patterns"
+            }
+          ]
+          t: {
+            req: {
+              comments: "`reqdata.comment`"
+              pattern: "`reqdata.pattern`"
+            }
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /accounts/{account_id}/email-security/settings/url_ignore_patterns/batch"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/accounts/{account_id}/email-security/settings/url_ignore_patterns/batch"
+          q: {
+            exist: [
+              "account_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "email-security"
+            }
+            {
+              lit: "settings"
+            }
+            {
+              lit: "url_ignore_patterns"
+            }
+            {
+              lit: "batch"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /accounts/{account_id}/email-security/settings/allow_policies"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "direction"
+                or: "direction"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "is_acceptable_sender"
+                or: "is_acceptable_sender"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                k: "query"
+                n: "is_exempt_recipient"
+                or: "is_exempt_recipient"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                k: "query"
+                n: "is_trusted_sender"
+                or: "is_trusted_sender"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                k: "query"
+                n: "order"
+                or: "order"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: 1
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "pattern"
+                or: "pattern"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "pattern_type"
+                or: "pattern_type"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                ex: 20
+                k: "query"
+                n: "per_page"
+                or: "per_page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "search"
+                or: "search"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "verify_sender"
+                or: "verify_sender"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/email-security/settings/allow_policies"
+          q: {
+            exist: [
+              "account_id"
+              "direction"
+              "is_acceptable_sender"
+              "is_exempt_recipient"
+              "is_trusted_sender"
+              "order"
+              "page"
+              "pattern"
+              "pattern_type"
+              "per_page"
+              "search"
+              "verify_sender"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "email-security"
+            }
+            {
+              lit: "settings"
+            }
+            {
+              lit: "allow_policies"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /accounts/{account_id}/email-security/settings/domains"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "active_delivery_mode"
+                or: "active_delivery_mode"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "allowed_delivery_mode"
+                or: "allowed_delivery_mode"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "direction"
+                or: "direction"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "domain"
+                or: "domain"
+                r: false
+                t: "`$ARRAY`"
+              }
+              {
+                k: "query"
+                n: "integration_id"
+                or: "integration_id"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "order"
+                or: "order"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: 1
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 20
+                k: "query"
+                n: "per_page"
+                or: "per_page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "search"
+                or: "search"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "status"
+                or: "status"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/email-security/settings/domains"
+          q: {
+            exist: [
+              "account_id"
+              "active_delivery_mode"
+              "allowed_delivery_mode"
+              "direction"
+              "domain"
+              "integration_id"
+              "order"
+              "page"
+              "per_page"
+              "search"
+              "status"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "email-security"
+            }
+            {
+              lit: "settings"
+            }
+            {
+              lit: "domains"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /accounts/{account_id}/email-security/settings/trusted_domains"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "direction"
+                or: "direction"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "is_recent"
+                or: "is_recent"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                k: "query"
+                n: "is_similarity"
+                or: "is_similarity"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                k: "query"
+                n: "order"
+                or: "order"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: 1
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "pattern"
+                or: "pattern"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: 20
+                k: "query"
+                n: "per_page"
+                or: "per_page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "search"
+                or: "search"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/email-security/settings/trusted_domains"
+          q: {
+            exist: [
+              "account_id"
+              "direction"
+              "is_recent"
+              "is_similarity"
+              "order"
+              "page"
+              "pattern"
+              "per_page"
+              "search"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "email-security"
+            }
+            {
+              lit: "settings"
+            }
+            {
+              lit: "trusted_domains"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /accounts/{account_id}/email-security/settings/content_policies"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "direction"
+                or: "direction"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "enabled"
+                or: "enabled"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                k: "query"
+                n: "name"
+                or: "name"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "order"
+                or: "order"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: 1
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 20
+                k: "query"
+                n: "per_page"
+                or: "per_page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "search"
+                or: "search"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/email-security/settings/content_policies"
+          q: {
+            exist: [
+              "account_id"
+              "direction"
+              "enabled"
+              "name"
+              "order"
+              "page"
+              "per_page"
+              "search"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "email-security"
+            }
+            {
+              lit: "settings"
+            }
+            {
+              lit: "content_policies"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /accounts/{account_id}/email-security/settings/block_senders"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "direction"
+                or: "direction"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "order"
+                or: "order"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: 1
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "pattern"
+                or: "pattern"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "pattern_type"
+                or: "pattern_type"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                ex: 20
+                k: "query"
+                n: "per_page"
+                or: "per_page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "search"
+                or: "search"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/email-security/settings/block_senders"
+          q: {
+            exist: [
+              "account_id"
+              "direction"
+              "order"
+              "page"
+              "pattern"
+              "pattern_type"
+              "per_page"
+              "search"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "email-security"
+            }
+            {
+              lit: "settings"
+            }
+            {
+              lit: "block_senders"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /accounts/{account_id}/email-security/settings/impersonation_registry"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "direction"
+                or: "direction"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "order"
+                or: "order"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: 1
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 20
+                k: "query"
+                n: "per_page"
+                or: "per_page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "provenance"
+                or: "provenance"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "search"
+                or: "search"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/email-security/settings/impersonation_registry"
+          q: {
+            exist: [
+              "account_id"
+              "direction"
+              "order"
+              "page"
+              "per_page"
+              "provenance"
+              "search"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "email-security"
+            }
+            {
+              lit: "settings"
+            }
+            {
+              lit: "impersonation_registry"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /accounts/{account_id}/email-security/settings/sending_domain_restrictions"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "direction"
+                or: "direction"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "order"
+                or: "order"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: 1
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 20
+                k: "query"
+                n: "per_page"
+                or: "per_page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "search"
+                or: "search"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/email-security/settings/sending_domain_restrictions"
+          q: {
+            exist: [
+              "account_id"
+              "direction"
+              "order"
+              "page"
+              "per_page"
+              "search"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "email-security"
+            }
+            {
+              lit: "settings"
+            }
+            {
+              lit: "sending_domain_restrictions"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /accounts/{account_id}/email-security/settings/url_ignore_patterns"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                ex: 1
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 20
+                k: "query"
+                n: "per_page"
+                or: "per_page"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/email-security/settings/url_ignore_patterns"
+          q: {
+            exist: [
+              "account_id"
+              "page"
+              "per_page"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "email-security"
+            }
+            {
+              lit: "settings"
+            }
+            {
+              lit: "url_ignore_patterns"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /accounts/{account_id}/email-security/settings/domains/{domain_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "f174e90a-fafe-4643-bbbc-4a0ed4fc8415"
+                k: "param"
+                n: "domain_id"
+                or: "domain_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/email-security/settings/domains/{domain_id}"
+          q: {
+            exist: [
+              "account_id"
+              "domain_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "email-security"
+            }
+            {
+              lit: "settings"
+            }
+            {
+              lit: "domains"
+            }
+            {
+              var: "domain_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /accounts/{account_id}/email-security/settings/domains/{domain_id}/verification"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "f174e90a-fafe-4643-bbbc-4a0ed4fc8415"
+                k: "param"
+                n: "domain_id"
+                or: "domain_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/email-security/settings/domains/{domain_id}/verification"
+          q: {
+            exist: [
+              "account_id"
+              "domain_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "email-security"
+            }
+            {
+              lit: "settings"
+            }
+            {
+              lit: "domains"
+            }
+            {
+              var: "domain_id"
+            }
+            {
+              lit: "verification"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /accounts/{account_id}/email-security/settings/impersonation_registry/{impersonation_registry_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "f174e90a-fafe-4643-bbbc-4a0ed4fc8415"
+                k: "param"
+                n: "impersonation_registry_id"
+                or: "impersonation_registry_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/email-security/settings/impersonation_registry/{impersonation_registry_id}"
+          q: {
+            exist: [
+              "account_id"
+              "impersonation_registry_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "email-security"
+            }
+            {
+              lit: "settings"
+            }
+            {
+              lit: "impersonation_registry"
+            }
+            {
+              var: "impersonation_registry_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /accounts/{account_id}/email-security/settings/block_senders/{pattern_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "f174e90a-fafe-4643-bbbc-4a0ed4fc8415"
+                k: "param"
+                n: "pattern_id"
+                or: "pattern_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/email-security/settings/block_senders/{pattern_id}"
+          q: {
+            exist: [
+              "account_id"
+              "pattern_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "email-security"
+            }
+            {
+              lit: "settings"
+            }
+            {
+              lit: "block_senders"
+            }
+            {
+              var: "pattern_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /accounts/{account_id}/email-security/settings/url_ignore_patterns/{pattern_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "f174e90a-fafe-4643-bbbc-4a0ed4fc8415"
+                k: "param"
+                n: "pattern_id"
+                or: "pattern_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/email-security/settings/url_ignore_patterns/{pattern_id}"
+          q: {
+            exist: [
+              "account_id"
+              "pattern_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "email-security"
+            }
+            {
+              lit: "settings"
+            }
+            {
+              lit: "url_ignore_patterns"
+            }
+            {
+              var: "pattern_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /accounts/{account_id}/email-security/settings/allow_policies/{policy_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "f174e90a-fafe-4643-bbbc-4a0ed4fc8415"
+                k: "param"
+                n: "policy_id"
+                or: "policy_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/email-security/settings/allow_policies/{policy_id}"
+          q: {
+            exist: [
+              "account_id"
+              "policy_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "email-security"
+            }
+            {
+              lit: "settings"
+            }
+            {
+              lit: "allow_policies"
+            }
+            {
+              var: "policy_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /accounts/{account_id}/email-security/settings/content_policies/{policy_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "f174e90a-fafe-4643-bbbc-4a0ed4fc8415"
+                k: "param"
+                n: "policy_id"
+                or: "policy_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/email-security/settings/content_policies/{policy_id}"
+          q: {
+            exist: [
+              "account_id"
+              "policy_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "email-security"
+            }
+            {
+              lit: "settings"
+            }
+            {
+              lit: "content_policies"
+            }
+            {
+              var: "policy_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /accounts/{account_id}/email-security/settings/sending_domain_restrictions/{sending_domain_restriction_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "f174e90a-fafe-4643-bbbc-4a0ed4fc8415"
+                k: "param"
+                n: "sending_domain_restriction_id"
+                or: "sending_domain_restriction_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/email-security/settings/sending_domain_restrictions/{sending_domain_restriction_id}"
+          q: {
+            exist: [
+              "account_id"
+              "sending_domain_restriction_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "email-security"
+            }
+            {
+              lit: "settings"
+            }
+            {
+              lit: "sending_domain_restrictions"
+            }
+            {
+              var: "sending_domain_restriction_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /accounts/{account_id}/email-security/settings/trusted_domains/{trusted_domain_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "f174e90a-fafe-4643-bbbc-4a0ed4fc8415"
+                k: "param"
+                n: "trusted_domain_id"
+                or: "trusted_domain_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/email-security/settings/trusted_domains/{trusted_domain_id}"
+          q: {
+            exist: [
+              "account_id"
+              "trusted_domain_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "email-security"
+            }
+            {
+              lit: "settings"
+            }
+            {
+              lit: "trusted_domains"
+            }
+            {
+              var: "trusted_domain_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    patch: {
+      name: "patch"
+      points: [
+        {
+          co: {
+            id: "PATCH /accounts/{account_id}/email-security/settings/domains/{domain_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "f174e90a-fafe-4643-bbbc-4a0ed4fc8415"
+                k: "param"
+                n: "domain_id"
+                or: "domain_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "PATCH"
+          o: "/accounts/{account_id}/email-security/settings/domains/{domain_id}"
+          q: {
+            exist: [
+              "account_id"
+              "domain_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "email-security"
+            }
+            {
+              lit: "settings"
+            }
+            {
+              lit: "domains"
+            }
+            {
+              var: "domain_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "PATCH /accounts/{account_id}/email-security/settings/impersonation_registry/{impersonation_registry_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "f174e90a-fafe-4643-bbbc-4a0ed4fc8415"
+                k: "param"
+                n: "impersonation_registry_id"
+                or: "impersonation_registry_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "PATCH"
+          o: "/accounts/{account_id}/email-security/settings/impersonation_registry/{impersonation_registry_id}"
+          q: {
+            exist: [
+              "account_id"
+              "impersonation_registry_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "email-security"
+            }
+            {
+              lit: "settings"
+            }
+            {
+              lit: "impersonation_registry"
+            }
+            {
+              var: "impersonation_registry_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "PATCH /accounts/{account_id}/email-security/settings/block_senders/{pattern_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "f174e90a-fafe-4643-bbbc-4a0ed4fc8415"
+                k: "param"
+                n: "pattern_id"
+                or: "pattern_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "PATCH"
+          o: "/accounts/{account_id}/email-security/settings/block_senders/{pattern_id}"
+          q: {
+            exist: [
+              "account_id"
+              "pattern_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "email-security"
+            }
+            {
+              lit: "settings"
+            }
+            {
+              lit: "block_senders"
+            }
+            {
+              var: "pattern_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "PATCH /accounts/{account_id}/email-security/settings/url_ignore_patterns/{pattern_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "f174e90a-fafe-4643-bbbc-4a0ed4fc8415"
+                k: "param"
+                n: "pattern_id"
+                or: "pattern_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "PATCH"
+          o: "/accounts/{account_id}/email-security/settings/url_ignore_patterns/{pattern_id}"
+          q: {
+            exist: [
+              "account_id"
+              "pattern_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "email-security"
+            }
+            {
+              lit: "settings"
+            }
+            {
+              lit: "url_ignore_patterns"
+            }
+            {
+              var: "pattern_id"
+            }
+          ]
+          t: {
+            req: {
+              comments: "`reqdata.comment`"
+              pattern: "`reqdata.pattern`"
+            }
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "PATCH /accounts/{account_id}/email-security/settings/allow_policies/{policy_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "f174e90a-fafe-4643-bbbc-4a0ed4fc8415"
+                k: "param"
+                n: "policy_id"
+                or: "policy_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "PATCH"
+          o: "/accounts/{account_id}/email-security/settings/allow_policies/{policy_id}"
+          q: {
+            exist: [
+              "account_id"
+              "policy_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "email-security"
+            }
+            {
+              lit: "settings"
+            }
+            {
+              lit: "allow_policies"
+            }
+            {
+              var: "policy_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "PATCH /accounts/{account_id}/email-security/settings/content_policies/{policy_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "f174e90a-fafe-4643-bbbc-4a0ed4fc8415"
+                k: "param"
+                n: "policy_id"
+                or: "policy_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "PATCH"
+          o: "/accounts/{account_id}/email-security/settings/content_policies/{policy_id}"
+          q: {
+            exist: [
+              "account_id"
+              "policy_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "email-security"
+            }
+            {
+              lit: "settings"
+            }
+            {
+              lit: "content_policies"
+            }
+            {
+              var: "policy_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "PATCH /accounts/{account_id}/email-security/settings/sending_domain_restrictions/{sending_domain_restriction_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "f174e90a-fafe-4643-bbbc-4a0ed4fc8415"
+                k: "param"
+                n: "sending_domain_restriction_id"
+                or: "sending_domain_restriction_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "PATCH"
+          o: "/accounts/{account_id}/email-security/settings/sending_domain_restrictions/{sending_domain_restriction_id}"
+          q: {
+            exist: [
+              "account_id"
+              "sending_domain_restriction_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "email-security"
+            }
+            {
+              lit: "settings"
+            }
+            {
+              lit: "sending_domain_restrictions"
+            }
+            {
+              var: "sending_domain_restriction_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "PATCH /accounts/{account_id}/email-security/settings/trusted_domains/{trusted_domain_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "f174e90a-fafe-4643-bbbc-4a0ed4fc8415"
+                k: "param"
+                n: "trusted_domain_id"
+                or: "trusted_domain_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "PATCH"
+          o: "/accounts/{account_id}/email-security/settings/trusted_domains/{trusted_domain_id}"
+          q: {
+            exist: [
+              "account_id"
+              "trusted_domain_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "email-security"
+            }
+            {
+              lit: "settings"
+            }
+            {
+              lit: "trusted_domains"
+            }
+            {
+              var: "trusted_domain_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    remove: {
+      name: "remove"
+      points: [
+        {
+          co: {
+            id: "DELETE /accounts/{account_id}/email-security/settings/domains/{domain_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "f174e90a-fafe-4643-bbbc-4a0ed4fc8415"
+                k: "param"
+                n: "domain_id"
+                or: "domain_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/accounts/{account_id}/email-security/settings/domains/{domain_id}"
+          q: {
+            exist: [
+              "account_id"
+              "domain_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "email-security"
+            }
+            {
+              lit: "settings"
+            }
+            {
+              lit: "domains"
+            }
+            {
+              var: "domain_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "DELETE /accounts/{account_id}/email-security/settings/impersonation_registry/{impersonation_registry_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "f174e90a-fafe-4643-bbbc-4a0ed4fc8415"
+                k: "param"
+                n: "impersonation_registry_id"
+                or: "impersonation_registry_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/accounts/{account_id}/email-security/settings/impersonation_registry/{impersonation_registry_id}"
+          q: {
+            exist: [
+              "account_id"
+              "impersonation_registry_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "email-security"
+            }
+            {
+              lit: "settings"
+            }
+            {
+              lit: "impersonation_registry"
+            }
+            {
+              var: "impersonation_registry_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "DELETE /accounts/{account_id}/email-security/settings/block_senders/{pattern_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "f174e90a-fafe-4643-bbbc-4a0ed4fc8415"
+                k: "param"
+                n: "pattern_id"
+                or: "pattern_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/accounts/{account_id}/email-security/settings/block_senders/{pattern_id}"
+          q: {
+            exist: [
+              "account_id"
+              "pattern_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "email-security"
+            }
+            {
+              lit: "settings"
+            }
+            {
+              lit: "block_senders"
+            }
+            {
+              var: "pattern_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "DELETE /accounts/{account_id}/email-security/settings/url_ignore_patterns/{pattern_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "f174e90a-fafe-4643-bbbc-4a0ed4fc8415"
+                k: "param"
+                n: "pattern_id"
+                or: "pattern_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/accounts/{account_id}/email-security/settings/url_ignore_patterns/{pattern_id}"
+          q: {
+            exist: [
+              "account_id"
+              "pattern_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "email-security"
+            }
+            {
+              lit: "settings"
+            }
+            {
+              lit: "url_ignore_patterns"
+            }
+            {
+              var: "pattern_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "DELETE /accounts/{account_id}/email-security/settings/allow_policies/{policy_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "f174e90a-fafe-4643-bbbc-4a0ed4fc8415"
+                k: "param"
+                n: "policy_id"
+                or: "policy_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/accounts/{account_id}/email-security/settings/allow_policies/{policy_id}"
+          q: {
+            exist: [
+              "account_id"
+              "policy_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "email-security"
+            }
+            {
+              lit: "settings"
+            }
+            {
+              lit: "allow_policies"
+            }
+            {
+              var: "policy_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "DELETE /accounts/{account_id}/email-security/settings/content_policies/{policy_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "f174e90a-fafe-4643-bbbc-4a0ed4fc8415"
+                k: "param"
+                n: "policy_id"
+                or: "policy_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/accounts/{account_id}/email-security/settings/content_policies/{policy_id}"
+          q: {
+            exist: [
+              "account_id"
+              "policy_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "email-security"
+            }
+            {
+              lit: "settings"
+            }
+            {
+              lit: "content_policies"
+            }
+            {
+              var: "policy_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "DELETE /accounts/{account_id}/email-security/settings/sending_domain_restrictions/{sending_domain_restriction_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "f174e90a-fafe-4643-bbbc-4a0ed4fc8415"
+                k: "param"
+                n: "sending_domain_restriction_id"
+                or: "sending_domain_restriction_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/accounts/{account_id}/email-security/settings/sending_domain_restrictions/{sending_domain_restriction_id}"
+          q: {
+            exist: [
+              "account_id"
+              "sending_domain_restriction_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "email-security"
+            }
+            {
+              lit: "settings"
+            }
+            {
+              lit: "sending_domain_restrictions"
+            }
+            {
+              var: "sending_domain_restriction_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "DELETE /accounts/{account_id}/email-security/settings/trusted_domains/{trusted_domain_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "f174e90a-fafe-4643-bbbc-4a0ed4fc8415"
+                k: "param"
+                n: "trusted_domain_id"
+                or: "trusted_domain_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/accounts/{account_id}/email-security/settings/trusted_domains/{trusted_domain_id}"
+          q: {
+            exist: [
+              "account_id"
+              "trusted_domain_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "email-security"
+            }
+            {
+              lit: "settings"
+            }
+            {
+              lit: "trusted_domains"
+            }
+            {
+              var: "trusted_domain_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "DELETE /accounts/{account_id}/email-security/settings/domains"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/accounts/{account_id}/email-security/settings/domains"
+          q: {
+            exist: [
+              "account_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "email-security"
+            }
+            {
+              lit: "settings"
+            }
+            {
+              lit: "domains"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          co: {
+            id: "PUT /accounts/{account_id}/email-security/settings/domains/{domain_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "f174e90a-fafe-4643-bbbc-4a0ed4fc8415"
+                k: "param"
+                n: "domain_id"
+                or: "domain_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "PUT"
+          o: "/accounts/{account_id}/email-security/settings/domains/{domain_id}"
+          q: {
+            exist: [
+              "account_id"
+              "domain_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "email-security"
+            }
+            {
+              lit: "settings"
+            }
+            {
+              lit: "domains"
+            }
+            {
+              var: "domain_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "PUT /accounts/{account_id}/email-security/settings/block_senders/{pattern_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "f174e90a-fafe-4643-bbbc-4a0ed4fc8415"
+                k: "param"
+                n: "pattern_id"
+                or: "pattern_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "PUT"
+          o: "/accounts/{account_id}/email-security/settings/block_senders/{pattern_id}"
+          q: {
+            exist: [
+              "account_id"
+              "pattern_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "email-security"
+            }
+            {
+              lit: "settings"
+            }
+            {
+              lit: "block_senders"
+            }
+            {
+              var: "pattern_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "PUT /accounts/{account_id}/email-security/settings/allow_policies/{policy_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "f174e90a-fafe-4643-bbbc-4a0ed4fc8415"
+                k: "param"
+                n: "policy_id"
+                or: "policy_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "PUT"
+          o: "/accounts/{account_id}/email-security/settings/allow_policies/{policy_id}"
+          q: {
+            exist: [
+              "account_id"
+              "policy_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "email-security"
+            }
+            {
+              lit: "settings"
+            }
+            {
+              lit: "allow_policies"
+            }
+            {
+              var: "policy_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "PUT /accounts/{account_id}/email-security/settings/trusted_domains/{trusted_domain_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "f174e90a-fafe-4643-bbbc-4a0ed4fc8415"
+                k: "param"
+                n: "trusted_domain_id"
+                or: "trusted_domain_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "PUT"
+          o: "/accounts/{account_id}/email-security/settings/trusted_domains/{trusted_domain_id}"
+          q: {
+            exist: [
+              "account_id"
+              "trusted_domain_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "email-security"
+            }
+            {
+              lit: "settings"
+            }
+            {
+              lit: "trusted_domains"
+            }
+            {
+              var: "trusted_domain_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

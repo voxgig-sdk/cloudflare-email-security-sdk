@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>EmailCatchAllRuleResponseSingle | Cloudflare Email Security</title><link rel="stylesheet" href="../assets/style.css"></head>
+<body><a class="skip" href="#content">Skip to content</a>
+<header class="site-header"><a class="site-title" href="../index.html">Cloudflare Email Security<span>SDK documentation</span></a><div class="site-links"><a class="repo-link" href="https://github.com/voxgig-sdk/cloudflare-email-security-sdk">voxgig-sdk/cloudflare-email-security-sdk</a></div></header>
+<div class="site-notice" role="note"></div>
+<div class="shell"><nav class="site-nav" aria-label="Documentation"><div class="search"><label for="search">Search documentation</label><input id="search" type="search" data-base="../" placeholder="Find a guide or reference"><div id="results" aria-live="polite"></div></div><details><summary>Overview</summary><a href="../index.html">Cloudflare Email Security</a></details>
+<details open><summary>API</summary><a href="../api/index.html">API overview</a>
+<a href="../api/email_account_rules_plan_response_single.html">EmailAccountRulesPlanResponseSingle</a>
+<a href="../api/email_account_rules_response_collection.html">EmailAccountRulesResponseCollection</a>
+<a href="../api/email_auth.html">EmailAuth</a>
+<a aria-current="page" href="../api/email_catch_all_rule_response_single.html">EmailCatchAllRuleResponseSingle</a><div class="nav-sections"><a class="nav-section" href="#get-zoneszone_idemailroutingrulescatch_all">GET /zones/{zone_id}/email/routing/rules/catch_all</a>
+<a class="nav-section" href="#put-zoneszone_idemailroutingrulescatch_all">PUT /zones/{zone_id}/email/routing/rules/catch_all</a></div>
+<a href="../api/email_destination_address_response_single.html">EmailDestinationAddressResponseSingle</a>
+<a href="../api/email_destination_addresses_response_collection.html">EmailDestinationAddressesResponseCollection</a>
+<a href="../api/email_dns_settings_response_collection.html">EmailDnsSettingsResponseCollection</a>
+<a href="../api/email_email_settings_response_single.html">EmailEmailSettingsResponseSingle</a>
+<a href="../api/email_routing_suppression.html">EmailRoutingSuppression</a>
+<a href="../api/email_rule_response_single.html">EmailRuleResponseSingle</a>
+<a href="../api/email_rules_response_collection.html">EmailRulesResponseCollection</a>
+<a href="../api/email_security.html">EmailSecurity</a>
+<a href="../api/email_security_analytics.html">EmailSecurityAnalytics</a>
+<a href="../api/email_security_setting.html">EmailSecuritySetting</a>
+<a href="../api/email_sending.html">EmailSending</a>
+<a href="../api/email_sending_limits_response_single.html">EmailSendingLimitsResponseSingle</a>
+<a href="../api/email_sending_reputation_response_single.html">EmailSendingReputationResponseSingle</a>
+<a href="../api/email_sending_subdomain_dns_status.html">EmailSendingSubdomainDnsStatus</a>
+<a href="../api/email_sending_subdomain_preview.html">EmailSendingSubdomainPreview</a>
+<a href="../api/email_sending_subdomain_reputation_complaint.html">EmailSendingSubdomainReputationComplaint</a>
+<a href="../api/email_sending_subdomain_response_single.html">EmailSendingSubdomainResponseSingle</a>
+<a href="../api/email_sending_subdomains_response_collection.html">EmailSendingSubdomainsResponseCollection</a>
+<a href="../api/email_sending_suppression.html">EmailSendingSuppression</a>
+<a href="../api/subdomain.html">Subdomain</a></details>
+<details><summary>Guides</summary><a href="../guides/authentication.html">Authentication</a>
+<a href="../guides/first-call.html">Make your first API call</a>
+<a href="../guides/errors.html">Handle errors</a>
+<a href="../guides/concepts.html">Entities, SDKs, and tools</a></details>
+<details><summary>SDKs</summary><a href="../sdks/go.html">Golang</a>
+<a href="../sdks/lua.html">Lua</a>
+<a href="../sdks/php.html">PHP</a>
+<a href="../sdks/py.html">Python</a>
+<a href="../sdks/rb.html">Ruby</a>
+<a href="../sdks/ts.html">TypeScript</a></details>
+<details><summary>Tools</summary><a href="../tools/go-cli.html">Go CLI</a>
+<a href="../tools/go-mcp.html">Go MCP server</a></details>
+<details><summary>Features</summary><a href="../features/test.html">Test transport</a></details></nav><main id="content"><div class="page-context"><span class="section-dot" aria-hidden="true"></span>API</div><h1 id="emailcatchallruleresponsesingle">EmailCatchAllRuleResponseSingle</h1>
+<h2 id="operations">Operations</h2>
+<p>Every route this entity exposes. Each route links to its own reference on this page.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Route</th>
+<th>SDK operation</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-zoneszone_idemailroutingrulescatch_all"><code>/zones/{zone_id}/email/routing/rules/catch_all</code></a></td>
+<td><code>load</code></td>
+<td>Get catch-all rule response</td>
+</tr>
+<tr>
+<td><code>PUT</code></td>
+<td><a href="#put-zoneszone_idemailroutingrulescatch_all"><code>/zones/{zone_id}/email/routing/rules/catch_all</code></a></td>
+<td><code>update</code></td>
+<td>Update catch-all rule response</td>
+</tr>
+</tbody>
+</table>
+<h2 id="examples">Examples</h2>
+<p>One example per SDK, generated from the API model. The argument names are the parameters and fields of this entity, and the values are placeholders. The examples are not compiled or executed.</p>
+<h3 id="golang">Golang</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/go.html#set-up-the-client">Golang setup</a>, then call the operations:</p>
+<pre><code class="language-go">email_catch_all_rule_response_single, err := client.EmailCatchAllRuleResponseSingle(nil).Load(map[string]any{&quot;zone_id&quot;: &quot;example&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(email_catch_all_rule_response_single)
+updated, err := client.EmailCatchAllRuleResponseSingle(nil).Update(map[string]any{&quot;zone_id&quot;: &quot;example&quot;, &quot;actions&quot;: []any{}}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(updated)
+</code></pre>
+<h3 id="lua">Lua</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/lua.html#set-up-the-client">Lua setup</a>, then call the operations:</p>
+<pre><code class="language-lua">local email_catch_all_rule_response_single, err = client:EmailCatchAllRuleResponseSingle():load({ zone_id = &quot;example&quot; })
+local updated, err = client:EmailCatchAllRuleResponseSingle():update({ zone_id = &quot;example&quot;, actions = {} })
+</code></pre>
+<h3 id="php">PHP</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/php.html#set-up-the-client">PHP setup</a>, then call the operations:</p>
+<pre><code class="language-php">$email_catch_all_rule_response_single = $client-&gt;EmailCatchAllRuleResponseSingle()-&gt;load([&quot;zone_id&quot; =&gt; &quot;example&quot;]);
+$updated = $client-&gt;EmailCatchAllRuleResponseSingle()-&gt;update([&quot;zone_id&quot; =&gt; &quot;example&quot;, &quot;actions&quot; =&gt; []]);
+</code></pre>
+<h3 id="python">Python</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/py.html#set-up-the-client">Python setup</a>, then call the operations:</p>
+<pre><code class="language-py">email_catch_all_rule_response_single = client.EmailCatchAllRuleResponseSingle().load({&quot;zone_id&quot;: &quot;example&quot;})
+updated = client.EmailCatchAllRuleResponseSingle().update({&quot;zone_id&quot;: &quot;example&quot;, &quot;actions&quot;: []})
+</code></pre>
+<h3 id="ruby">Ruby</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/rb.html#set-up-the-client">Ruby setup</a>, then call the operations:</p>
+<pre><code class="language-rb">email_catch_all_rule_response_single = client.EmailCatchAllRuleResponseSingle.load({ &quot;zone_id&quot; =&gt; &quot;example&quot; })
+updated = client.EmailCatchAllRuleResponseSingle.update({ &quot;zone_id&quot; =&gt; &quot;example&quot;, &quot;actions&quot; =&gt; [] })
+</code></pre>
+<h3 id="typescript">TypeScript</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/ts.html#set-up-the-client">TypeScript setup</a>, then call the operations:</p>
+<pre><code class="language-ts">const email_catch_all_rule_response_single = await client.EmailCatchAllRuleResponseSingle().load({ zone_id: &quot;example&quot; })
+const updated = await client.EmailCatchAllRuleResponseSingle().update({ zone_id: &quot;example&quot;, actions: [] })
+</code></pre>
+<h2 id="fields">Fields</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>actions</code></td>
+<td><code>array</code></td>
+<td>Yes</td>
+<td>List actions for the catch-all routing rule.</td>
+</tr>
+<tr>
+<td><code>enabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Routing rule status.</td>
+</tr>
+<tr>
+<td><code>matchers</code></td>
+<td><code>array</code></td>
+<td>Yes</td>
+<td>List of matchers for the catch-all routing rule.</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Routing rule name.</td>
+</tr>
+<tr>
+<td><code>owner_worker_tag</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Public tag (<code>script_tag</code>) of the Worker that owns this rule.</td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Result</td>
+</tr>
+<tr>
+<td><code>source</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Who manages the rule.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="load">load</h2>
+<h3 id="get-zoneszone_idemailroutingrulescatch_all" class="operation" data-method="get"><code>GET</code> /zones/{zone_id}/email/routing/rules/catch_all</h3>
+<p>Operation ID: <code>email-routing-routing-rules-get-catch-all-rule</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>zone_id</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="responses">Responses</h4>
+<h5 id="200-get-catch-all-rule-response" class="status" data-status="2xx">200: Get catch-all rule response</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="403-authentication-error-or-missing-zone-routing-rule-read-permission" class="status" data-status="4xx">403: Authentication error or missing zone routing rule read permission</h5>
+<h2 id="update">update</h2>
+<h3 id="put-zoneszone_idemailroutingrulescatch_all" class="operation" data-method="put"><code>PUT</code> /zones/{zone_id}/email/routing/rules/catch_all</h3>
+<p>Operation ID: <code>email-routing-routing-rules-update-catch-all-rule</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-1">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>zone_id</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="request-body">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>actions</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>List actions for the catch-all routing rule.</td>
+</tr>
+<tr>
+<td><code>actions[].type</code></td>
+<td><code>enum: drop, forward, worker</code></td>
+<td>Yes</td>
+<td>Type of action for catch-all rule.</td>
+</tr>
+<tr>
+<td><code>actions[].value</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td>List of values for the action. Currently limited to a single value.</td>
+</tr>
+<tr>
+<td><code>enabled</code></td>
+<td><code>enum: true, false</code></td>
+<td>No</td>
+<td>Routing rule status.</td>
+</tr>
+<tr>
+<td><code>matchers</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>List of matchers for the catch-all routing rule.</td>
+</tr>
+<tr>
+<td><code>matchers[].type</code></td>
+<td><code>enum: all</code></td>
+<td>Yes</td>
+<td>Type of matcher. Default is 'all'.</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Routing rule name.</td>
+</tr>
+<tr>
+<td><code>owner_worker_tag</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Public tag (<code>script_tag</code>) of the Worker that owns this rule. Required when <code>source</code> is <code>wrangler</code>.</td>
+</tr>
+<tr>
+<td><code>source</code></td>
+<td><code>enum: api, wrangler</code></td>
+<td>No</td>
+<td>Who manages the rule. <code>api</code> covers dashboard, generic API, and Terraform; <code>wrangler</code> means the rule is managed by a Worker's wrangler.jsonc. Defaults to <code>api</code> when omitted on write.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses-1">Responses</h4>
+<h5 id="200-update-catch-all-rule-response" class="status" data-status="2xx">200: Update catch-all rule response</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="400-error-2054-destination-address-is-not-verified-a-forward-action-destination-address-must-be-verified-before-it-can-be-used-in-a-rule" class="status" data-status="4xx">400: Error 2054: Destination address is not verified. A forward action destination address must be verified before it can be used in a rule</h5>
+<h5 id="422-error-2007-invalid-input-forward-actions-must-contain-exactly-one-destination-address" class="status" data-status="4xx">422: Error 2007: Invalid Input. Forward actions must contain exactly one destination address</h5>
+</main></div>
+<script src="../assets/search.js" defer></script></body></html>

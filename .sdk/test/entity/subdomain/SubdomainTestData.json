@@ -1,0 +1,30 @@
+{
+  "existing": {
+    "subdomain": {
+      "SUBDOMAIN00": {
+        "id": "SUBDOMAIN00",
+        "zone_id": "ZONE01"
+      },
+      "SUBDOMAIN01": {
+        "id": "SUBDOMAIN01",
+        "zone_id": "ZONE01"
+      },
+      "SUBDOMAIN02": {
+        "id": "SUBDOMAIN02",
+        "zone_id": "ZONE01"
+      }
+    }
+  },
+  "new": {
+    "subdomain": {
+      "subdomain_ref01": {}
+    }
+  },
+  "requests": {
+    "DELETE /zones/{zone_id}/email/sending/subdomains/{subdomain_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

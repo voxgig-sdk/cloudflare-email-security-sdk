@@ -1,0 +1,35 @@
+{
+  "existing": {
+    "email_sending_reputation_response_single": {
+      "EMAIL_SENDING_REPUTATION_RESPONSE_SINGLE00": {
+        "result": {},
+        "account_id": "ACCOUNT01",
+        "id": "EMAIL_SENDING_REPUTATION_RESPONSE_SINGLE00"
+      },
+      "EMAIL_SENDING_REPUTATION_RESPONSE_SINGLE01": {
+        "result": {},
+        "account_id": "ACCOUNT01",
+        "id": "EMAIL_SENDING_REPUTATION_RESPONSE_SINGLE01"
+      },
+      "EMAIL_SENDING_REPUTATION_RESPONSE_SINGLE02": {
+        "result": {},
+        "account_id": "ACCOUNT01",
+        "id": "EMAIL_SENDING_REPUTATION_RESPONSE_SINGLE02"
+      }
+    }
+  },
+  "new": {
+    "email_sending_reputation_response_single": {
+      "email_sending_reputation_response_single_ref01": {
+        "result": {}
+      }
+    }
+  },
+  "requests": {
+    "GET /accounts/{account_id}/email/sending/reputation": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

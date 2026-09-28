@@ -1,0 +1,32 @@
+# BasicEmailSendingLimitsResponseSingleFlow
+
+main: kit: flow: BasicEmailSendingLimitsResponseSingleFlow:
+{
+  entity: "email_sending_limits_response_single",
+  kind: "basic",
+  name: "BasicEmailSendingLimitsResponseSingleFlow",
+  step: [
+    {
+      i: {
+        ref: "email_sending_limits_response_single_ref01",
+        srcdatavar: "email_sending_limits_response_single_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "email_sending_limits_response_single01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-email_sending_limits_response_single_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicEmailSendingLimitsResponseSingleFlow"
+}

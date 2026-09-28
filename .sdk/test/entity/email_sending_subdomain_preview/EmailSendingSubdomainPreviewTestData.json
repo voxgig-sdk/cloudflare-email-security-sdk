@@ -1,0 +1,35 @@
+{
+  "existing": {
+    "email_sending_subdomain_preview": {
+      "EMAIL_SENDING_SUBDOMAIN_PREVIEW00": {
+        "name": "sa",
+        "zone_id": "ZONE01",
+        "id": "EMAIL_SENDING_SUBDOMAIN_PREVIEW00"
+      },
+      "EMAIL_SENDING_SUBDOMAIN_PREVIEW01": {
+        "name": "s14",
+        "zone_id": "ZONE01",
+        "id": "EMAIL_SENDING_SUBDOMAIN_PREVIEW01"
+      },
+      "EMAIL_SENDING_SUBDOMAIN_PREVIEW02": {
+        "name": "s1e",
+        "zone_id": "ZONE01",
+        "id": "EMAIL_SENDING_SUBDOMAIN_PREVIEW02"
+      }
+    }
+  },
+  "new": {
+    "email_sending_subdomain_preview": {
+      "email_sending_subdomain_preview_ref01": {
+        "name": "s28"
+      }
+    }
+  },
+  "requests": {
+    "POST /zones/{zone_id}/email/sending/subdomains/preview": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

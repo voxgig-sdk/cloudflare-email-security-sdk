@@ -1,0 +1,43 @@
+{
+  "existing": {
+    "email_account_rules_plan_response_single": {
+      "EMAIL_ACCOUNT_RULES_PLAN_RESPONSE_SINGLE00": {
+        "catch_all_rules": [],
+        "owner_worker_tag": "s1f",
+        "rules": [],
+        "account_id": "ACCOUNT01",
+        "id": "EMAIL_ACCOUNT_RULES_PLAN_RESPONSE_SINGLE00"
+      },
+      "EMAIL_ACCOUNT_RULES_PLAN_RESPONSE_SINGLE01": {
+        "catch_all_rules": [],
+        "owner_worker_tag": "s3d",
+        "rules": [],
+        "account_id": "ACCOUNT01",
+        "id": "EMAIL_ACCOUNT_RULES_PLAN_RESPONSE_SINGLE01"
+      },
+      "EMAIL_ACCOUNT_RULES_PLAN_RESPONSE_SINGLE02": {
+        "catch_all_rules": [],
+        "owner_worker_tag": "s5b",
+        "rules": [],
+        "account_id": "ACCOUNT01",
+        "id": "EMAIL_ACCOUNT_RULES_PLAN_RESPONSE_SINGLE02"
+      }
+    }
+  },
+  "new": {
+    "email_account_rules_plan_response_single": {
+      "email_account_rules_plan_response_single_ref01": {
+        "catch_all_rules": [],
+        "owner_worker_tag": "s79",
+        "rules": []
+      }
+    }
+  },
+  "requests": {
+    "POST /accounts/{account_id}/email/routing/rules/plan": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

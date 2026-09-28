@@ -1,0 +1,40 @@
+{
+  "existing": {
+    "email_dns_settings_response_collection": {
+      "EMAIL_DNS_SETTINGS_RESPONSE_COLLECTION00": {
+        "result": [],
+        "zone_id": "ZONE01",
+        "subdomain_id": "SUBDOMAIN01"
+      },
+      "EMAIL_DNS_SETTINGS_RESPONSE_COLLECTION01": {
+        "result": [],
+        "zone_id": "ZONE01",
+        "subdomain_id": "SUBDOMAIN01"
+      },
+      "EMAIL_DNS_SETTINGS_RESPONSE_COLLECTION02": {
+        "result": [],
+        "zone_id": "ZONE01",
+        "subdomain_id": "SUBDOMAIN01"
+      }
+    }
+  },
+  "new": {
+    "email_dns_settings_response_collection": {
+      "email_dns_settings_response_collection_ref01": {
+        "result": []
+      }
+    }
+  },
+  "requests": {
+    "GET /zones/{zone_id}/email/routing/dns": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /zones/{zone_id}/email/sending/subdomains/{subdomain_id}/dns": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

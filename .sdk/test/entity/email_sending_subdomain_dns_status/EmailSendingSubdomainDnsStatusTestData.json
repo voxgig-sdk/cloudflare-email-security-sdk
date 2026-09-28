@@ -1,0 +1,43 @@
+{
+  "existing": {
+    "email_sending_subdomain_dns_status": {
+      "EMAIL_SENDING_SUBDOMAIN_DNS_STATUS00": {
+        "result": {},
+        "subdomain_id": "SUBDOMAIN01",
+        "zone_id": "ZONE01",
+        "id": "EMAIL_SENDING_SUBDOMAIN_DNS_STATUS00"
+      },
+      "EMAIL_SENDING_SUBDOMAIN_DNS_STATUS01": {
+        "result": {},
+        "subdomain_id": "SUBDOMAIN01",
+        "zone_id": "ZONE01",
+        "id": "EMAIL_SENDING_SUBDOMAIN_DNS_STATUS01"
+      },
+      "EMAIL_SENDING_SUBDOMAIN_DNS_STATUS02": {
+        "result": {},
+        "subdomain_id": "SUBDOMAIN01",
+        "zone_id": "ZONE01",
+        "id": "EMAIL_SENDING_SUBDOMAIN_DNS_STATUS02"
+      }
+    }
+  },
+  "new": {
+    "email_sending_subdomain_dns_status": {
+      "email_sending_subdomain_dns_status_ref01": {
+        "result": {}
+      }
+    }
+  },
+  "requests": {
+    "POST /zones/{zone_id}/email/sending/subdomains/{subdomain_id}/dns": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /zones/{zone_id}/email/sending/subdomains/{subdomain_id}/dns/status": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

@@ -1,0 +1,316 @@
+# Entity: email_rule_response_single
+
+main: kit: entity: email_rule_response_single: {
+
+  alias: field: {}
+
+  fields: {
+    actions: {
+      h: "Actions"
+      n: "actions"
+      r: true
+      sh: "List actions patterns."
+      t: "`$ARRAY`"
+    }
+    enabled: {
+      h: "Enabled"
+      n: "enabled"
+      r: false
+      sh: "Routing rule status."
+      t: "`$BOOLEAN`"
+    }
+    matchers: {
+      h: "Matchers"
+      n: "matchers"
+      r: true
+      sh: "Matching patterns to forward to your actions."
+      t: "`$ARRAY`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: false
+      sh: "Routing rule name."
+      t: "`$STRING`"
+    }
+    owner_worker_tag: {
+      h: "Owner Worker Tag"
+      n: "owner_worker_tag"
+      r: false
+      sh: "Public tag (script_tag) of the Worker that owns this rule."
+      t: "`$STRING`"
+      wo: true
+    }
+    priority: {
+      h: "Priority"
+      n: "priority"
+      r: false
+      sh: "Priority of the routing rule."
+      t: "`$NUMBER`"
+    }
+    result: {
+      h: "Result"
+      n: "result"
+      r: false
+      t: "`$OBJECT`"
+    }
+    source: {
+      h: "Source"
+      n: "source"
+      r: false
+      sh: "Who manages the rule."
+      t: "`$STRING`"
+    }
+  }
+
+  name: "email_rule_response_single"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /zones/{zone_id}/email/routing/rules"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "zone_id"
+                or: "zone_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/zones/{zone_id}/email/routing/rules"
+          q: {
+            exist: [
+              "zone_id"
+            ]
+          }
+          s: [
+            {
+              lit: "zones"
+            }
+            {
+              var: "zone_id"
+            }
+            {
+              lit: "email"
+            }
+            {
+              lit: "routing"
+            }
+            {
+              lit: "rules"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /zones/{zone_id}/email/routing/rules/{rule_identifier}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "a7e6fb77503c41d8a7f3113c6918f10c"
+                k: "param"
+                n: "rule_identifier"
+                or: "rule_identifier"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "zone_id"
+                or: "zone_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/zones/{zone_id}/email/routing/rules/{rule_identifier}"
+          q: {
+            exist: [
+              "rule_identifier"
+              "zone_id"
+            ]
+          }
+          s: [
+            {
+              lit: "zones"
+            }
+            {
+              var: "zone_id"
+            }
+            {
+              lit: "email"
+            }
+            {
+              lit: "routing"
+            }
+            {
+              lit: "rules"
+            }
+            {
+              var: "rule_identifier"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    remove: {
+      name: "remove"
+      points: [
+        {
+          co: {
+            id: "DELETE /zones/{zone_id}/email/routing/rules/{rule_identifier}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "a7e6fb77503c41d8a7f3113c6918f10c"
+                k: "param"
+                n: "rule_identifier"
+                or: "rule_identifier"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "zone_id"
+                or: "zone_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/zones/{zone_id}/email/routing/rules/{rule_identifier}"
+          q: {
+            exist: [
+              "rule_identifier"
+              "zone_id"
+            ]
+          }
+          s: [
+            {
+              lit: "zones"
+            }
+            {
+              var: "zone_id"
+            }
+            {
+              lit: "email"
+            }
+            {
+              lit: "routing"
+            }
+            {
+              lit: "rules"
+            }
+            {
+              var: "rule_identifier"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          co: {
+            id: "PUT /zones/{zone_id}/email/routing/rules/{rule_identifier}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "a7e6fb77503c41d8a7f3113c6918f10c"
+                k: "param"
+                n: "rule_identifier"
+                or: "rule_identifier"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "zone_id"
+                or: "zone_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "PUT"
+          o: "/zones/{zone_id}/email/routing/rules/{rule_identifier}"
+          q: {
+            exist: [
+              "rule_identifier"
+              "zone_id"
+            ]
+          }
+          s: [
+            {
+              lit: "zones"
+            }
+            {
+              var: "zone_id"
+            }
+            {
+              lit: "email"
+            }
+            {
+              lit: "routing"
+            }
+            {
+              lit: "rules"
+            }
+            {
+              var: "rule_identifier"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

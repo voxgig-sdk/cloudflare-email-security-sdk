@@ -1,0 +1,151 @@
+{
+  "existing": {
+    "email_sending_suppression": {
+      "EMAIL_SENDING_SUPPRESSION00": {
+        "created_at": "s8c",
+        "email": "s8d",
+        "errors": [],
+        "expires_at": "s8f",
+        "id": "EMAIL_SENDING_SUPPRESSION00",
+        "items": [],
+        "messages": [],
+        "note": "s93",
+        "read_only": true,
+        "reason": "s95",
+        "result": {},
+        "scope": "s97",
+        "success": true,
+        "zones": [],
+        "account_id": "ACCOUNT01",
+        "zone_id": "ZONE01"
+      },
+      "EMAIL_SENDING_SUPPRESSION01": {
+        "created_at": "s118",
+        "email": "s119",
+        "errors": [],
+        "expires_at": "s11b",
+        "id": "EMAIL_SENDING_SUPPRESSION01",
+        "items": [],
+        "messages": [],
+        "note": "s11f",
+        "read_only": true,
+        "reason": "s121",
+        "result": {},
+        "scope": "s123",
+        "success": true,
+        "zones": [],
+        "account_id": "ACCOUNT01",
+        "zone_id": "ZONE01"
+      },
+      "EMAIL_SENDING_SUPPRESSION02": {
+        "created_at": "s1a4",
+        "email": "s1a5",
+        "errors": [],
+        "expires_at": "s1a7",
+        "id": "EMAIL_SENDING_SUPPRESSION02",
+        "items": [],
+        "messages": [],
+        "note": "s1ab",
+        "read_only": true,
+        "reason": "s1ad",
+        "result": {},
+        "scope": "s1af",
+        "success": true,
+        "zones": [],
+        "account_id": "ACCOUNT01",
+        "zone_id": "ZONE01"
+      }
+    }
+  },
+  "new": {
+    "email_sending_suppression": {
+      "email_sending_suppression_ref01": {
+        "created_at": "s230",
+        "email": "s231",
+        "errors": [],
+        "expires_at": "s233",
+        "items": [],
+        "messages": [],
+        "note": "s237",
+        "read_only": true,
+        "reason": "s239",
+        "result": {},
+        "scope": "s23b",
+        "success": true,
+        "zones": []
+      }
+    }
+  },
+  "requests": {
+    "POST /accounts/{account_id}/email/sending/suppression": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /accounts/{account_id}/email/sending/suppressions": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /accounts/{account_id}/email/sending/suppressions/bulk": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /zones/{zone_id}/email/sending/suppression": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/email/sending/suppressions": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/email/sending/suppression": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /zones/{zone_id}/email/sending/suppression": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/email/sending/suppression/{suppression_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/email/sending/suppressions/{suppression_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /zones/{zone_id}/email/sending/suppression/{suppression_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /accounts/{account_id}/email/sending/suppression/{suppression_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /accounts/{account_id}/email/sending/suppressions/{suppression_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /zones/{zone_id}/email/sending/suppression/{suppression_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /accounts/{account_id}/email/sending/suppressions/{suppression_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

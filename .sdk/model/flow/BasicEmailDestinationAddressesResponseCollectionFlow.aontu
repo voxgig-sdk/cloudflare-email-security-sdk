@@ -1,0 +1,26 @@
+# BasicEmailDestinationAddressesResponseCollectionFlow
+
+main: kit: flow: BasicEmailDestinationAddressesResponseCollectionFlow:
+{
+  entity: "email_destination_addresses_response_collection",
+  kind: "basic",
+  name: "BasicEmailDestinationAddressesResponseCollectionFlow",
+  step: [
+    {
+      m: {
+        account_id: "account01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "email_destination_addresses_response_collection_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicEmailDestinationAddressesResponseCollectionFlow"
+}

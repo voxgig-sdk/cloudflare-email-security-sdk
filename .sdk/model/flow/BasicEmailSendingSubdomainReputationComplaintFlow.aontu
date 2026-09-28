@@ -1,0 +1,33 @@
+# BasicEmailSendingSubdomainReputationComplaintFlow
+
+main: kit: flow: BasicEmailSendingSubdomainReputationComplaintFlow:
+{
+  entity: "email_sending_subdomain_reputation_complaint",
+  kind: "basic",
+  name: "BasicEmailSendingSubdomainReputationComplaintFlow",
+  step: [
+    {
+      i: {
+        ref: "email_sending_subdomain_reputation_complaint_ref01",
+        srcdatavar: "email_sending_subdomain_reputation_complaint_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "email_sending_subdomain_reputation_complaint01",
+        zone_id: "zone01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-email_sending_subdomain_reputation_complaint_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicEmailSendingSubdomainReputationComplaintFlow"
+}

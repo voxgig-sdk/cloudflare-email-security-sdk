@@ -1,0 +1,26 @@
+# BasicEmailSendingSubdomainsResponseCollectionFlow
+
+main: kit: flow: BasicEmailSendingSubdomainsResponseCollectionFlow:
+{
+  entity: "email_sending_subdomains_response_collection",
+  kind: "basic",
+  name: "BasicEmailSendingSubdomainsResponseCollectionFlow",
+  step: [
+    {
+      m: {
+        zone_id: "zone01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "email_sending_subdomains_response_collection_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicEmailSendingSubdomainsResponseCollectionFlow"
+}

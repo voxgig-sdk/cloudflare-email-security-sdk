@@ -1,0 +1,93 @@
+# Entity: email_account_rules_plan_response_single
+
+main: kit: entity: email_account_rules_plan_response_single: {
+
+  alias: field: {}
+
+  fields: {
+    catch_all_rules: {
+      h: "Catch All Rules"
+      n: "catch_all_rules"
+      r: false
+      sh: "Desired catch-all Email Routing rules managed by the deploying Worker."
+      t: "`$ARRAY`"
+    }
+    owner_worker_tag: {
+      h: "Owner Worker Tag"
+      n: "owner_worker_tag"
+      r: true
+      sh: "Public tag (script_tag) of the Worker that owns this rule."
+      t: "`$STRING`"
+      wo: true
+    }
+    rules: {
+      h: "Rules"
+      n: "rules"
+      r: false
+      sh: "Desired normal Email Routing rules managed by the deploying Worker."
+      t: "`$ARRAY`"
+    }
+  }
+
+  name: "email_account_rules_plan_response_single"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /accounts/{account_id}/email/routing/rules/plan"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/accounts/{account_id}/email/routing/rules/plan"
+          q: {
+            exist: [
+              "account_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "email"
+            }
+            {
+              lit: "routing"
+            }
+            {
+              lit: "rules"
+            }
+            {
+              lit: "plan"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

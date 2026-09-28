@@ -1,0 +1,91 @@
+{
+  "existing": {
+    "email_email_settings_response_single": {
+      "EMAIL_EMAIL_SETTINGS_RESPONSE_SINGLE00": {
+        "enabled": true,
+        "name": "s33",
+        "result": {},
+        "skip_wizard": false,
+        "support_subaddress": true,
+        "zone_id": "ZONE01",
+        "id": "EMAIL_EMAIL_SETTINGS_RESPONSE_SINGLE00"
+      },
+      "EMAIL_EMAIL_SETTINGS_RESPONSE_SINGLE01": {
+        "enabled": true,
+        "name": "s65",
+        "result": {},
+        "skip_wizard": false,
+        "support_subaddress": true,
+        "zone_id": "ZONE01",
+        "id": "EMAIL_EMAIL_SETTINGS_RESPONSE_SINGLE01"
+      },
+      "EMAIL_EMAIL_SETTINGS_RESPONSE_SINGLE02": {
+        "enabled": true,
+        "name": "s97",
+        "result": {},
+        "skip_wizard": false,
+        "support_subaddress": true,
+        "zone_id": "ZONE01",
+        "id": "EMAIL_EMAIL_SETTINGS_RESPONSE_SINGLE02"
+      }
+    }
+  },
+  "new": {
+    "email_email_settings_response_single": {
+      "email_email_settings_response_single_ref01": {
+        "enabled": true,
+        "name": "sc9",
+        "result": {},
+        "skip_wizard": false,
+        "support_subaddress": true
+      }
+    }
+  },
+  "requests": {
+    "POST /zones/{zone_id}/email/routing/disable": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /zones/{zone_id}/email/routing/dns": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /zones/{zone_id}/email/routing/enable": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /zones/{zone_id}/email/routing/unlock": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /zones/{zone_id}/email/routing": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /zones/{zone_id}/email/routing": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /zones/{zone_id}/email/routing/dns": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /zones/{zone_id}/email/routing/dns": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /zones/{zone_id}/email/routing": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

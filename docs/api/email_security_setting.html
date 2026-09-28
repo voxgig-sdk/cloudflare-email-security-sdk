@@ -1,0 +1,4023 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>EmailSecuritySetting | Cloudflare Email Security</title><link rel="stylesheet" href="../assets/style.css"></head>
+<body><a class="skip" href="#content">Skip to content</a>
+<header class="site-header"><a class="site-title" href="../index.html">Cloudflare Email Security<span>SDK documentation</span></a><div class="site-links"><a class="repo-link" href="https://github.com/voxgig-sdk/cloudflare-email-security-sdk">voxgig-sdk/cloudflare-email-security-sdk</a></div></header>
+<div class="site-notice" role="note"></div>
+<div class="shell"><nav class="site-nav" aria-label="Documentation"><div class="search"><label for="search">Search documentation</label><input id="search" type="search" data-base="../" placeholder="Find a guide or reference"><div id="results" aria-live="polite"></div></div><details><summary>Overview</summary><a href="../index.html">Cloudflare Email Security</a></details>
+<details open><summary>API</summary><a href="../api/index.html">API overview</a>
+<a href="../api/email_account_rules_plan_response_single.html">EmailAccountRulesPlanResponseSingle</a>
+<a href="../api/email_account_rules_response_collection.html">EmailAccountRulesResponseCollection</a>
+<a href="../api/email_auth.html">EmailAuth</a>
+<a href="../api/email_catch_all_rule_response_single.html">EmailCatchAllRuleResponseSingle</a>
+<a href="../api/email_destination_address_response_single.html">EmailDestinationAddressResponseSingle</a>
+<a href="../api/email_destination_addresses_response_collection.html">EmailDestinationAddressesResponseCollection</a>
+<a href="../api/email_dns_settings_response_collection.html">EmailDnsSettingsResponseCollection</a>
+<a href="../api/email_email_settings_response_single.html">EmailEmailSettingsResponseSingle</a>
+<a href="../api/email_routing_suppression.html">EmailRoutingSuppression</a>
+<a href="../api/email_rule_response_single.html">EmailRuleResponseSingle</a>
+<a href="../api/email_rules_response_collection.html">EmailRulesResponseCollection</a>
+<a href="../api/email_security.html">EmailSecurity</a>
+<a href="../api/email_security_analytics.html">EmailSecurityAnalytics</a>
+<a aria-current="page" href="../api/email_security_setting.html">EmailSecuritySetting</a><div class="nav-sections"><a class="nav-section" href="#post-accountsaccount_idemail-securitysettingsallow_policies">POST /accounts/{account_id}/email-security/settings/allow_policies</a>
+<a class="nav-section" href="#post-accountsaccount_idemail-securitysettingsallow_policiesbatch">POST /accounts/{account_id}/email-security/settings/allow_policies/batch</a>
+<a class="nav-section" href="#post-accountsaccount_idemail-securitysettingsblock_senders">POST /accounts/{account_id}/email-security/settings/block_senders</a>
+<a class="nav-section" href="#post-accountsaccount_idemail-securitysettingsblock_sendersbatch">POST /accounts/{account_id}/email-security/settings/block_senders/batch</a>
+<a class="nav-section" href="#post-accountsaccount_idemail-securitysettingscontent_policies">POST /accounts/{account_id}/email-security/settings/content_policies</a>
+<a class="nav-section" href="#post-accountsaccount_idemail-securitysettingscontent_policiesbatch">POST /accounts/{account_id}/email-security/settings/content_policies/batch</a>
+<a class="nav-section" href="#post-accountsaccount_idemail-securitysettingsdomains">POST /accounts/{account_id}/email-security/settings/domains</a>
+<a class="nav-section" href="#post-accountsaccount_idemail-securitysettingsdomainsbatch">POST /accounts/{account_id}/email-security/settings/domains/batch</a>
+<a class="nav-section" href="#post-accountsaccount_idemail-securitysettingsimpersonation_registry">POST /accounts/{account_id}/email-security/settings/impersonation_registry</a>
+<a class="nav-section" href="#post-accountsaccount_idemail-securitysettingssending_domain_restrictions">POST /accounts/{account_id}/email-security/settings/sending_domain_restrictions</a>
+<a class="nav-section" href="#post-accountsaccount_idemail-securitysettingssending_domain_restrictionsbatch">POST /accounts/{account_id}/email-security/settings/sending_domain_restrictions/batch</a>
+<a class="nav-section" href="#post-accountsaccount_idemail-securitysettingstrusted_domains">POST /accounts/{account_id}/email-security/settings/trusted_domains</a>
+<a class="nav-section" href="#post-accountsaccount_idemail-securitysettingstrusted_domainsbatch">POST /accounts/{account_id}/email-security/settings/trusted_domains/batch</a>
+<a class="nav-section" href="#post-accountsaccount_idemail-securitysettingsurl_ignore_patterns">POST /accounts/{account_id}/email-security/settings/url_ignore_patterns</a>
+<a class="nav-section" href="#post-accountsaccount_idemail-securitysettingsurl_ignore_patternsbatch">POST /accounts/{account_id}/email-security/settings/url_ignore_patterns/batch</a>
+<a class="nav-section" href="#get-accountsaccount_idemail-securitysettingsallow_policies">GET /accounts/{account_id}/email-security/settings/allow_policies</a>
+<a class="nav-section" href="#get-accountsaccount_idemail-securitysettingsdomains">GET /accounts/{account_id}/email-security/settings/domains</a>
+<a class="nav-section" href="#get-accountsaccount_idemail-securitysettingstrusted_domains">GET /accounts/{account_id}/email-security/settings/trusted_domains</a>
+<a class="nav-section" href="#get-accountsaccount_idemail-securitysettingscontent_policies">GET /accounts/{account_id}/email-security/settings/content_policies</a>
+<a class="nav-section" href="#get-accountsaccount_idemail-securitysettingsblock_senders">GET /accounts/{account_id}/email-security/settings/block_senders</a>
+<a class="nav-section" href="#get-accountsaccount_idemail-securitysettingsimpersonation_registry">GET /accounts/{account_id}/email-security/settings/impersonation_registry</a>
+<a class="nav-section" href="#get-accountsaccount_idemail-securitysettingssending_domain_restrictions">GET /accounts/{account_id}/email-security/settings/sending_domain_restrictions</a>
+<a class="nav-section" href="#get-accountsaccount_idemail-securitysettingsurl_ignore_patterns">GET /accounts/{account_id}/email-security/settings/url_ignore_patterns</a>
+<a class="nav-section" href="#get-accountsaccount_idemail-securitysettingsdomainsdomain_id">GET /accounts/{account_id}/email-security/settings/domains/{domain_id}</a>
+<a class="nav-section" href="#get-accountsaccount_idemail-securitysettingsdomainsdomain_idverification">GET /accounts/{account_id}/email-security/settings/domains/{domain_id}/verification</a>
+<a class="nav-section" href="#get-accountsaccount_idemail-securitysettingsimpersonation_registryimpersonation_registry_id">GET /accounts/{account_id}/email-security/settings/impersonation_registry/{impersonation_registry_id}</a>
+<a class="nav-section" href="#get-accountsaccount_idemail-securitysettingsblock_senderspattern_id">GET /accounts/{account_id}/email-security/settings/block_senders/{pattern_id}</a>
+<a class="nav-section" href="#get-accountsaccount_idemail-securitysettingsurl_ignore_patternspattern_id">GET /accounts/{account_id}/email-security/settings/url_ignore_patterns/{pattern_id}</a>
+<a class="nav-section" href="#get-accountsaccount_idemail-securitysettingsallow_policiespolicy_id">GET /accounts/{account_id}/email-security/settings/allow_policies/{policy_id}</a>
+<a class="nav-section" href="#get-accountsaccount_idemail-securitysettingscontent_policiespolicy_id">GET /accounts/{account_id}/email-security/settings/content_policies/{policy_id}</a>
+<a class="nav-section" href="#get-accountsaccount_idemail-securitysettingssending_domain_restrictionssending_domain_restriction_id">GET /accounts/{account_id}/email-security/settings/sending_domain_restrictions/{sending_domain_restriction_id}</a>
+<a class="nav-section" href="#get-accountsaccount_idemail-securitysettingstrusted_domainstrusted_domain_id">GET /accounts/{account_id}/email-security/settings/trusted_domains/{trusted_domain_id}</a>
+<a class="nav-section" href="#patch-accountsaccount_idemail-securitysettingsdomainsdomain_id">PATCH /accounts/{account_id}/email-security/settings/domains/{domain_id}</a>
+<a class="nav-section" href="#patch-accountsaccount_idemail-securitysettingsimpersonation_registryimpersonation_registry_id">PATCH /accounts/{account_id}/email-security/settings/impersonation_registry/{impersonation_registry_id}</a>
+<a class="nav-section" href="#patch-accountsaccount_idemail-securitysettingsblock_senderspattern_id">PATCH /accounts/{account_id}/email-security/settings/block_senders/{pattern_id}</a>
+<a class="nav-section" href="#patch-accountsaccount_idemail-securitysettingsurl_ignore_patternspattern_id">PATCH /accounts/{account_id}/email-security/settings/url_ignore_patterns/{pattern_id}</a>
+<a class="nav-section" href="#patch-accountsaccount_idemail-securitysettingsallow_policiespolicy_id">PATCH /accounts/{account_id}/email-security/settings/allow_policies/{policy_id}</a>
+<a class="nav-section" href="#patch-accountsaccount_idemail-securitysettingscontent_policiespolicy_id">PATCH /accounts/{account_id}/email-security/settings/content_policies/{policy_id}</a>
+<a class="nav-section" href="#patch-accountsaccount_idemail-securitysettingssending_domain_restrictionssending_domain_restriction_id">PATCH /accounts/{account_id}/email-security/settings/sending_domain_restrictions/{sending_domain_restriction_id}</a>
+<a class="nav-section" href="#patch-accountsaccount_idemail-securitysettingstrusted_domainstrusted_domain_id">PATCH /accounts/{account_id}/email-security/settings/trusted_domains/{trusted_domain_id}</a>
+<a class="nav-section" href="#delete-accountsaccount_idemail-securitysettingsdomainsdomain_id">DELETE /accounts/{account_id}/email-security/settings/domains/{domain_id}</a>
+<a class="nav-section" href="#delete-accountsaccount_idemail-securitysettingsimpersonation_registryimpersonation_registry_id">DELETE /accounts/{account_id}/email-security/settings/impersonation_registry/{impersonation_registry_id}</a>
+<a class="nav-section" href="#delete-accountsaccount_idemail-securitysettingsblock_senderspattern_id">DELETE /accounts/{account_id}/email-security/settings/block_senders/{pattern_id}</a>
+<a class="nav-section" href="#delete-accountsaccount_idemail-securitysettingsurl_ignore_patternspattern_id">DELETE /accounts/{account_id}/email-security/settings/url_ignore_patterns/{pattern_id}</a>
+<a class="nav-section" href="#delete-accountsaccount_idemail-securitysettingsallow_policiespolicy_id">DELETE /accounts/{account_id}/email-security/settings/allow_policies/{policy_id}</a>
+<a class="nav-section" href="#delete-accountsaccount_idemail-securitysettingscontent_policiespolicy_id">DELETE /accounts/{account_id}/email-security/settings/content_policies/{policy_id}</a>
+<a class="nav-section" href="#delete-accountsaccount_idemail-securitysettingssending_domain_restrictionssending_domain_restriction_id">DELETE /accounts/{account_id}/email-security/settings/sending_domain_restrictions/{sending_domain_restriction_id}</a>
+<a class="nav-section" href="#delete-accountsaccount_idemail-securitysettingstrusted_domainstrusted_domain_id">DELETE /accounts/{account_id}/email-security/settings/trusted_domains/{trusted_domain_id}</a>
+<a class="nav-section" href="#delete-accountsaccount_idemail-securitysettingsdomains">DELETE /accounts/{account_id}/email-security/settings/domains</a>
+<a class="nav-section" href="#put-accountsaccount_idemail-securitysettingsdomainsdomain_id">PUT /accounts/{account_id}/email-security/settings/domains/{domain_id}</a>
+<a class="nav-section" href="#put-accountsaccount_idemail-securitysettingsblock_senderspattern_id">PUT /accounts/{account_id}/email-security/settings/block_senders/{pattern_id}</a>
+<a class="nav-section" href="#put-accountsaccount_idemail-securitysettingsallow_policiespolicy_id">PUT /accounts/{account_id}/email-security/settings/allow_policies/{policy_id}</a>
+<a class="nav-section" href="#put-accountsaccount_idemail-securitysettingstrusted_domainstrusted_domain_id">PUT /accounts/{account_id}/email-security/settings/trusted_domains/{trusted_domain_id}</a></div>
+<a href="../api/email_sending.html">EmailSending</a>
+<a href="../api/email_sending_limits_response_single.html">EmailSendingLimitsResponseSingle</a>
+<a href="../api/email_sending_reputation_response_single.html">EmailSendingReputationResponseSingle</a>
+<a href="../api/email_sending_subdomain_dns_status.html">EmailSendingSubdomainDnsStatus</a>
+<a href="../api/email_sending_subdomain_preview.html">EmailSendingSubdomainPreview</a>
+<a href="../api/email_sending_subdomain_reputation_complaint.html">EmailSendingSubdomainReputationComplaint</a>
+<a href="../api/email_sending_subdomain_response_single.html">EmailSendingSubdomainResponseSingle</a>
+<a href="../api/email_sending_subdomains_response_collection.html">EmailSendingSubdomainsResponseCollection</a>
+<a href="../api/email_sending_suppression.html">EmailSendingSuppression</a>
+<a href="../api/subdomain.html">Subdomain</a></details>
+<details><summary>Guides</summary><a href="../guides/authentication.html">Authentication</a>
+<a href="../guides/first-call.html">Make your first API call</a>
+<a href="../guides/errors.html">Handle errors</a>
+<a href="../guides/concepts.html">Entities, SDKs, and tools</a></details>
+<details><summary>SDKs</summary><a href="../sdks/go.html">Golang</a>
+<a href="../sdks/lua.html">Lua</a>
+<a href="../sdks/php.html">PHP</a>
+<a href="../sdks/py.html">Python</a>
+<a href="../sdks/rb.html">Ruby</a>
+<a href="../sdks/ts.html">TypeScript</a></details>
+<details><summary>Tools</summary><a href="../tools/go-cli.html">Go CLI</a>
+<a href="../tools/go-mcp.html">Go MCP server</a></details>
+<details><summary>Features</summary><a href="../features/test.html">Test transport</a></details></nav><main id="content"><div class="page-context"><span class="section-dot" aria-hidden="true"></span>API</div><h1 id="emailsecuritysetting">EmailSecuritySetting</h1>
+<h2 id="operations">Operations</h2>
+<p>Every route this entity exposes. Each route links to its own reference on this page.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Route</th>
+<th>SDK operation</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-accountsaccount_idemail-securitysettingsallow_policies"><code>/accounts/{account_id}/email-security/settings/allow_policies</code></a></td>
+<td><code>create</code></td>
+<td>Created allow policy</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-accountsaccount_idemail-securitysettingsallow_policiesbatch"><code>/accounts/{account_id}/email-security/settings/allow_policies/batch</code></a></td>
+<td><code>create</code></td>
+<td>Batch operation results</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-accountsaccount_idemail-securitysettingsblock_senders"><code>/accounts/{account_id}/email-security/settings/block_senders</code></a></td>
+<td><code>create</code></td>
+<td>Created blocked sender</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-accountsaccount_idemail-securitysettingsblock_sendersbatch"><code>/accounts/{account_id}/email-security/settings/block_senders/batch</code></a></td>
+<td><code>create</code></td>
+<td>Batch operation results</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-accountsaccount_idemail-securitysettingscontent_policies"><code>/accounts/{account_id}/email-security/settings/content_policies</code></a></td>
+<td><code>create</code></td>
+<td>Created content policy</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-accountsaccount_idemail-securitysettingscontent_policiesbatch"><code>/accounts/{account_id}/email-security/settings/content_policies/batch</code></a></td>
+<td><code>create</code></td>
+<td>Batch operation results</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-accountsaccount_idemail-securitysettingsdomains"><code>/accounts/{account_id}/email-security/settings/domains</code></a></td>
+<td><code>create</code></td>
+<td>Created domain</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-accountsaccount_idemail-securitysettingsdomainsbatch"><code>/accounts/{account_id}/email-security/settings/domains/batch</code></a></td>
+<td><code>create</code></td>
+<td>Batch operation results</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-accountsaccount_idemail-securitysettingsimpersonation_registry"><code>/accounts/{account_id}/email-security/settings/impersonation_registry</code></a></td>
+<td><code>create</code></td>
+<td>Created impersonation registry entry</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-accountsaccount_idemail-securitysettingssending_domain_restrictions"><code>/accounts/{account_id}/email-security/settings/sending_domain_restrictions</code></a></td>
+<td><code>create</code></td>
+<td>Created sending domain restriction</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-accountsaccount_idemail-securitysettingssending_domain_restrictionsbatch"><code>/accounts/{account_id}/email-security/settings/sending_domain_restrictions/batch</code></a></td>
+<td><code>create</code></td>
+<td>Batch operation results</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-accountsaccount_idemail-securitysettingstrusted_domains"><code>/accounts/{account_id}/email-security/settings/trusted_domains</code></a></td>
+<td><code>create</code></td>
+<td>Created trusted domain</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-accountsaccount_idemail-securitysettingstrusted_domainsbatch"><code>/accounts/{account_id}/email-security/settings/trusted_domains/batch</code></a></td>
+<td><code>create</code></td>
+<td>Batch operation results</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-accountsaccount_idemail-securitysettingsurl_ignore_patterns"><code>/accounts/{account_id}/email-security/settings/url_ignore_patterns</code></a></td>
+<td><code>create</code></td>
+<td>Created URL ignore pattern</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-accountsaccount_idemail-securitysettingsurl_ignore_patternsbatch"><code>/accounts/{account_id}/email-security/settings/url_ignore_patterns/batch</code></a></td>
+<td><code>create</code></td>
+<td>Batch operation results</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-accountsaccount_idemail-securitysettingsallow_policies"><code>/accounts/{account_id}/email-security/settings/allow_policies</code></a></td>
+<td><code>list</code></td>
+<td>List of allow policies</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-accountsaccount_idemail-securitysettingsdomains"><code>/accounts/{account_id}/email-security/settings/domains</code></a></td>
+<td><code>list</code></td>
+<td>List of domains</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-accountsaccount_idemail-securitysettingstrusted_domains"><code>/accounts/{account_id}/email-security/settings/trusted_domains</code></a></td>
+<td><code>list</code></td>
+<td>List of trusted domains</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-accountsaccount_idemail-securitysettingscontent_policies"><code>/accounts/{account_id}/email-security/settings/content_policies</code></a></td>
+<td><code>list</code></td>
+<td>List of content policies</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-accountsaccount_idemail-securitysettingsblock_senders"><code>/accounts/{account_id}/email-security/settings/block_senders</code></a></td>
+<td><code>list</code></td>
+<td>List of blocked senders</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-accountsaccount_idemail-securitysettingsimpersonation_registry"><code>/accounts/{account_id}/email-security/settings/impersonation_registry</code></a></td>
+<td><code>list</code></td>
+<td>List of impersonation registry entries</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-accountsaccount_idemail-securitysettingssending_domain_restrictions"><code>/accounts/{account_id}/email-security/settings/sending_domain_restrictions</code></a></td>
+<td><code>list</code></td>
+<td>List of sending domain restrictions</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-accountsaccount_idemail-securitysettingsurl_ignore_patterns"><code>/accounts/{account_id}/email-security/settings/url_ignore_patterns</code></a></td>
+<td><code>list</code></td>
+<td>List of URL ignore patterns for the provided account</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-accountsaccount_idemail-securitysettingsdomainsdomain_id"><code>/accounts/{account_id}/email-security/settings/domains/{domain_id}</code></a></td>
+<td><code>load</code></td>
+<td>Domain details</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-accountsaccount_idemail-securitysettingsdomainsdomain_idverification"><code>/accounts/{account_id}/email-security/settings/domains/{domain_id}/verification</code></a></td>
+<td><code>load</code></td>
+<td>DNS TXT verification details</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-accountsaccount_idemail-securitysettingsimpersonation_registryimpersonation_registry_id"><code>/accounts/{account_id}/email-security/settings/impersonation_registry/{impersonation_registry_id}</code></a></td>
+<td><code>load</code></td>
+<td>Impersonation registry entry details</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-accountsaccount_idemail-securitysettingsblock_senderspattern_id"><code>/accounts/{account_id}/email-security/settings/block_senders/{pattern_id}</code></a></td>
+<td><code>load</code></td>
+<td>Blocked sender details</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-accountsaccount_idemail-securitysettingsurl_ignore_patternspattern_id"><code>/accounts/{account_id}/email-security/settings/url_ignore_patterns/{pattern_id}</code></a></td>
+<td><code>load</code></td>
+<td>URL ignore pattern</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-accountsaccount_idemail-securitysettingsallow_policiespolicy_id"><code>/accounts/{account_id}/email-security/settings/allow_policies/{policy_id}</code></a></td>
+<td><code>load</code></td>
+<td>Allow policy details</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-accountsaccount_idemail-securitysettingscontent_policiespolicy_id"><code>/accounts/{account_id}/email-security/settings/content_policies/{policy_id}</code></a></td>
+<td><code>load</code></td>
+<td>Content policy details</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-accountsaccount_idemail-securitysettingssending_domain_restrictionssending_domain_restriction_id"><code>/accounts/{account_id}/email-security/settings/sending_domain_restrictions/{sending_domain_restriction_id}</code></a></td>
+<td><code>load</code></td>
+<td>Sending domain restriction details</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-accountsaccount_idemail-securitysettingstrusted_domainstrusted_domain_id"><code>/accounts/{account_id}/email-security/settings/trusted_domains/{trusted_domain_id}</code></a></td>
+<td><code>load</code></td>
+<td>Trusted domain details</td>
+</tr>
+<tr>
+<td><code>PATCH</code></td>
+<td><a href="#patch-accountsaccount_idemail-securitysettingsdomainsdomain_id"><code>/accounts/{account_id}/email-security/settings/domains/{domain_id}</code></a></td>
+<td><code>patch</code></td>
+<td>Updated domain</td>
+</tr>
+<tr>
+<td><code>PATCH</code></td>
+<td><a href="#patch-accountsaccount_idemail-securitysettingsimpersonation_registryimpersonation_registry_id"><code>/accounts/{account_id}/email-security/settings/impersonation_registry/{impersonation_registry_id}</code></a></td>
+<td><code>patch</code></td>
+<td>Updated impersonation registry entry</td>
+</tr>
+<tr>
+<td><code>PATCH</code></td>
+<td><a href="#patch-accountsaccount_idemail-securitysettingsblock_senderspattern_id"><code>/accounts/{account_id}/email-security/settings/block_senders/{pattern_id}</code></a></td>
+<td><code>patch</code></td>
+<td>Updated blocked sender</td>
+</tr>
+<tr>
+<td><code>PATCH</code></td>
+<td><a href="#patch-accountsaccount_idemail-securitysettingsurl_ignore_patternspattern_id"><code>/accounts/{account_id}/email-security/settings/url_ignore_patterns/{pattern_id}</code></a></td>
+<td><code>patch</code></td>
+<td>Updated URL ignore pattern</td>
+</tr>
+<tr>
+<td><code>PATCH</code></td>
+<td><a href="#patch-accountsaccount_idemail-securitysettingsallow_policiespolicy_id"><code>/accounts/{account_id}/email-security/settings/allow_policies/{policy_id}</code></a></td>
+<td><code>patch</code></td>
+<td>Updated allow policy</td>
+</tr>
+<tr>
+<td><code>PATCH</code></td>
+<td><a href="#patch-accountsaccount_idemail-securitysettingscontent_policiespolicy_id"><code>/accounts/{account_id}/email-security/settings/content_policies/{policy_id}</code></a></td>
+<td><code>patch</code></td>
+<td>Updated content policy</td>
+</tr>
+<tr>
+<td><code>PATCH</code></td>
+<td><a href="#patch-accountsaccount_idemail-securitysettingssending_domain_restrictionssending_domain_restriction_id"><code>/accounts/{account_id}/email-security/settings/sending_domain_restrictions/{sending_domain_restriction_id}</code></a></td>
+<td><code>patch</code></td>
+<td>Updated sending domain restriction</td>
+</tr>
+<tr>
+<td><code>PATCH</code></td>
+<td><a href="#patch-accountsaccount_idemail-securitysettingstrusted_domainstrusted_domain_id"><code>/accounts/{account_id}/email-security/settings/trusted_domains/{trusted_domain_id}</code></a></td>
+<td><code>patch</code></td>
+<td>Updated trusted domain</td>
+</tr>
+<tr>
+<td><code>DELETE</code></td>
+<td><a href="#delete-accountsaccount_idemail-securitysettingsdomainsdomain_id"><code>/accounts/{account_id}/email-security/settings/domains/{domain_id}</code></a></td>
+<td><code>remove</code></td>
+<td>Deleted domain</td>
+</tr>
+<tr>
+<td><code>DELETE</code></td>
+<td><a href="#delete-accountsaccount_idemail-securitysettingsimpersonation_registryimpersonation_registry_id"><code>/accounts/{account_id}/email-security/settings/impersonation_registry/{impersonation_registry_id}</code></a></td>
+<td><code>remove</code></td>
+<td>Deleted impersonation registry entry</td>
+</tr>
+<tr>
+<td><code>DELETE</code></td>
+<td><a href="#delete-accountsaccount_idemail-securitysettingsblock_senderspattern_id"><code>/accounts/{account_id}/email-security/settings/block_senders/{pattern_id}</code></a></td>
+<td><code>remove</code></td>
+<td>Deleted blocked sender</td>
+</tr>
+<tr>
+<td><code>DELETE</code></td>
+<td><a href="#delete-accountsaccount_idemail-securitysettingsurl_ignore_patternspattern_id"><code>/accounts/{account_id}/email-security/settings/url_ignore_patterns/{pattern_id}</code></a></td>
+<td><code>remove</code></td>
+<td>Deleted URL ignore pattern</td>
+</tr>
+<tr>
+<td><code>DELETE</code></td>
+<td><a href="#delete-accountsaccount_idemail-securitysettingsallow_policiespolicy_id"><code>/accounts/{account_id}/email-security/settings/allow_policies/{policy_id}</code></a></td>
+<td><code>remove</code></td>
+<td>Deleted allow policy</td>
+</tr>
+<tr>
+<td><code>DELETE</code></td>
+<td><a href="#delete-accountsaccount_idemail-securitysettingscontent_policiespolicy_id"><code>/accounts/{account_id}/email-security/settings/content_policies/{policy_id}</code></a></td>
+<td><code>remove</code></td>
+<td>Deleted content policy</td>
+</tr>
+<tr>
+<td><code>DELETE</code></td>
+<td><a href="#delete-accountsaccount_idemail-securitysettingssending_domain_restrictionssending_domain_restriction_id"><code>/accounts/{account_id}/email-security/settings/sending_domain_restrictions/{sending_domain_restriction_id}</code></a></td>
+<td><code>remove</code></td>
+<td>Deleted sending domain restriction</td>
+</tr>
+<tr>
+<td><code>DELETE</code></td>
+<td><a href="#delete-accountsaccount_idemail-securitysettingstrusted_domainstrusted_domain_id"><code>/accounts/{account_id}/email-security/settings/trusted_domains/{trusted_domain_id}</code></a></td>
+<td><code>remove</code></td>
+<td>Deleted trusted domain</td>
+</tr>
+<tr>
+<td><code>DELETE</code></td>
+<td><a href="#delete-accountsaccount_idemail-securitysettingsdomains"><code>/accounts/{account_id}/email-security/settings/domains</code></a></td>
+<td><code>remove</code></td>
+<td>Deleted domains</td>
+</tr>
+<tr>
+<td><code>PUT</code></td>
+<td><a href="#put-accountsaccount_idemail-securitysettingsdomainsdomain_id"><code>/accounts/{account_id}/email-security/settings/domains/{domain_id}</code></a></td>
+<td><code>update</code></td>
+<td>Replaced domain</td>
+</tr>
+<tr>
+<td><code>PUT</code></td>
+<td><a href="#put-accountsaccount_idemail-securitysettingsblock_senderspattern_id"><code>/accounts/{account_id}/email-security/settings/block_senders/{pattern_id}</code></a></td>
+<td><code>update</code></td>
+<td>Replaced blocked sender</td>
+</tr>
+<tr>
+<td><code>PUT</code></td>
+<td><a href="#put-accountsaccount_idemail-securitysettingsallow_policiespolicy_id"><code>/accounts/{account_id}/email-security/settings/allow_policies/{policy_id}</code></a></td>
+<td><code>update</code></td>
+<td>Replaced allow policy</td>
+</tr>
+<tr>
+<td><code>PUT</code></td>
+<td><a href="#put-accountsaccount_idemail-securitysettingstrusted_domainstrusted_domain_id"><code>/accounts/{account_id}/email-security/settings/trusted_domains/{trusted_domain_id}</code></a></td>
+<td><code>update</code></td>
+<td>Replaced trusted domain</td>
+</tr>
+</tbody>
+</table>
+<h2 id="examples">Examples</h2>
+<p>One example per SDK, generated from the API model. The argument names are the parameters and fields of this entity, and the values are placeholders. The examples are not compiled or executed.</p>
+<h3 id="golang">Golang</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/go.html#set-up-the-client">Golang setup</a>, then call the operations:</p>
+<pre><code class="language-go">email_security_settings, err := client.EmailSecuritySetting(nil).List(map[string]any{&quot;account_id&quot;: &quot;example&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(email_security_settings)
+email_security_setting, err := client.EmailSecuritySetting(nil).Load(map[string]any{&quot;account_id&quot;: &quot;example&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(email_security_setting)
+created, err := client.EmailSecuritySetting(nil).Create(map[string]any{&quot;account_id&quot;: &quot;example&quot;, &quot;allowed_delivery_modes&quot;: []any{}, &quot;deletes&quot;: []any{}, &quot;domain&quot;: &quot;example&quot;, &quot;drop_dispositions&quot;: []any{}, &quot;ip_restrictions&quot;: []any{}, &quot;patches&quot;: []any{}, &quot;pattern&quot;: &quot;example&quot;, &quot;posts&quot;: []any{}, &quot;puts&quot;: []any{}, &quot;regions&quot;: []any{}}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(created)
+updated, err := client.EmailSecuritySetting(nil).Update(map[string]any{&quot;account_id&quot;: &quot;example&quot;, &quot;domain_id&quot;: &quot;example&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(updated)
+removed, err := client.EmailSecuritySetting(nil).Remove(map[string]any{&quot;account_id&quot;: &quot;example&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(removed)
+</code></pre>
+<h3 id="lua">Lua</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/lua.html#set-up-the-client">Lua setup</a>, then call the operations:</p>
+<pre><code class="language-lua">local email_security_settings, err = client:EmailSecuritySetting():list({ account_id = &quot;example&quot; })
+local email_security_setting, err = client:EmailSecuritySetting():load({ account_id = &quot;example&quot; })
+local created, err = client:EmailSecuritySetting():create({ account_id = &quot;example&quot;, allowed_delivery_modes = {}, deletes = {}, domain = &quot;example&quot;, drop_dispositions = {}, ip_restrictions = {}, patches = {}, pattern = &quot;example&quot;, posts = {}, puts = {}, regions = {} })
+local updated, err = client:EmailSecuritySetting():update({ account_id = &quot;example&quot;, domain_id = &quot;example&quot; })
+local removed, err = client:EmailSecuritySetting():remove({ account_id = &quot;example&quot; })
+</code></pre>
+<h3 id="php">PHP</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/php.html#set-up-the-client">PHP setup</a>, then call the operations:</p>
+<pre><code class="language-php">$email_security_settings = $client-&gt;EmailSecuritySetting()-&gt;list([&quot;account_id&quot; =&gt; &quot;example&quot;]);
+$email_security_setting = $client-&gt;EmailSecuritySetting()-&gt;load([&quot;account_id&quot; =&gt; &quot;example&quot;]);
+$created = $client-&gt;EmailSecuritySetting()-&gt;create([&quot;account_id&quot; =&gt; &quot;example&quot;, &quot;allowed_delivery_modes&quot; =&gt; [], &quot;deletes&quot; =&gt; [], &quot;domain&quot; =&gt; &quot;example&quot;, &quot;drop_dispositions&quot; =&gt; [], &quot;ip_restrictions&quot; =&gt; [], &quot;patches&quot; =&gt; [], &quot;pattern&quot; =&gt; &quot;example&quot;, &quot;posts&quot; =&gt; [], &quot;puts&quot; =&gt; [], &quot;regions&quot; =&gt; []]);
+$updated = $client-&gt;EmailSecuritySetting()-&gt;update([&quot;account_id&quot; =&gt; &quot;example&quot;, &quot;domain_id&quot; =&gt; &quot;example&quot;]);
+$client-&gt;EmailSecuritySetting()-&gt;remove([&quot;account_id&quot; =&gt; &quot;example&quot;]);
+</code></pre>
+<h3 id="python">Python</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/py.html#set-up-the-client">Python setup</a>, then call the operations:</p>
+<pre><code class="language-py">email_security_settings = client.EmailSecuritySetting().list({&quot;account_id&quot;: &quot;example&quot;})
+email_security_setting = client.EmailSecuritySetting().load({&quot;account_id&quot;: &quot;example&quot;})
+created = client.EmailSecuritySetting().create({ &quot;account_id&quot;: &quot;example&quot;, &quot;allowed_delivery_modes&quot;: [], &quot;deletes&quot;: [], &quot;domain&quot;: &quot;example&quot;, &quot;drop_dispositions&quot;: [], &quot;ip_restrictions&quot;: [], &quot;patches&quot;: [], &quot;pattern&quot;: &quot;example&quot;, &quot;posts&quot;: [], &quot;puts&quot;: [], &quot;regions&quot;: [] })
+updated = client.EmailSecuritySetting().update({&quot;account_id&quot;: &quot;example&quot;, &quot;domain_id&quot;: &quot;example&quot;})
+client.EmailSecuritySetting().remove({&quot;account_id&quot;: &quot;example&quot;})
+</code></pre>
+<h3 id="ruby">Ruby</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/rb.html#set-up-the-client">Ruby setup</a>, then call the operations:</p>
+<pre><code class="language-rb">email_security_settings = client.EmailSecuritySetting.list({ &quot;account_id&quot; =&gt; &quot;example&quot; })
+email_security_setting = client.EmailSecuritySetting.load({ &quot;account_id&quot; =&gt; &quot;example&quot; })
+created = client.EmailSecuritySetting.create({ &quot;account_id&quot; =&gt; &quot;example&quot;, &quot;allowed_delivery_modes&quot; =&gt; [], &quot;deletes&quot; =&gt; [], &quot;domain&quot; =&gt; &quot;example&quot;, &quot;drop_dispositions&quot; =&gt; [], &quot;ip_restrictions&quot; =&gt; [], &quot;patches&quot; =&gt; [], &quot;pattern&quot; =&gt; &quot;example&quot;, &quot;posts&quot; =&gt; [], &quot;puts&quot; =&gt; [], &quot;regions&quot; =&gt; [] })
+updated = client.EmailSecuritySetting.update({ &quot;account_id&quot; =&gt; &quot;example&quot;, &quot;domain_id&quot; =&gt; &quot;example&quot; })
+client.EmailSecuritySetting.remove({ &quot;account_id&quot; =&gt; &quot;example&quot; })
+</code></pre>
+<h3 id="typescript">TypeScript</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/ts.html#set-up-the-client">TypeScript setup</a>, then call the operations:</p>
+<pre><code class="language-ts">const email_security_settings = await client.EmailSecuritySetting().list({ account_id: &quot;example&quot; })
+const email_security_setting = await client.EmailSecuritySetting().load({ account_id: &quot;example&quot; })
+const created = await client.EmailSecuritySetting().create({ account_id: &quot;example&quot;, allowed_delivery_modes: [], deletes: [], domain: &quot;example&quot;, drop_dispositions: [], ip_restrictions: [], patches: [], pattern: &quot;example&quot;, posts: [], puts: [], regions: [] })
+const updated = await client.EmailSecuritySetting().update({ account_id: &quot;example&quot;, domain_id: &quot;example&quot; })
+await client.EmailSecuritySetting().remove({ account_id: &quot;example&quot; })
+</code></pre>
+<h2 id="fields">Fields</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>allowed_delivery_modes</code></td>
+<td><code>array</code></td>
+<td>Yes</td>
+<td>Delivery modes to onboard the domain through.</td>
+</tr>
+<tr>
+<td><code>comments</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Optional note describing the reason for the ignore pattern.</td>
+</tr>
+<tr>
+<td><code>deletes</code></td>
+<td><code>array</code></td>
+<td>Yes</td>
+<td>IDs of the allow policies to delete.</td>
+</tr>
+<tr>
+<td><code>domain</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The email domain to protect.</td>
+</tr>
+<tr>
+<td><code>drop_dispositions</code></td>
+<td><code>array</code></td>
+<td>Yes</td>
+<td>Dispositions to drop instead of delivering, for example</td>
+</tr>
+<tr>
+<td><code>folder</code></td>
+<td><code>any</code></td>
+<td>No</td>
+<td>The mailbox folder to scan, for API-scanning domains.</td>
+</tr>
+<tr>
+<td><code>integration_id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Identifier of the CASB integration that authorizes this domain.</td>
+</tr>
+<tr>
+<td><code>ip_restrictions</code></td>
+<td><code>array</code></td>
+<td>Yes</td>
+<td>Source IP ranges mail is accepted from.</td>
+</tr>
+<tr>
+<td><code>lookback_hops</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td>Number of hops to trace back through received headers when reconstructing the original message (1-20).</td>
+</tr>
+<tr>
+<td><code>patches</code></td>
+<td><code>array</code></td>
+<td>Yes</td>
+<td>Partial updates to apply, each entry carries the policy's ID and only the fields to change.</td>
+</tr>
+<tr>
+<td><code>pattern</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Regular expression identifying URLs to exempt from rewriting.</td>
+</tr>
+<tr>
+<td><code>posts</code></td>
+<td><code>array</code></td>
+<td>Yes</td>
+<td>Allow policies to create.</td>
+</tr>
+<tr>
+<td><code>puts</code></td>
+<td><code>array</code></td>
+<td>Yes</td>
+<td>Full replacements to apply, each entry carries the policy's ID and every field of its new value.</td>
+</tr>
+<tr>
+<td><code>regions</code></td>
+<td><code>array</code></td>
+<td>Yes</td>
+<td>Regions that process messages for this domain, for example</td>
+</tr>
+<tr>
+<td><code>require_tls_inbound</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Require TLS on inbound connections.</td>
+</tr>
+<tr>
+<td><code>require_tls_outbound</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Require TLS on outbound connections.</td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>An impersonation registry entry.</td>
+</tr>
+<tr>
+<td><code>transport</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The mail transport hostname for MX/Inline delivery, the MX record Cloudflare delivers email to (for example</td>
+</tr>
+</tbody>
+</table>
+<h2 id="create">create</h2>
+<h3 id="post-accountsaccount_idemail-securitysettingsallow_policies" class="operation" data-method="post"><code>POST</code> /accounts/{account_id}/email-security/settings/allow_policies</h3>
+<p>Operation ID: <code>email_security_create_allow_policy</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Account identifier tag. |</p>
+<h4 id="request-body">Request body</h4>
+<p><code>application/json</code></p>
+<p>The request body is <code>object</code>.</p>
+<h4 id="responses">Responses</h4>
+<h5 id="201-created-allow-policy" class="status" data-status="2xx">201: Created allow policy</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="4xx-client-error">4XX: Client error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="post-accountsaccount_idemail-securitysettingsallow_policiesbatch" class="operation" data-method="post"><code>POST</code> /accounts/{account_id}/email-security/settings/allow_policies/batch</h3>
+<p>Operation ID: <code>email_security_batch_allow_policies</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-1">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Account identifier tag. |</p>
+<h4 id="request-body-1">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>deletes</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>IDs of the allow policies to delete.</td>
+</tr>
+<tr>
+<td><code>deletes[].id</code></td>
+<td><code>string (uuid)</code></td>
+<td>Yes</td>
+<td>Allow policy identifier.</td>
+</tr>
+<tr>
+<td><code>patches</code></td>
+<td><code>array of object and object</code></td>
+<td>Yes</td>
+<td>Partial updates to apply, each entry carries the policy's ID and only the fields to change.</td>
+</tr>
+<tr>
+<td><code>posts</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>Allow policies to create.</td>
+</tr>
+<tr>
+<td><code>puts</code></td>
+<td><code>array of object and object</code></td>
+<td>Yes</td>
+<td>Full replacements to apply, each entry carries the policy's ID and every field of its new value.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses-1">Responses</h4>
+<h5 id="200-batch-operation-results" class="status" data-status="2xx">200: Batch operation results</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="4xx-client-error-1">4XX: Client error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="post-accountsaccount_idemail-securitysettingsblock_senders" class="operation" data-method="post"><code>POST</code> /accounts/{account_id}/email-security/settings/block_senders</h3>
+<p>Operation ID: <code>email_security_create_blocked_sender</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-2">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Account identifier tag. |</p>
+<h4 id="request-body-2">Request body</h4>
+<p><code>application/json</code></p>
+<p>The request body is <code>object</code>.</p>
+<h4 id="responses-2">Responses</h4>
+<h5 id="201-created-blocked-sender" class="status" data-status="2xx">201: Created blocked sender</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="4xx-client-error-2">4XX: Client error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="post-accountsaccount_idemail-securitysettingsblock_sendersbatch" class="operation" data-method="post"><code>POST</code> /accounts/{account_id}/email-security/settings/block_senders/batch</h3>
+<p>Operation ID: <code>email_security_batch_blocked_senders</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-3">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Account identifier tag. |</p>
+<h4 id="request-body-3">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>deletes</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>IDs of the blocked sender patterns to delete.</td>
+</tr>
+<tr>
+<td><code>deletes[].id</code></td>
+<td><code>string (uuid)</code></td>
+<td>Yes</td>
+<td>Blocked sender pattern identifier.</td>
+</tr>
+<tr>
+<td><code>patches</code></td>
+<td><code>array of object and object</code></td>
+<td>Yes</td>
+<td>Partial updates to apply, each entry carries the pattern's ID and only the fields to change.</td>
+</tr>
+<tr>
+<td><code>posts</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>Blocked sender patterns to create.</td>
+</tr>
+<tr>
+<td><code>puts</code></td>
+<td><code>array of object and object</code></td>
+<td>Yes</td>
+<td>Full replacements to apply, each entry carries the pattern's ID and every field of its new value.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses-3">Responses</h4>
+<h5 id="200-batch-operation-results-1" class="status" data-status="2xx">200: Batch operation results</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="4xx-client-error-3">4XX: Client error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="post-accountsaccount_idemail-securitysettingscontent_policies" class="operation" data-method="post"><code>POST</code> /accounts/{account_id}/email-security/settings/content_policies</h3>
+<p>Operation ID: <code>email_security_create_content_policy</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-4">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Account identifier tag. |</p>
+<h4 id="request-body-4">Request body</h4>
+<p><code>application/json</code></p>
+<p>The request body is <code>object</code>.</p>
+<h4 id="responses-4">Responses</h4>
+<h5 id="201-created-content-policy" class="status" data-status="2xx">201: Created content policy</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="4xx-client-error-4">4XX: Client error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="post-accountsaccount_idemail-securitysettingscontent_policiesbatch" class="operation" data-method="post"><code>POST</code> /accounts/{account_id}/email-security/settings/content_policies/batch</h3>
+<p>Operation ID: <code>email_security_batch_content_policies</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-5">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Account identifier tag. |</p>
+<h4 id="request-body-5">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>deletes</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>IDs of the content policies to delete.</td>
+</tr>
+<tr>
+<td><code>deletes[].id</code></td>
+<td><code>string (uuid)</code></td>
+<td>Yes</td>
+<td>Content policy identifier.</td>
+</tr>
+<tr>
+<td><code>patches</code></td>
+<td><code>array of object and object</code></td>
+<td>Yes</td>
+<td>Partial updates to apply, each entry carries the policy's ID and only the fields to change.</td>
+</tr>
+<tr>
+<td><code>posts</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>Content policies to create.</td>
+</tr>
+<tr>
+<td><code>puts</code></td>
+<td><code>array of object and object</code></td>
+<td>Yes</td>
+<td>Full replacements to apply, each entry carries the policy's ID and every field of its new value.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses-5">Responses</h4>
+<h5 id="200-batch-operation-results-2" class="status" data-status="2xx">200: Batch operation results</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="4xx-client-error-5">4XX: Client error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="post-accountsaccount_idemail-securitysettingsdomains" class="operation" data-method="post"><code>POST</code> /accounts/{account_id}/email-security/settings/domains</h3>
+<p>Operation ID: <code>email_security_create_domains</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-6">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Account identifier tag. |</p>
+<h4 id="request-body-6">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>allowed_delivery_modes</code></td>
+<td><code>array of enum: DIRECT, BCC, JOURNAL, API, RETRO_SCAN</code></td>
+<td>Yes</td>
+<td>Delivery modes to onboard the domain through.</td>
+</tr>
+<tr>
+<td><code>domain</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The email domain to protect.</td>
+</tr>
+<tr>
+<td><code>drop_dispositions</code></td>
+<td><code>array of enum: MALICIOUS, MALICIOUS-BEC, SUSPICIOUS, SPOOF, SPAM, BULK, ...</code></td>
+<td>Yes</td>
+<td>Dispositions to drop instead of delivering, for example <code>[&amp;quot;MALICIOUS&amp;quot;, &amp;quot;SPAM&amp;quot;]</code>.</td>
+</tr>
+<tr>
+<td><code>folder</code></td>
+<td><code>enum: AllItems, Inbox, null</code></td>
+<td>No</td>
+<td>The mailbox folder to scan, for API-scanning domains.</td>
+</tr>
+<tr>
+<td><code>integration_id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>Identifier of the CASB integration that authorizes this domain. The integration also enables API scanning, post-delivery actions, and directory sync.</td>
+</tr>
+<tr>
+<td><code>ip_restrictions</code></td>
+<td><code>array of string</code></td>
+<td>Yes</td>
+<td>Source IP ranges mail is accepted from. Any other source is rejected.</td>
+</tr>
+<tr>
+<td><code>lookback_hops</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td>Number of hops to trace back through received headers when reconstructing the original message (1-20).</td>
+</tr>
+<tr>
+<td><code>regions</code></td>
+<td><code>array of enum: GLOBAL, AU, DE, IN, US</code></td>
+<td>Yes</td>
+<td>Regions that process messages for this domain, for example <code>[&amp;quot;GLOBAL&amp;quot;]</code> or <code>[&amp;quot;US&amp;quot;]</code>.</td>
+</tr>
+<tr>
+<td><code>require_tls_inbound</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Require TLS on inbound connections.</td>
+</tr>
+<tr>
+<td><code>require_tls_outbound</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Require TLS on outbound connections.</td>
+</tr>
+<tr>
+<td><code>transport</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The mail transport hostname for MX/Inline delivery, the MX record Cloudflare delivers email to (for example <code>mx.example.com</code>).</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses-6">Responses</h4>
+<h5 id="201-created-domain" class="status" data-status="2xx">201: Created domain</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="4xx-client-error-6">4XX: Client error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="post-accountsaccount_idemail-securitysettingsdomainsbatch" class="operation" data-method="post"><code>POST</code> /accounts/{account_id}/email-security/settings/domains/batch</h3>
+<p>Operation ID: <code>email_security_batch_domains</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-7">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Account identifier tag. |</p>
+<h4 id="request-body-7">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>deletes</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>IDs of the domains to remove protection from.</td>
+</tr>
+<tr>
+<td><code>deletes[].id</code></td>
+<td><code>string (uuid)</code></td>
+<td>Yes</td>
+<td>Domain identifier.</td>
+</tr>
+<tr>
+<td><code>patches</code></td>
+<td><code>array of object and object</code></td>
+<td>Yes</td>
+<td>Partial updates to apply, each entry carries the domain's ID and only the fields to change.</td>
+</tr>
+<tr>
+<td><code>posts</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>Domains to add protection for.</td>
+</tr>
+<tr>
+<td><code>posts[].allowed_delivery_modes</code></td>
+<td><code>array of enum: DIRECT, BCC, JOURNAL, API, RETRO_SCAN</code></td>
+<td>Yes</td>
+<td>Delivery modes to onboard the domain through.</td>
+</tr>
+<tr>
+<td><code>posts[].domain</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The email domain to protect.</td>
+</tr>
+<tr>
+<td><code>posts[].drop_dispositions</code></td>
+<td><code>array of enum: MALICIOUS, MALICIOUS-BEC, SUSPICIOUS, SPOOF, SPAM, BULK, ...</code></td>
+<td>Yes</td>
+<td>Dispositions to drop instead of delivering, for example <code>[&amp;quot;MALICIOUS&amp;quot;, &amp;quot;SPAM&amp;quot;]</code>.</td>
+</tr>
+<tr>
+<td><code>posts[].folder</code></td>
+<td><code>enum: AllItems, Inbox, null</code></td>
+<td>No</td>
+<td>The mailbox folder to scan, for API-scanning domains.</td>
+</tr>
+<tr>
+<td><code>posts[].integration_id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>Identifier of the CASB integration that authorizes this domain. The integration also enables API scanning, post-delivery actions, and directory sync.</td>
+</tr>
+<tr>
+<td><code>posts[].ip_restrictions</code></td>
+<td><code>array of string</code></td>
+<td>Yes</td>
+<td>Source IP ranges mail is accepted from. Any other source is rejected.</td>
+</tr>
+<tr>
+<td><code>posts[].lookback_hops</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td>Number of hops to trace back through received headers when reconstructing the original message (1-20).</td>
+</tr>
+<tr>
+<td><code>posts[].regions</code></td>
+<td><code>array of enum: GLOBAL, AU, DE, IN, US</code></td>
+<td>Yes</td>
+<td>Regions that process messages for this domain, for example <code>[&amp;quot;GLOBAL&amp;quot;]</code> or <code>[&amp;quot;US&amp;quot;]</code>.</td>
+</tr>
+<tr>
+<td><code>posts[].require_tls_inbound</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Require TLS on inbound connections.</td>
+</tr>
+<tr>
+<td><code>posts[].require_tls_outbound</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Require TLS on outbound connections.</td>
+</tr>
+<tr>
+<td><code>posts[].transport</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The mail transport hostname for MX/Inline delivery, the MX record Cloudflare delivers email to (for example <code>mx.example.com</code>).</td>
+</tr>
+<tr>
+<td><code>puts</code></td>
+<td><code>array of object and object</code></td>
+<td>Yes</td>
+<td>Full replacements to apply, each entry carries the domain's ID and every field of its new value.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses-7">Responses</h4>
+<h5 id="200-batch-operation-results-3" class="status" data-status="2xx">200: Batch operation results</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="4xx-client-error-7">4XX: Client error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="post-accountsaccount_idemail-securitysettingsimpersonation_registry" class="operation" data-method="post"><code>POST</code> /accounts/{account_id}/email-security/settings/impersonation_registry</h3>
+<p>Operation ID: <code>email_security_create_impersonation_registry</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-8">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Account identifier tag. |</p>
+<h4 id="request-body-8">Request body</h4>
+<p><code>application/json</code></p>
+<p>The request body is <code>object</code>.</p>
+<h4 id="responses-8">Responses</h4>
+<h5 id="201-created-impersonation-registry-entry" class="status" data-status="2xx">201: Created impersonation registry entry</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="4xx-client-error-8">4XX: Client error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="post-accountsaccount_idemail-securitysettingssending_domain_restrictions" class="operation" data-method="post"><code>POST</code> /accounts/{account_id}/email-security/settings/sending_domain_restrictions</h3>
+<p>Operation ID: <code>email_security_create_sending_domain_restriction</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-9">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Account identifier tag. |</p>
+<h4 id="request-body-9">Request body</h4>
+<p><code>application/json</code></p>
+<p>The request body is <code>object</code>.</p>
+<h4 id="responses-9">Responses</h4>
+<h5 id="201-created-sending-domain-restriction" class="status" data-status="2xx">201: Created sending domain restriction</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="4xx-client-error-9">4XX: Client error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="post-accountsaccount_idemail-securitysettingssending_domain_restrictionsbatch" class="operation" data-method="post"><code>POST</code> /accounts/{account_id}/email-security/settings/sending_domain_restrictions/batch</h3>
+<p>Operation ID: <code>email_security_batch_sending_domain_restrictions</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-10">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Account identifier tag. |</p>
+<h4 id="request-body-10">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>deletes</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>IDs of the sending domain restrictions to delete.</td>
+</tr>
+<tr>
+<td><code>deletes[].id</code></td>
+<td><code>string (uuid)</code></td>
+<td>Yes</td>
+<td>Sending domain restriction identifier.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses-10">Responses</h4>
+<h5 id="200-batch-operation-results-4" class="status" data-status="2xx">200: Batch operation results</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="4xx-client-error-10">4XX: Client error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="post-accountsaccount_idemail-securitysettingstrusted_domains" class="operation" data-method="post"><code>POST</code> /accounts/{account_id}/email-security/settings/trusted_domains</h3>
+<p>Operation ID: <code>email_security_create_trusted_domain</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-11">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Account identifier tag. |</p>
+<h4 id="request-body-11">Request body</h4>
+<p><code>application/json</code></p>
+<p>The request body is <code>object</code>.</p>
+<h4 id="responses-11">Responses</h4>
+<h5 id="201-created-trusted-domain" class="status" data-status="2xx">201: Created trusted domain</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="4xx-client-error-11">4XX: Client error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="post-accountsaccount_idemail-securitysettingstrusted_domainsbatch" class="operation" data-method="post"><code>POST</code> /accounts/{account_id}/email-security/settings/trusted_domains/batch</h3>
+<p>Operation ID: <code>email_security_batch_trusted_domains</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-12">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Account identifier tag. |</p>
+<h4 id="request-body-12">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>deletes</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>IDs of the trusted domain patterns to delete.</td>
+</tr>
+<tr>
+<td><code>deletes[].id</code></td>
+<td><code>string (uuid)</code></td>
+<td>Yes</td>
+<td>Trusted domain identifier.</td>
+</tr>
+<tr>
+<td><code>patches</code></td>
+<td><code>array of object and object</code></td>
+<td>Yes</td>
+<td>Partial updates to apply, each entry carries the pattern's ID and only the fields to change.</td>
+</tr>
+<tr>
+<td><code>posts</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>Trusted domain patterns to create.</td>
+</tr>
+<tr>
+<td><code>puts</code></td>
+<td><code>array of object and object</code></td>
+<td>Yes</td>
+<td>Full replacements to apply, each entry carries the pattern's ID and every field of its new value.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses-12">Responses</h4>
+<h5 id="200-batch-operation-results-5" class="status" data-status="2xx">200: Batch operation results</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="4xx-client-error-12">4XX: Client error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="post-accountsaccount_idemail-securitysettingsurl_ignore_patterns" class="operation" data-method="post"><code>POST</code> /accounts/{account_id}/email-security/settings/url_ignore_patterns</h3>
+<p>Operation ID: <code>email_security_create_url_ignore_pattern</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-13">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Account identifier tag. |</p>
+<h4 id="request-body-13">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>comments</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Optional note describing the reason for the ignore pattern.</td>
+</tr>
+<tr>
+<td><code>pattern</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Regular expression identifying URLs to exempt from rewriting.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses-13">Responses</h4>
+<h5 id="201-created-url-ignore-pattern" class="status" data-status="2xx">201: Created URL ignore pattern</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="4xx-client-error-13">4XX: Client error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="post-accountsaccount_idemail-securitysettingsurl_ignore_patternsbatch" class="operation" data-method="post"><code>POST</code> /accounts/{account_id}/email-security/settings/url_ignore_patterns/batch</h3>
+<p>Operation ID: <code>email_security_batch_url_ignore_patterns</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-14">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Account identifier tag. |</p>
+<h4 id="request-body-14">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>deletes</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>IDs of the URL ignore patterns to delete.</td>
+</tr>
+<tr>
+<td><code>deletes[].id</code></td>
+<td><code>string (uuid)</code></td>
+<td>Yes</td>
+<td>URL ignore pattern identifier.</td>
+</tr>
+<tr>
+<td><code>patches</code></td>
+<td><code>array of object and object</code></td>
+<td>Yes</td>
+<td>Partial updates to apply, each entry carries the pattern's ID and only the fields to change.</td>
+</tr>
+<tr>
+<td><code>posts</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>URL ignore patterns to create.</td>
+</tr>
+<tr>
+<td><code>posts[].comments</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Optional note describing the reason for the ignore pattern.</td>
+</tr>
+<tr>
+<td><code>posts[].pattern</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Regular expression identifying URLs to exempt from rewriting.</td>
+</tr>
+<tr>
+<td><code>puts</code></td>
+<td><code>array of object and object</code></td>
+<td>Yes</td>
+<td>Full replacements to apply, each entry carries the pattern's ID and every field of its new value.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses-14">Responses</h4>
+<h5 id="200-batch-operation-results-6" class="status" data-status="2xx">200: Batch operation results</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="4xx-client-error-14">4XX: Client error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="list">list</h2>
+<h3 id="get-accountsaccount_idemail-securitysettingsallow_policies" class="operation" data-method="get"><code>GET</code> /accounts/{account_id}/email-security/settings/allow_policies</h3>
+<p>Operation ID: <code>email_security_list_allow_policies</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-15">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Account identifier tag. |
+| <code>page</code> | <code>query</code> | <code>integer</code> | No | Current page within paginated list of results. |
+| <code>per_page</code> | <code>query</code> | <code>integer</code> | No | The number of results per page. Maximum value is 1000. |
+| <code>search</code> | <code>query</code> | <code>string</code> | No | Search term for filtering records. Behavior may change. |
+| <code>order</code> | <code>query</code> | <code>enum: pattern, created_at</code> | No | Field to sort by. |
+| <code>direction</code> | <code>query</code> | <code>enum: asc, desc</code> | No | The sorting direction. |
+| <code>is_exempt_recipient</code> | <code>query</code> | <code>boolean</code> | No | Filter to show only policies where messages to the recipient bypass all detections. |
+| <code>is_trusted_sender</code> | <code>query</code> | <code>boolean</code> | No | Filter to show only policies where messages from the sender bypass all detections and link following. |
+| <code>is_acceptable_sender</code> | <code>query</code> | <code>boolean</code> | No | Filter to show only policies where messages from the sender are exempted from Spam, Spoof, and Bulk dispositions (not Malicious or Suspicious). |
+| <code>verify_sender</code> | <code>query</code> | <code>boolean</code> | No | Filter to show only policies that enforce DMARC, SPF, or DKIM authentication. |
+| <code>pattern_type</code> | <code>query</code> | <code>enum: EMAIL, DOMAIN, IP, UNKNOWN</code> | No | Filter by pattern type. |
+| <code>pattern</code> | <code>query</code> | <code>string</code> | No | Filter by exact pattern value. |</p>
+<h4 id="responses-15">Responses</h4>
+<h5 id="200-list-of-allow-policies" class="status" data-status="2xx">200: List of allow policies</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object and object</code>.</p>
+<h5 id="4xx-client-error-15">4XX: Client error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-accountsaccount_idemail-securitysettingsdomains" class="operation" data-method="get"><code>GET</code> /accounts/{account_id}/email-security/settings/domains</h3>
+<p>Operation ID: <code>email_security_list_domains</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-16">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Account identifier tag. |
+| <code>page</code> | <code>query</code> | <code>integer</code> | No | Current page within paginated list of results. |
+| <code>per_page</code> | <code>query</code> | <code>integer</code> | No | The number of results per page. Maximum value is 1000. |
+| <code>search</code> | <code>query</code> | <code>string</code> | No | Search term for filtering records. Behavior may change. |
+| <code>order</code> | <code>query</code> | <code>enum: domain, created_at</code> | No | Field to sort by. |
+| <code>direction</code> | <code>query</code> | <code>enum: asc, desc</code> | No | The sorting direction. |
+| <code>allowed_delivery_mode</code> | <code>query</code> | <code>enum: DIRECT, BCC, JOURNAL, API, RETRO_SCAN</code> | No | Delivery mode to filter by. |
+| <code>domain</code> | <code>query</code> | <code>array of string</code> | No | Domain names to filter by. |
+| <code>active_delivery_mode</code> | <code>query</code> | <code>enum: DIRECT, BCC, JOURNAL, API, RETRO_SCAN</code> | No | Currently active delivery mode to filter by. |
+| <code>integration_id</code> | <code>query</code> | <code>string (uuid)</code> | No | Integration ID to filter by. |
+| <code>status</code> | <code>query</code> | <code>enum: PENDING, ACTIVE, FAILED, TIMEOUT, null</code> | No | Filters response to domains with the provided status. |</p>
+<h4 id="responses-16">Responses</h4>
+<h5 id="200-list-of-domains" class="status" data-status="2xx">200: List of domains</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object and object</code>.</p>
+<h5 id="4xx-client-error-16">4XX: Client error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-accountsaccount_idemail-securitysettingstrusted_domains" class="operation" data-method="get"><code>GET</code> /accounts/{account_id}/email-security/settings/trusted_domains</h3>
+<p>Operation ID: <code>email_security_list_trusted_domains</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-17">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Account identifier tag. |
+| <code>page</code> | <code>query</code> | <code>integer</code> | No | Current page within paginated list of results. |
+| <code>per_page</code> | <code>query</code> | <code>integer</code> | No | The number of results per page. Maximum value is 1000. |
+| <code>search</code> | <code>query</code> | <code>string</code> | No | Search term for filtering records. Behavior may change. |
+| <code>order</code> | <code>query</code> | <code>enum: pattern, created_at</code> | No | Field to sort by. |
+| <code>direction</code> | <code>query</code> | <code>enum: asc, desc</code> | No | The sorting direction. |
+| <code>is_recent</code> | <code>query</code> | <code>boolean</code> | No | Filter to show only recently registered domains that are trusted to prevent triggering Suspicious or Malicious dispositions. |
+| <code>is_similarity</code> | <code>query</code> | <code>boolean</code> | No | Filter to show only proximity domains (partner or approved domains with similar spelling to connected domains) that prevent Spoof dispositions. |
+| <code>pattern</code> | <code>query</code> | <code>string</code> | No |  |</p>
+<h4 id="responses-17">Responses</h4>
+<h5 id="200-list-of-trusted-domains" class="status" data-status="2xx">200: List of trusted domains</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object and object</code>.</p>
+<h5 id="4xx-client-error-17">4XX: Client error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-accountsaccount_idemail-securitysettingscontent_policies" class="operation" data-method="get"><code>GET</code> /accounts/{account_id}/email-security/settings/content_policies</h3>
+<p>Operation ID: <code>email_security_list_content_policies</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-18">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Account identifier tag. |
+| <code>page</code> | <code>query</code> | <code>integer</code> | No | Current page within paginated list of results. |
+| <code>per_page</code> | <code>query</code> | <code>integer</code> | No | The number of results per page. Maximum value is 1000. |
+| <code>search</code> | <code>query</code> | <code>string</code> | No | Search term for filtering records. Behavior may change. |
+| <code>order</code> | <code>query</code> | <code>enum: name, created_at</code> | No | Field to sort by. |
+| <code>direction</code> | <code>query</code> | <code>enum: asc, desc</code> | No | The sorting direction. |
+| <code>enabled</code> | <code>query</code> | <code>boolean</code> | No | Filter by enabled status. |
+| <code>name</code> | <code>query</code> | <code>string</code> | No | Filter by exact policy name. |</p>
+<h4 id="responses-18">Responses</h4>
+<h5 id="200-list-of-content-policies" class="status" data-status="2xx">200: List of content policies</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object and object</code>.</p>
+<h5 id="4xx-client-error-18">4XX: Client error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-accountsaccount_idemail-securitysettingsblock_senders" class="operation" data-method="get"><code>GET</code> /accounts/{account_id}/email-security/settings/block_senders</h3>
+<p>Operation ID: <code>email_security_list_blocked_senders</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-19">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Account identifier tag. |
+| <code>page</code> | <code>query</code> | <code>integer</code> | No | Current page within paginated list of results. |
+| <code>per_page</code> | <code>query</code> | <code>integer</code> | No | The number of results per page. Maximum value is 1000. |
+| <code>search</code> | <code>query</code> | <code>string</code> | No | Search term for filtering records. Behavior may change. |
+| <code>order</code> | <code>query</code> | <code>enum: pattern, created_at</code> | No | Field to sort by. |
+| <code>direction</code> | <code>query</code> | <code>enum: asc, desc</code> | No | The sorting direction. |
+| <code>pattern_type</code> | <code>query</code> | <code>enum: EMAIL, DOMAIN, IP, UNKNOWN</code> | No | Filter by pattern type. |
+| <code>pattern</code> | <code>query</code> | <code>string</code> | No | Filter by pattern value. |</p>
+<h4 id="responses-19">Responses</h4>
+<h5 id="200-list-of-blocked-senders" class="status" data-status="2xx">200: List of blocked senders</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object and object</code>.</p>
+<h5 id="4xx-client-error-19">4XX: Client error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-accountsaccount_idemail-securitysettingsimpersonation_registry" class="operation" data-method="get"><code>GET</code> /accounts/{account_id}/email-security/settings/impersonation_registry</h3>
+<p>Operation ID: <code>email_security_list_impersonation_registry</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-20">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Account identifier tag. |
+| <code>page</code> | <code>query</code> | <code>integer</code> | No | Current page within paginated list of results. |
+| <code>per_page</code> | <code>query</code> | <code>integer</code> | No | The number of results per page. Maximum value is 1000. |
+| <code>search</code> | <code>query</code> | <code>string</code> | No | Search term for filtering records. Behavior may change. |
+| <code>order</code> | <code>query</code> | <code>enum: name, email, created_at</code> | No | Field to sort by. |
+| <code>direction</code> | <code>query</code> | <code>enum: asc, desc</code> | No | The sorting direction. |
+| <code>provenance</code> | <code>query</code> | <code>enum: A1S_INTERNAL, SNOOPY-CASB_OFFICE_365, SNOOPY-OFFICE_365, SNOOPY-GOOGLE_DIRECTORY</code> | No |  |</p>
+<h4 id="responses-20">Responses</h4>
+<h5 id="200-list-of-impersonation-registry-entries" class="status" data-status="2xx">200: List of impersonation registry entries</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object and object</code>.</p>
+<h5 id="4xx-client-error-20">4XX: Client error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-accountsaccount_idemail-securitysettingssending_domain_restrictions" class="operation" data-method="get"><code>GET</code> /accounts/{account_id}/email-security/settings/sending_domain_restrictions</h3>
+<p>Operation ID: <code>email_security_list_sending_domain_restrictions</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-21">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Account identifier tag. |
+| <code>page</code> | <code>query</code> | <code>integer</code> | No | Current page within paginated list of results. |
+| <code>per_page</code> | <code>query</code> | <code>integer</code> | No | The number of results per page. Maximum value is 1000. |
+| <code>search</code> | <code>query</code> | <code>string</code> | No | Search term for filtering records. Behavior may change. |
+| <code>order</code> | <code>query</code> | <code>enum: domain, created_at</code> | No | Field to sort by. |
+| <code>direction</code> | <code>query</code> | <code>enum: asc, desc</code> | No | The sorting direction. |</p>
+<h4 id="responses-21">Responses</h4>
+<h5 id="200-list-of-sending-domain-restrictions" class="status" data-status="2xx">200: List of sending domain restrictions</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object and object</code>.</p>
+<h5 id="4xx-client-error-21">4XX: Client error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-accountsaccount_idemail-securitysettingsurl_ignore_patterns" class="operation" data-method="get"><code>GET</code> /accounts/{account_id}/email-security/settings/url_ignore_patterns</h3>
+<p>Operation ID: <code>email_security_list_url_ignore_patterns</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-22">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Account identifier tag. |
+| <code>page</code> | <code>query</code> | <code>integer</code> | No | Current page within paginated list of results. |
+| <code>per_page</code> | <code>query</code> | <code>integer</code> | No | The number of results per page. Maximum value is 1000. |</p>
+<h4 id="responses-22">Responses</h4>
+<h5 id="200-list-of-url-ignore-patterns-for-the-provided-account" class="status" data-status="2xx">200: List of URL ignore patterns for the provided account</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object and object</code>.</p>
+<h5 id="4xx-client-error-22">4XX: Client error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="load">load</h2>
+<h3 id="get-accountsaccount_idemail-securitysettingsdomainsdomain_id" class="operation" data-method="get"><code>GET</code> /accounts/{account_id}/email-security/settings/domains/{domain_id}</h3>
+<p>Operation ID: <code>email_security_get_domain</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-23">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Account identifier tag. |
+| <code>domain_id</code> | <code>path</code> | <code>string (uuid)</code> | Yes |  |</p>
+<h4 id="responses-23">Responses</h4>
+<h5 id="200-domain-details" class="status" data-status="2xx">200: Domain details</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="4xx-client-error-23">4XX: Client error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-accountsaccount_idemail-securitysettingsdomainsdomain_idverification" class="operation" data-method="get"><code>GET</code> /accounts/{account_id}/email-security/settings/domains/{domain_id}/verification</h3>
+<p>Operation ID: <code>email_security_get_domain_verification</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-24">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Account identifier tag. |
+| <code>domain_id</code> | <code>path</code> | <code>string (uuid)</code> | Yes |  |</p>
+<h4 id="responses-24">Responses</h4>
+<h5 id="200-dns-txt-verification-details" class="status" data-status="2xx">200: DNS TXT verification details</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="4xx-client-error-24">4XX: Client error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-accountsaccount_idemail-securitysettingsimpersonation_registryimpersonation_registry_id" class="operation" data-method="get"><code>GET</code> /accounts/{account_id}/email-security/settings/impersonation_registry/{impersonation_registry_id}</h3>
+<p>Operation ID: <code>email_security_get_impersonation_registry</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-25">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Account identifier tag. |
+| <code>impersonation_registry_id</code> | <code>path</code> | <code>string (uuid)</code> | Yes |  |</p>
+<h4 id="responses-25">Responses</h4>
+<h5 id="200-impersonation-registry-entry-details" class="status" data-status="2xx">200: Impersonation registry entry details</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="4xx-client-error-25">4XX: Client error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-accountsaccount_idemail-securitysettingsblock_senderspattern_id" class="operation" data-method="get"><code>GET</code> /accounts/{account_id}/email-security/settings/block_senders/{pattern_id}</h3>
+<p>Operation ID: <code>email_security_get_blocked_sender</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-26">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Account identifier tag. |
+| <code>pattern_id</code> | <code>path</code> | <code>string (uuid)</code> | Yes |  |</p>
+<h4 id="responses-26">Responses</h4>
+<h5 id="200-blocked-sender-details" class="status" data-status="2xx">200: Blocked sender details</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="4xx-client-error-26">4XX: Client error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-accountsaccount_idemail-securitysettingsurl_ignore_patternspattern_id" class="operation" data-method="get"><code>GET</code> /accounts/{account_id}/email-security/settings/url_ignore_patterns/{pattern_id}</h3>
+<p>Operation ID: <code>email_security_get_url_ignore_pattern</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-27">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Account identifier tag. |
+| <code>pattern_id</code> | <code>path</code> | <code>string (uuid)</code> | Yes |  |</p>
+<h4 id="responses-27">Responses</h4>
+<h5 id="200-url-ignore-pattern" class="status" data-status="2xx">200: URL ignore pattern</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="4xx-client-error-27">4XX: Client error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-accountsaccount_idemail-securitysettingsallow_policiespolicy_id" class="operation" data-method="get"><code>GET</code> /accounts/{account_id}/email-security/settings/allow_policies/{policy_id}</h3>
+<p>Operation ID: <code>email_security_get_allow_policy</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-28">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Account identifier tag. |
+| <code>policy_id</code> | <code>path</code> | <code>string (uuid)</code> | Yes |  |</p>
+<h4 id="responses-28">Responses</h4>
+<h5 id="200-allow-policy-details" class="status" data-status="2xx">200: Allow policy details</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="4xx-client-error-28">4XX: Client error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-accountsaccount_idemail-securitysettingscontent_policiespolicy_id" class="operation" data-method="get"><code>GET</code> /accounts/{account_id}/email-security/settings/content_policies/{policy_id}</h3>
+<p>Operation ID: <code>email_security_get_content_policy</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-29">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Account identifier tag. |
+| <code>policy_id</code> | <code>path</code> | <code>string (uuid)</code> | Yes |  |</p>
+<h4 id="responses-29">Responses</h4>
+<h5 id="200-content-policy-details" class="status" data-status="2xx">200: Content policy details</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="4xx-client-error-29">4XX: Client error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-accountsaccount_idemail-securitysettingssending_domain_restrictionssending_domain_restriction_id" class="operation" data-method="get"><code>GET</code> /accounts/{account_id}/email-security/settings/sending_domain_restrictions/{sending_domain_restriction_id}</h3>
+<p>Operation ID: <code>email_security_get_sending_domain_restriction</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-30">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Account identifier tag. |
+| <code>sending_domain_restriction_id</code> | <code>path</code> | <code>string (uuid)</code> | Yes |  |</p>
+<h4 id="responses-30">Responses</h4>
+<h5 id="200-sending-domain-restriction-details" class="status" data-status="2xx">200: Sending domain restriction details</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="4xx-client-error-30">4XX: Client error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-accountsaccount_idemail-securitysettingstrusted_domainstrusted_domain_id" class="operation" data-method="get"><code>GET</code> /accounts/{account_id}/email-security/settings/trusted_domains/{trusted_domain_id}</h3>
+<p>Operation ID: <code>email_security_get_trusted_domain</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-31">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Account identifier tag. |
+| <code>trusted_domain_id</code> | <code>path</code> | <code>string (uuid)</code> | Yes |  |</p>
+<h4 id="responses-31">Responses</h4>
+<h5 id="200-trusted-domain-details" class="status" data-status="2xx">200: Trusted domain details</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="4xx-client-error-31">4XX: Client error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="patch">patch</h2>
+<h3 id="patch-accountsaccount_idemail-securitysettingsdomainsdomain_id" class="operation" data-method="patch"><code>PATCH</code> /accounts/{account_id}/email-security/settings/domains/{domain_id}</h3>
+<p>Operation ID: <code>email_security_update_domain</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-32">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Account identifier tag. |
+| <code>domain_id</code> | <code>path</code> | <code>string (uuid)</code> | Yes |  |</p>
+<h4 id="request-body-15">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>allowed_delivery_modes</code></td>
+<td><code>array of enum: DIRECT, BCC, JOURNAL, API, RETRO_SCAN</code></td>
+<td>No</td>
+<td>Delivery modes to onboard the domain through.</td>
+</tr>
+<tr>
+<td><code>drop_dispositions</code></td>
+<td><code>array of enum: MALICIOUS, MALICIOUS-BEC, SUSPICIOUS, SPOOF, SPAM, BULK, ...</code></td>
+<td>No</td>
+<td>Dispositions to drop instead of delivering, for example <code>[&amp;quot;MALICIOUS&amp;quot;, &amp;quot;SPAM&amp;quot;]</code>.</td>
+</tr>
+<tr>
+<td><code>folder</code></td>
+<td><code>enum: AllItems, Inbox, null</code></td>
+<td>No</td>
+<td>The mailbox folder to scan, for API-scanning domains.</td>
+</tr>
+<tr>
+<td><code>integration_id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>Identifier of the CASB integration that authorizes this domain. The integration also enables API scanning, post-delivery actions, and directory sync.</td>
+</tr>
+<tr>
+<td><code>ip_restrictions</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td>Source IP ranges mail is accepted from. Any other source is rejected.</td>
+</tr>
+<tr>
+<td><code>lookback_hops</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td>Number of hops to trace back through received headers when reconstructing the original message (1-20).</td>
+</tr>
+<tr>
+<td><code>regions</code></td>
+<td><code>array of enum: GLOBAL, AU, DE, IN, US</code></td>
+<td>No</td>
+<td>Regions that process messages for this domain, for example <code>[&amp;quot;GLOBAL&amp;quot;]</code> or <code>[&amp;quot;US&amp;quot;]</code>.</td>
+</tr>
+<tr>
+<td><code>require_tls_inbound</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Require TLS on inbound connections.</td>
+</tr>
+<tr>
+<td><code>require_tls_outbound</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Require TLS on outbound connections.</td>
+</tr>
+<tr>
+<td><code>transport</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The mail transport hostname for MX/Inline delivery, the MX record Cloudflare delivers email to (for example <code>mx.example.com</code>).</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses-32">Responses</h4>
+<h5 id="200-updated-domain" class="status" data-status="2xx">200: Updated domain</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="4xx-client-error-32">4XX: Client error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="patch-accountsaccount_idemail-securitysettingsimpersonation_registryimpersonation_registry_id" class="operation" data-method="patch"><code>PATCH</code> /accounts/{account_id}/email-security/settings/impersonation_registry/{impersonation_registry_id}</h3>
+<p>Operation ID: <code>email_security_update_impersonation_registry</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-33">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Account identifier tag. |
+| <code>impersonation_registry_id</code> | <code>path</code> | <code>string (uuid)</code> | Yes |  |</p>
+<h4 id="request-body-16">Request body</h4>
+<p><code>application/json</code></p>
+<p>The request body is <code>object</code>.</p>
+<h4 id="responses-33">Responses</h4>
+<h5 id="200-updated-impersonation-registry-entry" class="status" data-status="2xx">200: Updated impersonation registry entry</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="4xx-client-error-33">4XX: Client error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="patch-accountsaccount_idemail-securitysettingsblock_senderspattern_id" class="operation" data-method="patch"><code>PATCH</code> /accounts/{account_id}/email-security/settings/block_senders/{pattern_id}</h3>
+<p>Operation ID: <code>email_security_update_blocked_sender</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-34">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Account identifier tag. |
+| <code>pattern_id</code> | <code>path</code> | <code>string (uuid)</code> | Yes |  |</p>
+<h4 id="request-body-17">Request body</h4>
+<p><code>application/json</code></p>
+<p>The request body is <code>object</code>.</p>
+<h4 id="responses-34">Responses</h4>
+<h5 id="200-updated-blocked-sender" class="status" data-status="2xx">200: Updated blocked sender</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="4xx-client-error-34">4XX: Client error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="patch-accountsaccount_idemail-securitysettingsurl_ignore_patternspattern_id" class="operation" data-method="patch"><code>PATCH</code> /accounts/{account_id}/email-security/settings/url_ignore_patterns/{pattern_id}</h3>
+<p>Operation ID: <code>email_security_update_url_ignore_pattern</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-35">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Account identifier tag. |
+| <code>pattern_id</code> | <code>path</code> | <code>string (uuid)</code> | Yes |  |</p>
+<h4 id="request-body-18">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>comments</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Optional note describing the reason for the ignore pattern.</td>
+</tr>
+<tr>
+<td><code>pattern</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Regular expression identifying URLs to exempt from rewriting.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses-35">Responses</h4>
+<h5 id="200-updated-url-ignore-pattern" class="status" data-status="2xx">200: Updated URL ignore pattern</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="4xx-client-error-35">4XX: Client error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="patch-accountsaccount_idemail-securitysettingsallow_policiespolicy_id" class="operation" data-method="patch"><code>PATCH</code> /accounts/{account_id}/email-security/settings/allow_policies/{policy_id}</h3>
+<p>Operation ID: <code>email_security_update_allow_policy</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-36">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Account identifier tag. |
+| <code>policy_id</code> | <code>path</code> | <code>string (uuid)</code> | Yes |  |</p>
+<h4 id="request-body-19">Request body</h4>
+<p><code>application/json</code></p>
+<p>The request body is <code>object</code>.</p>
+<h4 id="responses-36">Responses</h4>
+<h5 id="200-updated-allow-policy" class="status" data-status="2xx">200: Updated allow policy</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="4xx-client-error-36">4XX: Client error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="patch-accountsaccount_idemail-securitysettingscontent_policiespolicy_id" class="operation" data-method="patch"><code>PATCH</code> /accounts/{account_id}/email-security/settings/content_policies/{policy_id}</h3>
+<p>Operation ID: <code>email_security_update_content_policy</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-37">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Account identifier tag. |
+| <code>policy_id</code> | <code>path</code> | <code>string (uuid)</code> | Yes |  |</p>
+<h4 id="request-body-20">Request body</h4>
+<p><code>application/json</code></p>
+<p>The request body is <code>object</code>.</p>
+<h4 id="responses-37">Responses</h4>
+<h5 id="200-updated-content-policy" class="status" data-status="2xx">200: Updated content policy</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="4xx-client-error-37">4XX: Client error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="patch-accountsaccount_idemail-securitysettingssending_domain_restrictionssending_domain_restriction_id" class="operation" data-method="patch"><code>PATCH</code> /accounts/{account_id}/email-security/settings/sending_domain_restrictions/{sending_domain_restriction_id}</h3>
+<p>Operation ID: <code>email_security_update_sending_domain_restriction</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-38">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Account identifier tag. |
+| <code>sending_domain_restriction_id</code> | <code>path</code> | <code>string (uuid)</code> | Yes |  |</p>
+<h4 id="request-body-21">Request body</h4>
+<p><code>application/json</code></p>
+<p>The request body is <code>object</code>.</p>
+<h4 id="responses-38">Responses</h4>
+<h5 id="200-updated-sending-domain-restriction" class="status" data-status="2xx">200: Updated sending domain restriction</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="4xx-client-error-38">4XX: Client error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="patch-accountsaccount_idemail-securitysettingstrusted_domainstrusted_domain_id" class="operation" data-method="patch"><code>PATCH</code> /accounts/{account_id}/email-security/settings/trusted_domains/{trusted_domain_id}</h3>
+<p>Operation ID: <code>email_security_update_trusted_domain</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-39">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Account identifier tag. |
+| <code>trusted_domain_id</code> | <code>path</code> | <code>string (uuid)</code> | Yes |  |</p>
+<h4 id="request-body-22">Request body</h4>
+<p><code>application/json</code></p>
+<p>The request body is <code>object</code>.</p>
+<h4 id="responses-39">Responses</h4>
+<h5 id="200-updated-trusted-domain" class="status" data-status="2xx">200: Updated trusted domain</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="4xx-client-error-39">4XX: Client error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="remove">remove</h2>
+<h3 id="delete-accountsaccount_idemail-securitysettingsdomainsdomain_id" class="operation" data-method="delete"><code>DELETE</code> /accounts/{account_id}/email-security/settings/domains/{domain_id}</h3>
+<p>Operation ID: <code>email_security_delete_domain</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-40">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Account identifier tag. |
+| <code>domain_id</code> | <code>path</code> | <code>string (uuid)</code> | Yes |  |</p>
+<h4 id="responses-40">Responses</h4>
+<h5 id="200-deleted-domain" class="status" data-status="2xx">200: Deleted domain</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="4xx-client-error-40">4XX: Client error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="delete-accountsaccount_idemail-securitysettingsimpersonation_registryimpersonation_registry_id" class="operation" data-method="delete"><code>DELETE</code> /accounts/{account_id}/email-security/settings/impersonation_registry/{impersonation_registry_id}</h3>
+<p>Operation ID: <code>email_security_delete_impersonation_registry</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-41">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Account identifier tag. |
+| <code>impersonation_registry_id</code> | <code>path</code> | <code>string (uuid)</code> | Yes |  |</p>
+<h4 id="responses-41">Responses</h4>
+<h5 id="200-deleted-impersonation-registry-entry" class="status" data-status="2xx">200: Deleted impersonation registry entry</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="4xx-client-error-41">4XX: Client error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="delete-accountsaccount_idemail-securitysettingsblock_senderspattern_id" class="operation" data-method="delete"><code>DELETE</code> /accounts/{account_id}/email-security/settings/block_senders/{pattern_id}</h3>
+<p>Operation ID: <code>email_security_delete_blocked_sender</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-42">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Account identifier tag. |
+| <code>pattern_id</code> | <code>path</code> | <code>string (uuid)</code> | Yes |  |</p>
+<h4 id="responses-42">Responses</h4>
+<h5 id="200-deleted-blocked-sender" class="status" data-status="2xx">200: Deleted blocked sender</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="4xx-client-error-42">4XX: Client error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="delete-accountsaccount_idemail-securitysettingsurl_ignore_patternspattern_id" class="operation" data-method="delete"><code>DELETE</code> /accounts/{account_id}/email-security/settings/url_ignore_patterns/{pattern_id}</h3>
+<p>Operation ID: <code>email_security_delete_url_ignore_pattern</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-43">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Account identifier tag. |
+| <code>pattern_id</code> | <code>path</code> | <code>string (uuid)</code> | Yes |  |</p>
+<h4 id="responses-43">Responses</h4>
+<h5 id="200-deleted-url-ignore-pattern" class="status" data-status="2xx">200: Deleted URL ignore pattern</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="4xx-client-error-43">4XX: Client error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="delete-accountsaccount_idemail-securitysettingsallow_policiespolicy_id" class="operation" data-method="delete"><code>DELETE</code> /accounts/{account_id}/email-security/settings/allow_policies/{policy_id}</h3>
+<p>Operation ID: <code>email_security_delete_allow_policy</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-44">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Account identifier tag. |
+| <code>policy_id</code> | <code>path</code> | <code>string (uuid)</code> | Yes |  |</p>
+<h4 id="responses-44">Responses</h4>
+<h5 id="200-deleted-allow-policy" class="status" data-status="2xx">200: Deleted allow policy</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="4xx-client-error-44">4XX: Client error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="delete-accountsaccount_idemail-securitysettingscontent_policiespolicy_id" class="operation" data-method="delete"><code>DELETE</code> /accounts/{account_id}/email-security/settings/content_policies/{policy_id}</h3>
+<p>Operation ID: <code>email_security_delete_content_policy</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-45">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Account identifier tag. |
+| <code>policy_id</code> | <code>path</code> | <code>string (uuid)</code> | Yes |  |</p>
+<h4 id="responses-45">Responses</h4>
+<h5 id="200-deleted-content-policy" class="status" data-status="2xx">200: Deleted content policy</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="4xx-client-error-45">4XX: Client error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="delete-accountsaccount_idemail-securitysettingssending_domain_restrictionssending_domain_restriction_id" class="operation" data-method="delete"><code>DELETE</code> /accounts/{account_id}/email-security/settings/sending_domain_restrictions/{sending_domain_restriction_id}</h3>
+<p>Operation ID: <code>email_security_delete_sending_domain_restriction</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-46">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Account identifier tag. |
+| <code>sending_domain_restriction_id</code> | <code>path</code> | <code>string (uuid)</code> | Yes |  |</p>
+<h4 id="responses-46">Responses</h4>
+<h5 id="200-deleted-sending-domain-restriction" class="status" data-status="2xx">200: Deleted sending domain restriction</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="4xx-client-error-46">4XX: Client error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="delete-accountsaccount_idemail-securitysettingstrusted_domainstrusted_domain_id" class="operation" data-method="delete"><code>DELETE</code> /accounts/{account_id}/email-security/settings/trusted_domains/{trusted_domain_id}</h3>
+<p>Operation ID: <code>email_security_delete_trusted_domain</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-47">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Account identifier tag. |
+| <code>trusted_domain_id</code> | <code>path</code> | <code>string (uuid)</code> | Yes |  |</p>
+<h4 id="responses-47">Responses</h4>
+<h5 id="200-deleted-trusted-domain" class="status" data-status="2xx">200: Deleted trusted domain</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="4xx-client-error-47">4XX: Client error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="delete-accountsaccount_idemail-securitysettingsdomains" class="operation" data-method="delete"><code>DELETE</code> /accounts/{account_id}/email-security/settings/domains</h3>
+<p>Operation ID: <code>email_security_delete_domains</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-48">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Account identifier tag. |</p>
+<h4 id="request-body-23">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>[].id</code></td>
+<td><code>string (uuid)</code></td>
+<td>Yes</td>
+<td>Domain identifier.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses-48">Responses</h4>
+<h5 id="200-deleted-domains" class="status" data-status="2xx">200: Deleted domains</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="4xx-client-error-48">4XX: Client error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="update">update</h2>
+<h3 id="put-accountsaccount_idemail-securitysettingsdomainsdomain_id" class="operation" data-method="put"><code>PUT</code> /accounts/{account_id}/email-security/settings/domains/{domain_id}</h3>
+<p>Operation ID: <code>email_security_replace_domain</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-49">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Account identifier tag. |
+| <code>domain_id</code> | <code>path</code> | <code>string (uuid)</code> | Yes |  |</p>
+<h4 id="request-body-24">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>allowed_delivery_modes</code></td>
+<td><code>array of enum: DIRECT, BCC, JOURNAL, API, RETRO_SCAN</code></td>
+<td>Yes</td>
+<td>Delivery modes to onboard the domain through.</td>
+</tr>
+<tr>
+<td><code>drop_dispositions</code></td>
+<td><code>array of enum: MALICIOUS, MALICIOUS-BEC, SUSPICIOUS, SPOOF, SPAM, BULK, ...</code></td>
+<td>Yes</td>
+<td>Dispositions to drop instead of delivering, for example <code>[&amp;quot;MALICIOUS&amp;quot;, &amp;quot;SPAM&amp;quot;]</code>.</td>
+</tr>
+<tr>
+<td><code>folder</code></td>
+<td><code>enum: AllItems, Inbox, null</code></td>
+<td>No</td>
+<td>The mailbox folder to scan, for API-scanning domains.</td>
+</tr>
+<tr>
+<td><code>integration_id</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>Identifier of the CASB integration that authorizes this domain. The integration also enables API scanning, post-delivery actions, and directory sync.</td>
+</tr>
+<tr>
+<td><code>ip_restrictions</code></td>
+<td><code>array of string</code></td>
+<td>Yes</td>
+<td>Source IP ranges mail is accepted from. Any other source is rejected.</td>
+</tr>
+<tr>
+<td><code>lookback_hops</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td>Number of hops to trace back through received headers when reconstructing the original message (1-20).</td>
+</tr>
+<tr>
+<td><code>regions</code></td>
+<td><code>array of enum: GLOBAL, AU, DE, IN, US</code></td>
+<td>Yes</td>
+<td>Regions that process messages for this domain, for example <code>[&amp;quot;GLOBAL&amp;quot;]</code> or <code>[&amp;quot;US&amp;quot;]</code>.</td>
+</tr>
+<tr>
+<td><code>require_tls_inbound</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Require TLS on inbound connections.</td>
+</tr>
+<tr>
+<td><code>require_tls_outbound</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Require TLS on outbound connections.</td>
+</tr>
+<tr>
+<td><code>transport</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The mail transport hostname for MX/Inline delivery, the MX record Cloudflare delivers email to (for example <code>mx.example.com</code>).</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses-49">Responses</h4>
+<h5 id="200-replaced-domain" class="status" data-status="2xx">200: Replaced domain</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="4xx-client-error-49">4XX: Client error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="put-accountsaccount_idemail-securitysettingsblock_senderspattern_id" class="operation" data-method="put"><code>PUT</code> /accounts/{account_id}/email-security/settings/block_senders/{pattern_id}</h3>
+<p>Operation ID: <code>email_security_replace_blocked_sender</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-50">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Account identifier tag. |
+| <code>pattern_id</code> | <code>path</code> | <code>string (uuid)</code> | Yes |  |</p>
+<h4 id="request-body-25">Request body</h4>
+<p><code>application/json</code></p>
+<p>The request body is <code>object</code>.</p>
+<h4 id="responses-50">Responses</h4>
+<h5 id="200-replaced-blocked-sender" class="status" data-status="2xx">200: Replaced blocked sender</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="4xx-client-error-50">4XX: Client error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="put-accountsaccount_idemail-securitysettingsallow_policiespolicy_id" class="operation" data-method="put"><code>PUT</code> /accounts/{account_id}/email-security/settings/allow_policies/{policy_id}</h3>
+<p>Operation ID: <code>email_security_replace_allow_policy</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-51">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Account identifier tag. |
+| <code>policy_id</code> | <code>path</code> | <code>string (uuid)</code> | Yes |  |</p>
+<h4 id="request-body-26">Request body</h4>
+<p><code>application/json</code></p>
+<p>The request body is <code>object</code>.</p>
+<h4 id="responses-51">Responses</h4>
+<h5 id="200-replaced-allow-policy" class="status" data-status="2xx">200: Replaced allow policy</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="4xx-client-error-51">4XX: Client error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="put-accountsaccount_idemail-securitysettingstrusted_domainstrusted_domain_id" class="operation" data-method="put"><code>PUT</code> /accounts/{account_id}/email-security/settings/trusted_domains/{trusted_domain_id}</h3>
+<p>Operation ID: <code>email_security_replace_trusted_domain</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-52">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Account identifier tag. |
+| <code>trusted_domain_id</code> | <code>path</code> | <code>string (uuid)</code> | Yes |  |</p>
+<h4 id="request-body-27">Request body</h4>
+<p><code>application/json</code></p>
+<p>The request body is <code>object</code>.</p>
+<h4 id="responses-52">Responses</h4>
+<h5 id="200-replaced-trusted-domain" class="status" data-status="2xx">200: Replaced trusted domain</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="4xx-client-error-52">4XX: Client error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+</main></div>
+<script src="../assets/search.js" defer></script></body></html>

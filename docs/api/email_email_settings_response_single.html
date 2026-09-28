@@ -1,0 +1,483 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>EmailEmailSettingsResponseSingle | Cloudflare Email Security</title><link rel="stylesheet" href="../assets/style.css"></head>
+<body><a class="skip" href="#content">Skip to content</a>
+<header class="site-header"><a class="site-title" href="../index.html">Cloudflare Email Security<span>SDK documentation</span></a><div class="site-links"><a class="repo-link" href="https://github.com/voxgig-sdk/cloudflare-email-security-sdk">voxgig-sdk/cloudflare-email-security-sdk</a></div></header>
+<div class="site-notice" role="note"></div>
+<div class="shell"><nav class="site-nav" aria-label="Documentation"><div class="search"><label for="search">Search documentation</label><input id="search" type="search" data-base="../" placeholder="Find a guide or reference"><div id="results" aria-live="polite"></div></div><details><summary>Overview</summary><a href="../index.html">Cloudflare Email Security</a></details>
+<details open><summary>API</summary><a href="../api/index.html">API overview</a>
+<a href="../api/email_account_rules_plan_response_single.html">EmailAccountRulesPlanResponseSingle</a>
+<a href="../api/email_account_rules_response_collection.html">EmailAccountRulesResponseCollection</a>
+<a href="../api/email_auth.html">EmailAuth</a>
+<a href="../api/email_catch_all_rule_response_single.html">EmailCatchAllRuleResponseSingle</a>
+<a href="../api/email_destination_address_response_single.html">EmailDestinationAddressResponseSingle</a>
+<a href="../api/email_destination_addresses_response_collection.html">EmailDestinationAddressesResponseCollection</a>
+<a href="../api/email_dns_settings_response_collection.html">EmailDnsSettingsResponseCollection</a>
+<a aria-current="page" href="../api/email_email_settings_response_single.html">EmailEmailSettingsResponseSingle</a><div class="nav-sections"><a class="nav-section" href="#post-zoneszone_idemailroutingdisable">POST /zones/{zone_id}/email/routing/disable</a>
+<a class="nav-section" href="#post-zoneszone_idemailroutingdns">POST /zones/{zone_id}/email/routing/dns</a>
+<a class="nav-section" href="#post-zoneszone_idemailroutingenable">POST /zones/{zone_id}/email/routing/enable</a>
+<a class="nav-section" href="#post-zoneszone_idemailroutingunlock">POST /zones/{zone_id}/email/routing/unlock</a>
+<a class="nav-section" href="#get-zoneszone_idemailrouting">GET /zones/{zone_id}/email/routing</a>
+<a class="nav-section" href="#patch-zoneszone_idemailrouting">PATCH /zones/{zone_id}/email/routing</a>
+<a class="nav-section" href="#patch-zoneszone_idemailroutingdns">PATCH /zones/{zone_id}/email/routing/dns</a>
+<a class="nav-section" href="#delete-zoneszone_idemailroutingdns">DELETE /zones/{zone_id}/email/routing/dns</a>
+<a class="nav-section" href="#put-zoneszone_idemailrouting">PUT /zones/{zone_id}/email/routing</a></div>
+<a href="../api/email_routing_suppression.html">EmailRoutingSuppression</a>
+<a href="../api/email_rule_response_single.html">EmailRuleResponseSingle</a>
+<a href="../api/email_rules_response_collection.html">EmailRulesResponseCollection</a>
+<a href="../api/email_security.html">EmailSecurity</a>
+<a href="../api/email_security_analytics.html">EmailSecurityAnalytics</a>
+<a href="../api/email_security_setting.html">EmailSecuritySetting</a>
+<a href="../api/email_sending.html">EmailSending</a>
+<a href="../api/email_sending_limits_response_single.html">EmailSendingLimitsResponseSingle</a>
+<a href="../api/email_sending_reputation_response_single.html">EmailSendingReputationResponseSingle</a>
+<a href="../api/email_sending_subdomain_dns_status.html">EmailSendingSubdomainDnsStatus</a>
+<a href="../api/email_sending_subdomain_preview.html">EmailSendingSubdomainPreview</a>
+<a href="../api/email_sending_subdomain_reputation_complaint.html">EmailSendingSubdomainReputationComplaint</a>
+<a href="../api/email_sending_subdomain_response_single.html">EmailSendingSubdomainResponseSingle</a>
+<a href="../api/email_sending_subdomains_response_collection.html">EmailSendingSubdomainsResponseCollection</a>
+<a href="../api/email_sending_suppression.html">EmailSendingSuppression</a>
+<a href="../api/subdomain.html">Subdomain</a></details>
+<details><summary>Guides</summary><a href="../guides/authentication.html">Authentication</a>
+<a href="../guides/first-call.html">Make your first API call</a>
+<a href="../guides/errors.html">Handle errors</a>
+<a href="../guides/concepts.html">Entities, SDKs, and tools</a></details>
+<details><summary>SDKs</summary><a href="../sdks/go.html">Golang</a>
+<a href="../sdks/lua.html">Lua</a>
+<a href="../sdks/php.html">PHP</a>
+<a href="../sdks/py.html">Python</a>
+<a href="../sdks/rb.html">Ruby</a>
+<a href="../sdks/ts.html">TypeScript</a></details>
+<details><summary>Tools</summary><a href="../tools/go-cli.html">Go CLI</a>
+<a href="../tools/go-mcp.html">Go MCP server</a></details>
+<details><summary>Features</summary><a href="../features/test.html">Test transport</a></details></nav><main id="content"><div class="page-context"><span class="section-dot" aria-hidden="true"></span>API</div><h1 id="emailemailsettingsresponsesingle">EmailEmailSettingsResponseSingle</h1>
+<h2 id="operations">Operations</h2>
+<p>Every route this entity exposes. Each route links to its own reference on this page.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Route</th>
+<th>SDK operation</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-zoneszone_idemailroutingdisable"><code>/zones/{zone_id}/email/routing/disable</code></a></td>
+<td><code>create</code></td>
+<td>Disable Email Routing response</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-zoneszone_idemailroutingdns"><code>/zones/{zone_id}/email/routing/dns</code></a></td>
+<td><code>create</code></td>
+<td>Enable Email Routing response</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-zoneszone_idemailroutingenable"><code>/zones/{zone_id}/email/routing/enable</code></a></td>
+<td><code>create</code></td>
+<td>Enable Email Routing response</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-zoneszone_idemailroutingunlock"><code>/zones/{zone_id}/email/routing/unlock</code></a></td>
+<td><code>create</code></td>
+<td>Unlock Email Routing response</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-zoneszone_idemailrouting"><code>/zones/{zone_id}/email/routing</code></a></td>
+<td><code>load</code></td>
+<td>Get Email Routing settings response</td>
+</tr>
+<tr>
+<td><code>PATCH</code></td>
+<td><a href="#patch-zoneszone_idemailrouting"><code>/zones/{zone_id}/email/routing</code></a></td>
+<td><code>patch</code></td>
+<td>Update Email Routing settings response</td>
+</tr>
+<tr>
+<td><code>PATCH</code></td>
+<td><a href="#patch-zoneszone_idemailroutingdns"><code>/zones/{zone_id}/email/routing/dns</code></a></td>
+<td><code>patch</code></td>
+<td>Unlock Email Routing MX records</td>
+</tr>
+<tr>
+<td><code>DELETE</code></td>
+<td><a href="#delete-zoneszone_idemailroutingdns"><code>/zones/{zone_id}/email/routing/dns</code></a></td>
+<td><code>remove</code></td>
+<td>Disable Email Routing response</td>
+</tr>
+<tr>
+<td><code>PUT</code></td>
+<td><a href="#put-zoneszone_idemailrouting"><code>/zones/{zone_id}/email/routing</code></a></td>
+<td><code>update</code></td>
+<td>Apply Email Routing settings response</td>
+</tr>
+</tbody>
+</table>
+<h2 id="examples">Examples</h2>
+<p>One example per SDK, generated from the API model. The argument names are the parameters and fields of this entity, and the values are placeholders. The examples are not compiled or executed.</p>
+<h3 id="golang">Golang</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/go.html#set-up-the-client">Golang setup</a>, then call the operations:</p>
+<pre><code class="language-go">email_email_settings_response_single, err := client.EmailEmailSettingsResponseSingle(nil).Load(map[string]any{&quot;zone_id&quot;: &quot;example&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(email_email_settings_response_single)
+created, err := client.EmailEmailSettingsResponseSingle(nil).Create(map[string]any{&quot;zone_id&quot;: &quot;example&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(created)
+updated, err := client.EmailEmailSettingsResponseSingle(nil).Update(map[string]any{&quot;zone_id&quot;: &quot;example&quot;, &quot;enabled&quot;: true}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(updated)
+removed, err := client.EmailEmailSettingsResponseSingle(nil).Remove(map[string]any{&quot;zone_id&quot;: &quot;example&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(removed)
+</code></pre>
+<h3 id="lua">Lua</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/lua.html#set-up-the-client">Lua setup</a>, then call the operations:</p>
+<pre><code class="language-lua">local email_email_settings_response_single, err = client:EmailEmailSettingsResponseSingle():load({ zone_id = &quot;example&quot; })
+local created, err = client:EmailEmailSettingsResponseSingle():create({ zone_id = &quot;example&quot; })
+local updated, err = client:EmailEmailSettingsResponseSingle():update({ zone_id = &quot;example&quot;, enabled = true })
+local removed, err = client:EmailEmailSettingsResponseSingle():remove({ zone_id = &quot;example&quot; })
+</code></pre>
+<h3 id="php">PHP</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/php.html#set-up-the-client">PHP setup</a>, then call the operations:</p>
+<pre><code class="language-php">$email_email_settings_response_single = $client-&gt;EmailEmailSettingsResponseSingle()-&gt;load([&quot;zone_id&quot; =&gt; &quot;example&quot;]);
+$created = $client-&gt;EmailEmailSettingsResponseSingle()-&gt;create([&quot;zone_id&quot; =&gt; &quot;example&quot;]);
+$updated = $client-&gt;EmailEmailSettingsResponseSingle()-&gt;update([&quot;zone_id&quot; =&gt; &quot;example&quot;, &quot;enabled&quot; =&gt; true]);
+$client-&gt;EmailEmailSettingsResponseSingle()-&gt;remove([&quot;zone_id&quot; =&gt; &quot;example&quot;]);
+</code></pre>
+<h3 id="python">Python</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/py.html#set-up-the-client">Python setup</a>, then call the operations:</p>
+<pre><code class="language-py">email_email_settings_response_single = client.EmailEmailSettingsResponseSingle().load({&quot;zone_id&quot;: &quot;example&quot;})
+created = client.EmailEmailSettingsResponseSingle().create({ &quot;zone_id&quot;: &quot;example&quot; })
+updated = client.EmailEmailSettingsResponseSingle().update({&quot;zone_id&quot;: &quot;example&quot;, &quot;enabled&quot;: True})
+client.EmailEmailSettingsResponseSingle().remove({&quot;zone_id&quot;: &quot;example&quot;})
+</code></pre>
+<h3 id="ruby">Ruby</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/rb.html#set-up-the-client">Ruby setup</a>, then call the operations:</p>
+<pre><code class="language-rb">email_email_settings_response_single = client.EmailEmailSettingsResponseSingle.load({ &quot;zone_id&quot; =&gt; &quot;example&quot; })
+created = client.EmailEmailSettingsResponseSingle.create({ &quot;zone_id&quot; =&gt; &quot;example&quot; })
+updated = client.EmailEmailSettingsResponseSingle.update({ &quot;zone_id&quot; =&gt; &quot;example&quot;, &quot;enabled&quot; =&gt; true })
+client.EmailEmailSettingsResponseSingle.remove({ &quot;zone_id&quot; =&gt; &quot;example&quot; })
+</code></pre>
+<h3 id="typescript">TypeScript</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/ts.html#set-up-the-client">TypeScript setup</a>, then call the operations:</p>
+<pre><code class="language-ts">const email_email_settings_response_single = await client.EmailEmailSettingsResponseSingle().load({ zone_id: &quot;example&quot; })
+const created = await client.EmailEmailSettingsResponseSingle().create({ zone_id: &quot;example&quot; })
+const updated = await client.EmailEmailSettingsResponseSingle().update({ zone_id: &quot;example&quot;, enabled: true })
+await client.EmailEmailSettingsResponseSingle().remove({ zone_id: &quot;example&quot; })
+</code></pre>
+<h2 id="fields">Fields</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>enabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>State of your zone Email Routing settings.</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Domain of your zone.</td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Result</td>
+</tr>
+<tr>
+<td><code>skip_wizard</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Flag to check if the user skipped the configuration wizard.</td>
+</tr>
+<tr>
+<td><code>support_subaddress</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Whether subaddressing (plus-addressing) is honored when matching incoming mail against routing rules.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="create">create</h2>
+<h3 id="post-zoneszone_idemailroutingdisable" class="operation" data-method="post"><code>POST</code> /zones/{zone_id}/email/routing/disable</h3>
+<p>Operation ID: <code>email-routing-settings-disable-email-routing</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>zone_id</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="responses">Responses</h4>
+<h5 id="200-disable-email-routing-response" class="status" data-status="2xx">200: Disable Email Routing response</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="403-authentication-error-or-missing-zone-email-routing-settings-update-permission" class="status" data-status="4xx">403: Authentication error or missing zone email routing settings update permission</h5>
+<h3 id="post-zoneszone_idemailroutingdns" class="operation" data-method="post"><code>POST</code> /zones/{zone_id}/email/routing/dns</h3>
+<p>Operation ID: <code>email-routing-settings-enable-email-routing-dns</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-1">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>zone_id</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="request-body">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Domain of your zone.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses-1">Responses</h4>
+<h5 id="200-enable-email-routing-response" class="status" data-status="2xx">200: Enable Email Routing response</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="403-authentication-error-or-missing-zone-email-routing-settings-update-permission-1" class="status" data-status="4xx">403: Authentication error or missing zone email routing settings update permission</h5>
+<h3 id="post-zoneszone_idemailroutingenable" class="operation" data-method="post"><code>POST</code> /zones/{zone_id}/email/routing/enable</h3>
+<p>Operation ID: <code>email-routing-settings-enable-email-routing</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-2">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>zone_id</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="responses-2">Responses</h4>
+<h5 id="200-enable-email-routing-response-1" class="status" data-status="2xx">200: Enable Email Routing response</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="403-authentication-error-or-missing-zone-email-routing-settings-update-permission-2" class="status" data-status="4xx">403: Authentication error or missing zone email routing settings update permission</h5>
+<h3 id="post-zoneszone_idemailroutingunlock" class="operation" data-method="post"><code>POST</code> /zones/{zone_id}/email/routing/unlock</h3>
+<p>Operation ID: <code>email-routing-settings-unlock-email-routing</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-3">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>zone_id</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="request-body-1">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Domain of your zone.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses-3">Responses</h4>
+<h5 id="200-unlock-email-routing-response" class="status" data-status="2xx">200: Unlock Email Routing response</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="403-authentication-error-or-missing-zone-email-routing-settings-update-permission-3" class="status" data-status="4xx">403: Authentication error or missing zone email routing settings update permission</h5>
+<h2 id="load">load</h2>
+<h3 id="get-zoneszone_idemailrouting" class="operation" data-method="get"><code>GET</code> /zones/{zone_id}/email/routing</h3>
+<p>Operation ID: <code>email-routing-settings-get-email-routing-settings</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-4">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>zone_id</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="responses-4">Responses</h4>
+<h5 id="200-get-email-routing-settings-response" class="status" data-status="2xx">200: Get Email Routing settings response</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="403-authentication-error-or-missing-zone-email-routing-settings-read-permission" class="status" data-status="4xx">403: Authentication error or missing zone email routing settings read permission</h5>
+<h2 id="patch">patch</h2>
+<h3 id="patch-zoneszone_idemailrouting" class="operation" data-method="patch"><code>PATCH</code> /zones/{zone_id}/email/routing</h3>
+<p>Operation ID: <code>email-routing-settings-update-email-routing-settings</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-5">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>zone_id</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="request-body-2">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>enabled</code></td>
+<td><code>enum: true, false</code></td>
+<td>No</td>
+<td>State of your zone Email Routing settings. No-op on this endpoint - use <code>POST</code>/<code>DELETE /zones/&amp;#123;</code>zone_id<code>&amp;#125;/email/routing/dns</code>.</td>
+</tr>
+<tr>
+<td><code>skip_wizard</code></td>
+<td><code>enum: true, false</code></td>
+<td>No</td>
+<td>Flag to check if the user skipped the configuration wizard.</td>
+</tr>
+<tr>
+<td><code>support_subaddress</code></td>
+<td><code>enum: true, false</code></td>
+<td>No</td>
+<td>Whether subaddressing (plus-addressing) is honored when matching incoming mail against routing rules.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses-5">Responses</h4>
+<h5 id="200-update-email-routing-settings-response" class="status" data-status="2xx">200: Update Email Routing settings response</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="403-authentication-error-or-missing-zone-email-routing-settings-update-permission-4" class="status" data-status="4xx">403: Authentication error or missing zone email routing settings update permission</h5>
+<h3 id="patch-zoneszone_idemailroutingdns" class="operation" data-method="patch"><code>PATCH</code> /zones/{zone_id}/email/routing/dns</h3>
+<p>Operation ID: <code>email-routing-settings-unlock-email-routing-dns</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-6">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>zone_id</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="request-body-3">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Domain of your zone.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses-6">Responses</h4>
+<h5 id="200-unlock-email-routing-mx-records" class="status" data-status="2xx">200: Unlock Email Routing MX records</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="403-authentication-error-or-missing-zone-email-routing-settings-update-permission-5" class="status" data-status="4xx">403: Authentication error or missing zone email routing settings update permission</h5>
+<h2 id="remove">remove</h2>
+<h3 id="delete-zoneszone_idemailroutingdns" class="operation" data-method="delete"><code>DELETE</code> /zones/{zone_id}/email/routing/dns</h3>
+<p>Operation ID: <code>email-routing-settings-disable-email-routing-dns</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-7">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>zone_id</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="request-body-4">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Domain of your zone.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses-7">Responses</h4>
+<h5 id="200-disable-email-routing-response-1" class="status" data-status="2xx">200: Disable Email Routing response</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="403-authentication-error-or-missing-zone-email-routing-settings-update-permission-6" class="status" data-status="4xx">403: Authentication error or missing zone email routing settings update permission</h5>
+<h2 id="update">update</h2>
+<h3 id="put-zoneszone_idemailrouting" class="operation" data-method="put"><code>PUT</code> /zones/{zone_id}/email/routing</h3>
+<p>Operation ID: <code>email-routing-settings-replace-email-routing-settings</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-8">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>zone_id</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="request-body-5">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>enabled</code></td>
+<td><code>enum: true, false</code></td>
+<td>No</td>
+<td>State of your zone Email Routing settings. No-op on this endpoint - use <code>POST</code>/<code>DELETE /zones/&amp;#123;</code>zone_id<code>&amp;#125;/email/routing/dns</code>.</td>
+</tr>
+<tr>
+<td><code>skip_wizard</code></td>
+<td><code>enum: true, false</code></td>
+<td>No</td>
+<td>Flag to check if the user skipped the configuration wizard.</td>
+</tr>
+<tr>
+<td><code>support_subaddress</code></td>
+<td><code>enum: true, false</code></td>
+<td>No</td>
+<td>Whether subaddressing (plus-addressing) is honored when matching incoming mail against routing rules.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses-8">Responses</h4>
+<h5 id="200-apply-email-routing-settings-response" class="status" data-status="2xx">200: Apply Email Routing settings response</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="403-authentication-error-or-missing-zone-email-routing-settings-update-permission-7" class="status" data-status="4xx">403: Authentication error or missing zone email routing settings update permission</h5>
+</main></div>
+<script src="../assets/search.js" defer></script></body></html>

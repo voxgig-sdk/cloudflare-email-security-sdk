@@ -1,0 +1,22 @@
+# BasicEmailSendingSubdomainPreviewFlow
+
+main: kit: flow: BasicEmailSendingSubdomainPreviewFlow:
+{
+  entity: "email_sending_subdomain_preview",
+  kind: "basic",
+  name: "BasicEmailSendingSubdomainPreviewFlow",
+  step: [
+    {
+      i: {
+        ref: "email_sending_subdomain_preview_ref01"
+      }
+
+      m: {
+        zone_id: "zone01"
+      }
+
+      o: "create"
+    }
+  ],
+  "key$": "BasicEmailSendingSubdomainPreviewFlow"
+}

@@ -1,0 +1,36 @@
+{
+  "existing": {
+    "email_rules_response_collection": {
+      "EMAIL_RULES_RESPONSE_COLLECTION00": {
+        "result": [],
+        "result_info": {},
+        "zone_id": "ZONE01"
+      },
+      "EMAIL_RULES_RESPONSE_COLLECTION01": {
+        "result": [],
+        "result_info": {},
+        "zone_id": "ZONE01"
+      },
+      "EMAIL_RULES_RESPONSE_COLLECTION02": {
+        "result": [],
+        "result_info": {},
+        "zone_id": "ZONE01"
+      }
+    }
+  },
+  "new": {
+    "email_rules_response_collection": {
+      "email_rules_response_collection_ref01": {
+        "result": [],
+        "result_info": {}
+      }
+    }
+  },
+  "requests": {
+    "GET /zones/{zone_id}/email/routing/rules": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

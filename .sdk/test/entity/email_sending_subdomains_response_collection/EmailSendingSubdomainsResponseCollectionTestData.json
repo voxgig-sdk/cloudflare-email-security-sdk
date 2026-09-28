@@ -1,0 +1,32 @@
+{
+  "existing": {
+    "email_sending_subdomains_response_collection": {
+      "EMAIL_SENDING_SUBDOMAINS_RESPONSE_COLLECTION00": {
+        "result": [],
+        "zone_id": "ZONE01"
+      },
+      "EMAIL_SENDING_SUBDOMAINS_RESPONSE_COLLECTION01": {
+        "result": [],
+        "zone_id": "ZONE01"
+      },
+      "EMAIL_SENDING_SUBDOMAINS_RESPONSE_COLLECTION02": {
+        "result": [],
+        "zone_id": "ZONE01"
+      }
+    }
+  },
+  "new": {
+    "email_sending_subdomains_response_collection": {
+      "email_sending_subdomains_response_collection_ref01": {
+        "result": []
+      }
+    }
+  },
+  "requests": {
+    "GET /zones/{zone_id}/email/sending/subdomains": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

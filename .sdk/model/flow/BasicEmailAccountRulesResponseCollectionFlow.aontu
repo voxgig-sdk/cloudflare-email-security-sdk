@@ -1,0 +1,26 @@
+# BasicEmailAccountRulesResponseCollectionFlow
+
+main: kit: flow: BasicEmailAccountRulesResponseCollectionFlow:
+{
+  entity: "email_account_rules_response_collection",
+  kind: "basic",
+  name: "BasicEmailAccountRulesResponseCollectionFlow",
+  step: [
+    {
+      m: {
+        account_id: "account01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "email_account_rules_response_collection_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicEmailAccountRulesResponseCollectionFlow"
+}

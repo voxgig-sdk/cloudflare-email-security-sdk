@@ -1,0 +1,445 @@
+# Generated from the API definition and overwritten on every build: do not
+# edit this file. Put customizations in the guide entry file, which includes
+# this one and overrides its defaults:
+#   guide.aontu
+
+guide: {
+  metrics: count: entity: 24
+  metrics: count: path: 79
+  metrics: count: method: 139
+
+  entity: email_account_rules_plan_response_single: {
+    path: "/accounts/{account_id}/email/routing/rules/plan": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: email_account_rules_response_collection: {
+    path: "/accounts/{account_id}/email/routing/rules": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: email_auth: {
+    path: "/zones/{zone_id}/email/auth/dmarc-reports": {
+      op: load: method: *GET
+      op: patch: method: *PATCH
+    }
+    path: "/zones/{zone_id}/email/auth/spf/inspect": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: email_catch_all_rule_response_single: {
+    path: "/zones/{zone_id}/email/routing/rules/catch_all": {
+      op: load: method: *GET
+      op: update: method: *PUT
+    }
+  }
+
+  entity: email_destination_address_response_single: {
+    path: "/accounts/{account_id}/email/routing/addresses": {
+      op: create: method: *POST
+    }
+    path: "/accounts/{account_id}/email/routing/addresses/{destination_address_identifier}": {
+      op: load: method: *GET
+      op: patch: method: *PATCH
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: email_destination_addresses_response_collection: {
+    path: "/accounts/{account_id}/email/routing/addresses": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: email_dns_settings_response_collection: {
+    path: "/zones/{zone_id}/email/routing/dns": {
+      op: list: method: *GET
+    }
+    path: "/zones/{zone_id}/email/sending/subdomains/{subdomain_id}/dns": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: email_email_settings_response_single: {
+    path: "/zones/{zone_id}/email/routing": {
+      op: load: method: *GET
+      op: patch: method: *PATCH
+      op: update: method: *PUT
+    }
+    path: "/zones/{zone_id}/email/routing/disable": {
+      op: create: method: *POST
+    }
+    path: "/zones/{zone_id}/email/routing/dns": {
+      op: create: method: *POST
+      op: patch: method: *PATCH
+      op: remove: method: *DELETE
+    }
+    path: "/zones/{zone_id}/email/routing/enable": {
+      op: create: method: *POST
+    }
+    path: "/zones/{zone_id}/email/routing/unlock": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: email_routing_suppression: {
+    path: "/accounts/{account_id}/email/routing/suppression": {
+      op: create: method: *POST
+      op: create: transform: res: *("`body.result`")|top
+      op: list: method: *GET
+      op: list: transform: res: *("`body.result`")|top
+    }
+    path: "/accounts/{account_id}/email/routing/suppression/{suppression_id}": {
+      rename: param: "suppression_id": *"id"
+      op: load: method: *GET
+      op: load: transform: res: *("`body.result`")|top
+      op: remove: method: *DELETE
+    }
+    path: "/zones/{zone_id}/email/routing/suppression": {
+      op: create: method: *POST
+      op: create: transform: res: *("`body.result`")|top
+      op: list: method: *GET
+      op: list: transform: res: *("`body.result`")|top
+    }
+    path: "/zones/{zone_id}/email/routing/suppression/{suppression_id}": {
+      rename: param: "suppression_id": *"id"
+      op: load: method: *GET
+      op: load: transform: res: *("`body.result`")|top
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: email_rule_response_single: {
+    path: "/zones/{zone_id}/email/routing/rules": {
+      op: create: method: *POST
+    }
+    path: "/zones/{zone_id}/email/routing/rules/{rule_identifier}": {
+      op: load: method: *GET
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+    }
+  }
+
+  entity: email_rules_response_collection: {
+    path: "/zones/{zone_id}/email/routing/rules": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: email_security: {
+    path: "/accounts/{account_id}/email-security/investigate": {
+      action: "investigate": {}
+      op: list: method: *GET
+    }
+    path: "/accounts/{account_id}/email-security/investigate/bulk": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/accounts/{account_id}/email-security/investigate/bulk/{job_id}": {
+      op: load: method: *GET
+      op: remove: method: *DELETE
+    }
+    path: "/accounts/{account_id}/email-security/investigate/bulk/{job_id}/cancel": {
+      action: "cancel": {}
+      rename: param: "job_id": *"bulk_id"
+      op: create: method: *POST
+    }
+    path: "/accounts/{account_id}/email-security/investigate/bulk/{job_id}/messages": {
+      rename: param: "job_id": *"bulk_id"
+      op: list: method: *GET
+    }
+    path: "/accounts/{account_id}/email-security/investigate/move": {
+      op: create: method: *POST
+    }
+    path: "/accounts/{account_id}/email-security/investigate/preview": {
+      op: create: method: *POST
+    }
+    path: "/accounts/{account_id}/email-security/investigate/release": {
+      op: create: method: *POST
+    }
+    path: "/accounts/{account_id}/email-security/investigate/{investigate_id}": {
+      op: load: method: *GET
+    }
+    path: "/accounts/{account_id}/email-security/investigate/{investigate_id}/action_log": {
+      op: list: method: *GET
+    }
+    path: "/accounts/{account_id}/email-security/investigate/{investigate_id}/detections": {
+      op: list: method: *GET
+    }
+    path: "/accounts/{account_id}/email-security/investigate/{investigate_id}/move": {
+      action: "move": {}
+      op: create: method: *POST
+    }
+    path: "/accounts/{account_id}/email-security/investigate/{investigate_id}/preview": {
+      op: list: method: *GET
+    }
+    path: "/accounts/{account_id}/email-security/investigate/{investigate_id}/raw": {
+      op: list: method: *GET
+    }
+    path: "/accounts/{account_id}/email-security/investigate/{investigate_id}/reclassify": {
+      action: "reclassify": {}
+      op: create: method: *POST
+    }
+    path: "/accounts/{account_id}/email-security/investigate/{investigate_id}/trace": {
+      op: list: method: *GET
+    }
+    path: "/accounts/{account_id}/email-security/phishguard/reports": {
+      op: list: method: *GET
+    }
+    path: "/accounts/{account_id}/email-security/submissions": {
+      action: "submission": {}
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+  }
+
+  entity: email_security_analytics: {
+    path: "/accounts/{account_id}/email-security/analytics/monthly_report": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: email_security_setting: {
+    path: "/accounts/{account_id}/email-security/settings/allow_policies": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/accounts/{account_id}/email-security/settings/allow_policies/batch": {
+      op: create: method: *POST
+    }
+    path: "/accounts/{account_id}/email-security/settings/allow_policies/{policy_id}": {
+      op: load: method: *GET
+      op: patch: method: *PATCH
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+    }
+    path: "/accounts/{account_id}/email-security/settings/block_senders": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/accounts/{account_id}/email-security/settings/block_senders/batch": {
+      op: create: method: *POST
+    }
+    path: "/accounts/{account_id}/email-security/settings/block_senders/{pattern_id}": {
+      op: load: method: *GET
+      op: patch: method: *PATCH
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+    }
+    path: "/accounts/{account_id}/email-security/settings/content_policies": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/accounts/{account_id}/email-security/settings/content_policies/batch": {
+      op: create: method: *POST
+    }
+    path: "/accounts/{account_id}/email-security/settings/content_policies/{policy_id}": {
+      op: load: method: *GET
+      op: patch: method: *PATCH
+      op: remove: method: *DELETE
+    }
+    path: "/accounts/{account_id}/email-security/settings/domains": {
+      op: create: method: *POST
+      op: create: transform: req: "allowed_delivery_modes": *("`reqdata.allowed_delivery_mode`")|top
+      op: create: transform: req: "domain": *("`reqdata.domain`")|top
+      op: create: transform: req: "drop_dispositions": *("`reqdata.drop_disposition`")|top
+      op: create: transform: req: "folder": *("`reqdata.folder`")|top
+      op: create: transform: req: "integration_id": *("`reqdata.integration_id`")|top
+      op: create: transform: req: "ip_restrictions": *("`reqdata.ip_restriction`")|top
+      op: create: transform: req: "lookback_hops": *("`reqdata.lookback_hop`")|top
+      op: create: transform: req: "regions": *("`reqdata.region`")|top
+      op: create: transform: req: "require_tls_inbound": *("`reqdata.require_tls_inbound`")|top
+      op: create: transform: req: "require_tls_outbound": *("`reqdata.require_tls_outbound`")|top
+      op: create: transform: req: "transport": *("`reqdata.transport`")|top
+      op: list: method: *GET
+      op: remove: method: *DELETE
+    }
+    path: "/accounts/{account_id}/email-security/settings/domains/batch": {
+      op: create: method: *POST
+    }
+    path: "/accounts/{account_id}/email-security/settings/domains/{domain_id}": {
+      op: load: method: *GET
+      op: patch: method: *PATCH
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+    }
+    path: "/accounts/{account_id}/email-security/settings/domains/{domain_id}/verification": {
+      op: load: method: *GET
+    }
+    path: "/accounts/{account_id}/email-security/settings/impersonation_registry": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/accounts/{account_id}/email-security/settings/impersonation_registry/{impersonation_registry_id}": {
+      op: load: method: *GET
+      op: patch: method: *PATCH
+      op: remove: method: *DELETE
+    }
+    path: "/accounts/{account_id}/email-security/settings/sending_domain_restrictions": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/accounts/{account_id}/email-security/settings/sending_domain_restrictions/batch": {
+      op: create: method: *POST
+    }
+    path: "/accounts/{account_id}/email-security/settings/sending_domain_restrictions/{sending_domain_restriction_id}": {
+      op: load: method: *GET
+      op: patch: method: *PATCH
+      op: remove: method: *DELETE
+    }
+    path: "/accounts/{account_id}/email-security/settings/trusted_domains": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/accounts/{account_id}/email-security/settings/trusted_domains/batch": {
+      op: create: method: *POST
+    }
+    path: "/accounts/{account_id}/email-security/settings/trusted_domains/{trusted_domain_id}": {
+      op: load: method: *GET
+      op: patch: method: *PATCH
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+    }
+    path: "/accounts/{account_id}/email-security/settings/url_ignore_patterns": {
+      op: create: method: *POST
+      op: create: transform: req: "comments": *("`reqdata.comment`")|top
+      op: create: transform: req: "pattern": *("`reqdata.pattern`")|top
+      op: list: method: *GET
+    }
+    path: "/accounts/{account_id}/email-security/settings/url_ignore_patterns/batch": {
+      op: create: method: *POST
+    }
+    path: "/accounts/{account_id}/email-security/settings/url_ignore_patterns/{pattern_id}": {
+      op: load: method: *GET
+      op: patch: method: *PATCH
+      op: patch: transform: req: "comments": *("`reqdata.comment`")|top
+      op: patch: transform: req: "pattern": *("`reqdata.pattern`")|top
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: email_sending: {
+    path: "/accounts/{account_id}/email/sending/messages/{message_id}": {
+      op: load: method: *GET
+    }
+    path: "/accounts/{account_id}/email/sending/send": {
+      op: create: method: *POST
+      op: create: transform: req: "attachments": *("`reqdata.attachment`")|top
+      op: create: transform: req: "bcc": *("`reqdata.bcc`")|top
+      op: create: transform: req: "cc": *("`reqdata.cc`")|top
+      op: create: transform: req: "from": *("`reqdata.from`")|top
+      op: create: transform: req: "headers": *("`reqdata.header`")|top
+      op: create: transform: req: "html": *("`reqdata.html`")|top
+      op: create: transform: req: "reply_to": *("`reqdata.reply_to`")|top
+      op: create: transform: req: "subject": *("`reqdata.subject`")|top
+      op: create: transform: req: "text": *("`reqdata.text`")|top
+      op: create: transform: req: "to": *("`reqdata.to`")|top
+    }
+    path: "/accounts/{account_id}/email/sending/send_raw": {
+      op: create: method: *POST
+      op: create: transform: req: "from": *("`reqdata.from`")|top
+      op: create: transform: req: "mime_message": *("`reqdata.mime_message`")|top
+      op: create: transform: req: "recipients": *("`reqdata.recipient`")|top
+    }
+  }
+
+  entity: email_sending_limits_response_single: {
+    path: "/accounts/{account_id}/email/sending/limits": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: email_sending_reputation_response_single: {
+    path: "/accounts/{account_id}/email/sending/reputation": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: email_sending_subdomain_dns_status: {
+    path: "/zones/{zone_id}/email/sending/subdomains/{subdomain_id}/dns": {
+      op: create: method: *POST
+    }
+    path: "/zones/{zone_id}/email/sending/subdomains/{subdomain_id}/dns/status": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: email_sending_subdomain_preview: {
+    path: "/zones/{zone_id}/email/sending/subdomains/preview": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: email_sending_subdomain_reputation_complaint: {
+    path: "/zones/{zone_id}/email/sending/subdomains/{subdomain_id}/reputation/complaints": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: email_sending_subdomain_response_single: {
+    path: "/zones/{zone_id}/email/sending/subdomains": {
+      op: create: method: *POST
+    }
+    path: "/zones/{zone_id}/email/sending/subdomains/{subdomain_id}": {
+      op: load: method: *GET
+      op: patch: method: *PATCH
+    }
+  }
+
+  entity: email_sending_subdomains_response_collection: {
+    path: "/zones/{zone_id}/email/sending/subdomains": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: email_sending_suppression: {
+    path: "/accounts/{account_id}/email/sending/suppression": {
+      op: create: method: *POST
+      op: create: transform: res: *("`body.result`")|top
+      op: list: method: *GET
+      op: list: transform: res: *("`body.result`")|top
+    }
+    path: "/accounts/{account_id}/email/sending/suppression/{suppression_id}": {
+      rename: param: "suppression_id": *"id"
+      op: load: method: *GET
+      op: load: transform: res: *("`body.result`")|top
+      op: remove: method: *DELETE
+    }
+    path: "/accounts/{account_id}/email/sending/suppressions": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/accounts/{account_id}/email/sending/suppressions/bulk": {
+      op: create: method: *POST
+    }
+    path: "/accounts/{account_id}/email/sending/suppressions/{suppression_id}": {
+      rename: param: "suppression_id": *"id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+      op: remove: method: *DELETE
+    }
+    path: "/zones/{zone_id}/email/sending/suppression": {
+      op: create: method: *POST
+      op: create: transform: res: *("`body.result`")|top
+      op: list: method: *GET
+      op: list: transform: res: *("`body.result`")|top
+    }
+    path: "/zones/{zone_id}/email/sending/suppression/{suppression_id}": {
+      rename: param: "suppression_id": *"id"
+      op: load: method: *GET
+      op: load: transform: res: *("`body.result`")|top
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: subdomain: {
+    path: "/zones/{zone_id}/email/sending/subdomains/{subdomain_id}": {
+      rename: param: "subdomain_id": *"id"
+      op: remove: method: *DELETE
+    }
+  }
+
+}

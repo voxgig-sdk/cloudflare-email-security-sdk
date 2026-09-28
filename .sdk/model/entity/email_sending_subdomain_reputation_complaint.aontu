@@ -1,0 +1,113 @@
+# Entity: email_sending_subdomain_reputation_complaint
+
+main: kit: entity: email_sending_subdomain_reputation_complaint: {
+
+  alias: field: {}
+
+  fields: {
+    result: {
+      h: "Result"
+      n: "result"
+      r: true
+      t: "`$OBJECT`"
+    }
+  }
+
+  name: "email_sending_subdomain_reputation_complaint"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /zones/{zone_id}/email/sending/subdomains/{subdomain_id}/reputation/complaints"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "aabbccdd11223344aabbccdd11223344"
+                k: "param"
+                n: "subdomain_id"
+                or: "subdomain_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "zone_id"
+                or: "zone_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "end_at"
+                or: "end_at"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "start_at"
+                or: "start_at"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/zones/{zone_id}/email/sending/subdomains/{subdomain_id}/reputation/complaints"
+          q: {
+            exist: [
+              "end_at"
+              "start_at"
+              "subdomain_id"
+              "zone_id"
+            ]
+          }
+          s: [
+            {
+              lit: "zones"
+            }
+            {
+              var: "zone_id"
+            }
+            {
+              lit: "email"
+            }
+            {
+              lit: "sending"
+            }
+            {
+              lit: "subdomains"
+            }
+            {
+              var: "subdomain_id"
+            }
+            {
+              lit: "reputation"
+            }
+            {
+              lit: "complaints"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.subdomain")]
+  ]
+
+}

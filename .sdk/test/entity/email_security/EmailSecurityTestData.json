@@ -1,0 +1,188 @@
+{
+  "existing": {
+    "email_security": {
+      "EMAIL_SECURITY00": {
+        "action": "s82",
+        "comment": "s83",
+        "destination": "s84",
+        "errors": [],
+        "expected_disposition": "s86",
+        "id": "EMAIL_SECURITY00",
+        "ids": [],
+        "messages": [],
+        "postfix_ids": [],
+        "result": {},
+        "result_info": {},
+        "search_params": {},
+        "success": true,
+        "account_id": "ACCOUNT01",
+        "bulk_id": "BULK01",
+        "investigate_id": "INVESTIGATE01",
+        "job_id": "JOB01"
+      },
+      "EMAIL_SECURITY01": {
+        "action": "s104",
+        "comment": "s105",
+        "destination": "s106",
+        "errors": [],
+        "expected_disposition": "s108",
+        "id": "EMAIL_SECURITY01",
+        "ids": [],
+        "messages": [],
+        "postfix_ids": [],
+        "result": {},
+        "result_info": {},
+        "search_params": {},
+        "success": true,
+        "account_id": "ACCOUNT01",
+        "bulk_id": "BULK01",
+        "investigate_id": "INVESTIGATE01",
+        "job_id": "JOB01"
+      },
+      "EMAIL_SECURITY02": {
+        "action": "s186",
+        "comment": "s187",
+        "destination": "s188",
+        "errors": [],
+        "expected_disposition": "s18a",
+        "id": "EMAIL_SECURITY02",
+        "ids": [],
+        "messages": [],
+        "postfix_ids": [],
+        "result": {},
+        "result_info": {},
+        "search_params": {},
+        "success": true,
+        "account_id": "ACCOUNT01",
+        "bulk_id": "BULK01",
+        "investigate_id": "INVESTIGATE01",
+        "job_id": "JOB01"
+      }
+    }
+  },
+  "new": {
+    "email_security": {
+      "email_security_ref01": {
+        "action": "s208",
+        "comment": "s209",
+        "destination": "s20a",
+        "errors": [],
+        "expected_disposition": "s20c",
+        "ids": [],
+        "messages": [],
+        "postfix_ids": [],
+        "result": {},
+        "result_info": {},
+        "search_params": {},
+        "success": true
+      }
+    }
+  },
+  "requests": {
+    "POST /accounts/{account_id}/email-security/investigate/bulk/{job_id}/cancel": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /accounts/{account_id}/email-security/investigate/{investigate_id}/move": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /accounts/{account_id}/email-security/investigate/{investigate_id}/reclassify": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /accounts/{account_id}/email-security/investigate/bulk": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /accounts/{account_id}/email-security/investigate/move": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /accounts/{account_id}/email-security/investigate/preview": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /accounts/{account_id}/email-security/investigate/release": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /accounts/{account_id}/email-security/submissions": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/email-security/investigate": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/email-security/submissions": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/email-security/phishguard/reports": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/email-security/investigate/bulk": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/email-security/investigate/bulk/{job_id}/messages": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/email-security/investigate/{investigate_id}/action_log": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/email-security/investigate/{investigate_id}/detections": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/email-security/investigate/{investigate_id}/preview": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/email-security/investigate/{investigate_id}/raw": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/email-security/investigate/{investigate_id}/trace": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/email-security/investigate/{investigate_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/email-security/investigate/bulk/{job_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /accounts/{account_id}/email-security/investigate/bulk/{job_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

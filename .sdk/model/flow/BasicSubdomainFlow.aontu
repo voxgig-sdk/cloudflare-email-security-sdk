@@ -1,0 +1,9 @@
+# BasicSubdomainFlow
+
+main: kit: flow: BasicSubdomainFlow:
+{
+  entity: "subdomain",
+  kind: "basic",
+  name: "BasicSubdomainFlow",
+  "key$": "BasicSubdomainFlow"
+}

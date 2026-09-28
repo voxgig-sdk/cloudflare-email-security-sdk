@@ -1,0 +1,89 @@
+{
+  "existing": {
+    "email_routing_suppression": {
+      "EMAIL_ROUTING_SUPPRESSION00": {
+        "created_at": "s3c",
+        "email": "s3d",
+        "expires_at": "s3e",
+        "id": "EMAIL_ROUTING_SUPPRESSION00",
+        "reason": "s40",
+        "zones": [],
+        "account_id": "ACCOUNT01",
+        "zone_id": "ZONE01"
+      },
+      "EMAIL_ROUTING_SUPPRESSION01": {
+        "created_at": "s78",
+        "email": "s79",
+        "expires_at": "s7a",
+        "id": "EMAIL_ROUTING_SUPPRESSION01",
+        "reason": "s7c",
+        "zones": [],
+        "account_id": "ACCOUNT01",
+        "zone_id": "ZONE01"
+      },
+      "EMAIL_ROUTING_SUPPRESSION02": {
+        "created_at": "sb4",
+        "email": "sb5",
+        "expires_at": "sb6",
+        "id": "EMAIL_ROUTING_SUPPRESSION02",
+        "reason": "sb8",
+        "zones": [],
+        "account_id": "ACCOUNT01",
+        "zone_id": "ZONE01"
+      }
+    }
+  },
+  "new": {
+    "email_routing_suppression": {
+      "email_routing_suppression_ref01": {
+        "created_at": "sf0",
+        "email": "sf1",
+        "expires_at": "sf2",
+        "reason": "sf4",
+        "zones": []
+      }
+    }
+  },
+  "requests": {
+    "POST /accounts/{account_id}/email/routing/suppression": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /zones/{zone_id}/email/routing/suppression": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/email/routing/suppression": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /zones/{zone_id}/email/routing/suppression": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/email/routing/suppression/{suppression_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /zones/{zone_id}/email/routing/suppression/{suppression_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /accounts/{account_id}/email/routing/suppression/{suppression_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /zones/{zone_id}/email/routing/suppression/{suppression_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

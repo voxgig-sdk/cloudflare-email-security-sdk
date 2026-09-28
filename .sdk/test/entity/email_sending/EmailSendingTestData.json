@@ -1,0 +1,112 @@
+{
+  "existing": {
+    "email_sending": {
+      "EMAIL_SENDING00": {
+        "attachments": [],
+        "bcc": "sab",
+        "cc": "sac",
+        "errors": [],
+        "from": "sae",
+        "headers": {},
+        "html": "sb0",
+        "messages": [],
+        "mime_message": "sb2",
+        "recipients": [],
+        "reply_to": "sb4",
+        "result": {},
+        "result_info": {},
+        "subject": "sb7",
+        "success": true,
+        "text": "sb9",
+        "to": "sba",
+        "account_id": "ACCOUNT01",
+        "message_id": "MESSAGE01",
+        "id": "EMAIL_SENDING00"
+      },
+      "EMAIL_SENDING01": {
+        "attachments": [],
+        "bcc": "s155",
+        "cc": "s156",
+        "errors": [],
+        "from": "s158",
+        "headers": {},
+        "html": "s15a",
+        "messages": [],
+        "mime_message": "s15c",
+        "recipients": [],
+        "reply_to": "s15e",
+        "result": {},
+        "result_info": {},
+        "subject": "s161",
+        "success": true,
+        "text": "s163",
+        "to": "s164",
+        "account_id": "ACCOUNT01",
+        "message_id": "MESSAGE01",
+        "id": "EMAIL_SENDING01"
+      },
+      "EMAIL_SENDING02": {
+        "attachments": [],
+        "bcc": "s1ff",
+        "cc": "s200",
+        "errors": [],
+        "from": "s202",
+        "headers": {},
+        "html": "s204",
+        "messages": [],
+        "mime_message": "s206",
+        "recipients": [],
+        "reply_to": "s208",
+        "result": {},
+        "result_info": {},
+        "subject": "s20b",
+        "success": true,
+        "text": "s20d",
+        "to": "s20e",
+        "account_id": "ACCOUNT01",
+        "message_id": "MESSAGE01",
+        "id": "EMAIL_SENDING02"
+      }
+    }
+  },
+  "new": {
+    "email_sending": {
+      "email_sending_ref01": {
+        "attachments": [],
+        "bcc": "s2a9",
+        "cc": "s2aa",
+        "errors": [],
+        "from": "s2ac",
+        "headers": {},
+        "html": "s2ae",
+        "messages": [],
+        "mime_message": "s2b0",
+        "recipients": [],
+        "reply_to": "s2b2",
+        "result": {},
+        "result_info": {},
+        "subject": "s2b5",
+        "success": true,
+        "text": "s2b7",
+        "to": "s2b8"
+      }
+    }
+  },
+  "requests": {
+    "POST /accounts/{account_id}/email/sending/send": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /accounts/{account_id}/email/sending/send_raw": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/email/sending/messages/{message_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

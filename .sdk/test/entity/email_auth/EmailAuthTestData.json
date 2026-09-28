@@ -1,0 +1,53 @@
+{
+  "existing": {
+    "email_auth": {
+      "EMAIL_AUTH00": {
+        "enabled": true,
+        "result": {},
+        "skip_wizard": true,
+        "zone_id": "ZONE01",
+        "id": "EMAIL_AUTH00"
+      },
+      "EMAIL_AUTH01": {
+        "enabled": true,
+        "result": {},
+        "skip_wizard": true,
+        "zone_id": "ZONE01",
+        "id": "EMAIL_AUTH01"
+      },
+      "EMAIL_AUTH02": {
+        "enabled": true,
+        "result": {},
+        "skip_wizard": true,
+        "zone_id": "ZONE01",
+        "id": "EMAIL_AUTH02"
+      }
+    }
+  },
+  "new": {
+    "email_auth": {
+      "email_auth_ref01": {
+        "enabled": true,
+        "result": {},
+        "skip_wizard": true
+      }
+    }
+  },
+  "requests": {
+    "GET /zones/{zone_id}/email/auth/spf/inspect": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /zones/{zone_id}/email/auth/dmarc-reports": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /zones/{zone_id}/email/auth/dmarc-reports": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

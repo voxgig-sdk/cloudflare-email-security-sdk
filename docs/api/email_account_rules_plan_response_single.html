@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>EmailAccountRulesPlanResponseSingle | Cloudflare Email Security</title><link rel="stylesheet" href="../assets/style.css"></head>
+<body><a class="skip" href="#content">Skip to content</a>
+<header class="site-header"><a class="site-title" href="../index.html">Cloudflare Email Security<span>SDK documentation</span></a><div class="site-links"><a class="repo-link" href="https://github.com/voxgig-sdk/cloudflare-email-security-sdk">voxgig-sdk/cloudflare-email-security-sdk</a></div></header>
+<div class="site-notice" role="note"></div>
+<div class="shell"><nav class="site-nav" aria-label="Documentation"><div class="search"><label for="search">Search documentation</label><input id="search" type="search" data-base="../" placeholder="Find a guide or reference"><div id="results" aria-live="polite"></div></div><details><summary>Overview</summary><a href="../index.html">Cloudflare Email Security</a></details>
+<details open><summary>API</summary><a href="../api/index.html">API overview</a>
+<a aria-current="page" href="../api/email_account_rules_plan_response_single.html">EmailAccountRulesPlanResponseSingle</a><div class="nav-sections"><a class="nav-section" href="#post-accountsaccount_idemailroutingrulesplan">POST /accounts/{account_id}/email/routing/rules/plan</a></div>
+<a href="../api/email_account_rules_response_collection.html">EmailAccountRulesResponseCollection</a>
+<a href="../api/email_auth.html">EmailAuth</a>
+<a href="../api/email_catch_all_rule_response_single.html">EmailCatchAllRuleResponseSingle</a>
+<a href="../api/email_destination_address_response_single.html">EmailDestinationAddressResponseSingle</a>
+<a href="../api/email_destination_addresses_response_collection.html">EmailDestinationAddressesResponseCollection</a>
+<a href="../api/email_dns_settings_response_collection.html">EmailDnsSettingsResponseCollection</a>
+<a href="../api/email_email_settings_response_single.html">EmailEmailSettingsResponseSingle</a>
+<a href="../api/email_routing_suppression.html">EmailRoutingSuppression</a>
+<a href="../api/email_rule_response_single.html">EmailRuleResponseSingle</a>
+<a href="../api/email_rules_response_collection.html">EmailRulesResponseCollection</a>
+<a href="../api/email_security.html">EmailSecurity</a>
+<a href="../api/email_security_analytics.html">EmailSecurityAnalytics</a>
+<a href="../api/email_security_setting.html">EmailSecuritySetting</a>
+<a href="../api/email_sending.html">EmailSending</a>
+<a href="../api/email_sending_limits_response_single.html">EmailSendingLimitsResponseSingle</a>
+<a href="../api/email_sending_reputation_response_single.html">EmailSendingReputationResponseSingle</a>
+<a href="../api/email_sending_subdomain_dns_status.html">EmailSendingSubdomainDnsStatus</a>
+<a href="../api/email_sending_subdomain_preview.html">EmailSendingSubdomainPreview</a>
+<a href="../api/email_sending_subdomain_reputation_complaint.html">EmailSendingSubdomainReputationComplaint</a>
+<a href="../api/email_sending_subdomain_response_single.html">EmailSendingSubdomainResponseSingle</a>
+<a href="../api/email_sending_subdomains_response_collection.html">EmailSendingSubdomainsResponseCollection</a>
+<a href="../api/email_sending_suppression.html">EmailSendingSuppression</a>
+<a href="../api/subdomain.html">Subdomain</a></details>
+<details><summary>Guides</summary><a href="../guides/authentication.html">Authentication</a>
+<a href="../guides/first-call.html">Make your first API call</a>
+<a href="../guides/errors.html">Handle errors</a>
+<a href="../guides/concepts.html">Entities, SDKs, and tools</a></details>
+<details><summary>SDKs</summary><a href="../sdks/go.html">Golang</a>
+<a href="../sdks/lua.html">Lua</a>
+<a href="../sdks/php.html">PHP</a>
+<a href="../sdks/py.html">Python</a>
+<a href="../sdks/rb.html">Ruby</a>
+<a href="../sdks/ts.html">TypeScript</a></details>
+<details><summary>Tools</summary><a href="../tools/go-cli.html">Go CLI</a>
+<a href="../tools/go-mcp.html">Go MCP server</a></details>
+<details><summary>Features</summary><a href="../features/test.html">Test transport</a></details></nav><main id="content"><div class="page-context"><span class="section-dot" aria-hidden="true"></span>API</div><h1 id="emailaccountrulesplanresponsesingle">EmailAccountRulesPlanResponseSingle</h1>
+<h2 id="operations">Operations</h2>
+<p>Every route this entity exposes. Each route links to its own reference on this page.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Route</th>
+<th>SDK operation</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-accountsaccount_idemailroutingrulesplan"><code>/accounts/{account_id}/email/routing/rules/plan</code></a></td>
+<td><code>create</code></td>
+<td>Account routing rules plan response</td>
+</tr>
+</tbody>
+</table>
+<h2 id="examples">Examples</h2>
+<p>One example per SDK, generated from the API model. The argument names are the parameters and fields of this entity, and the values are placeholders. The examples are not compiled or executed.</p>
+<h3 id="golang">Golang</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/go.html#set-up-the-client">Golang setup</a>, then call the operations:</p>
+<pre><code class="language-go">created, err := client.EmailAccountRulesPlanResponseSingle(nil).Create(map[string]any{&quot;account_id&quot;: &quot;example&quot;, &quot;owner_worker_tag&quot;: &quot;example&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(created)
+</code></pre>
+<h3 id="lua">Lua</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/lua.html#set-up-the-client">Lua setup</a>, then call the operations:</p>
+<pre><code class="language-lua">local created, err = client:EmailAccountRulesPlanResponseSingle():create({ account_id = &quot;example&quot;, owner_worker_tag = &quot;example&quot; })
+</code></pre>
+<h3 id="php">PHP</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/php.html#set-up-the-client">PHP setup</a>, then call the operations:</p>
+<pre><code class="language-php">$created = $client-&gt;EmailAccountRulesPlanResponseSingle()-&gt;create([&quot;account_id&quot; =&gt; &quot;example&quot;, &quot;owner_worker_tag&quot; =&gt; &quot;example&quot;]);
+</code></pre>
+<h3 id="python">Python</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/py.html#set-up-the-client">Python setup</a>, then call the operations:</p>
+<pre><code class="language-py">created = client.EmailAccountRulesPlanResponseSingle().create({ &quot;account_id&quot;: &quot;example&quot;, &quot;owner_worker_tag&quot;: &quot;example&quot; })
+</code></pre>
+<h3 id="ruby">Ruby</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/rb.html#set-up-the-client">Ruby setup</a>, then call the operations:</p>
+<pre><code class="language-rb">created = client.EmailAccountRulesPlanResponseSingle.create({ &quot;account_id&quot; =&gt; &quot;example&quot;, &quot;owner_worker_tag&quot; =&gt; &quot;example&quot; })
+</code></pre>
+<h3 id="typescript">TypeScript</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/ts.html#set-up-the-client">TypeScript setup</a>, then call the operations:</p>
+<pre><code class="language-ts">const created = await client.EmailAccountRulesPlanResponseSingle().create({ account_id: &quot;example&quot;, owner_worker_tag: &quot;example&quot; })
+</code></pre>
+<h2 id="fields">Fields</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>catch_all_rules</code></td>
+<td><code>array</code></td>
+<td>No</td>
+<td>Desired catch-all Email Routing rules managed by the deploying Worker.</td>
+</tr>
+<tr>
+<td><code>owner_worker_tag</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Public tag (<code>script_tag</code>) of the Worker that owns this rule.</td>
+</tr>
+<tr>
+<td><code>rules</code></td>
+<td><code>array</code></td>
+<td>No</td>
+<td>Desired normal Email Routing rules managed by the deploying Worker.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="create">create</h2>
+<h3 id="post-accountsaccount_idemailroutingrulesplan" class="operation" data-method="post"><code>POST</code> /accounts/{account_id}/email/routing/rules/plan</h3>
+<p>Operation ID: <code>email-routing-routing-rules-plan-account-routing-rules</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="request-body">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>catch_all_rules</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>Desired catch-all Email Routing rules managed by the deploying Worker.</td>
+</tr>
+<tr>
+<td><code>catch_all_rules[].rule</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>catch_all_rules[].rule.actions</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>List actions for the catch-all routing rule.</td>
+</tr>
+<tr>
+<td><code>catch_all_rules[].rule.actions[].type</code></td>
+<td><code>enum: drop, forward, worker</code></td>
+<td>Yes</td>
+<td>Type of action for catch-all rule.</td>
+</tr>
+<tr>
+<td><code>catch_all_rules[].rule.actions[].value</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td>List of values for the action. Currently limited to a single value.</td>
+</tr>
+<tr>
+<td><code>catch_all_rules[].rule.enabled</code></td>
+<td><code>enum: true, false</code></td>
+<td>No</td>
+<td>Routing rule status.</td>
+</tr>
+<tr>
+<td><code>catch_all_rules[].rule.matchers</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>List of matchers for the catch-all routing rule.</td>
+</tr>
+<tr>
+<td><code>catch_all_rules[].rule.matchers[].type</code></td>
+<td><code>enum: all</code></td>
+<td>Yes</td>
+<td>Type of matcher. Default is 'all'.</td>
+</tr>
+<tr>
+<td><code>catch_all_rules[].target</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Catch-all target to plan for, using the <code>*@domain</code> shape.</td>
+</tr>
+<tr>
+<td><code>owner_worker_tag</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Public tag (<code>script_tag</code>) of the Worker that owns this rule. Required when <code>source</code> is <code>wrangler</code>.</td>
+</tr>
+<tr>
+<td><code>rules</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>Desired normal Email Routing rules managed by the deploying Worker.</td>
+</tr>
+<tr>
+<td><code>rules[].actions</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>List actions patterns.</td>
+</tr>
+<tr>
+<td><code>rules[].actions[].type</code></td>
+<td><code>enum: drop, forward, worker</code></td>
+<td>Yes</td>
+<td>Type of supported action.</td>
+</tr>
+<tr>
+<td><code>rules[].actions[].value</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td>List of values for the action. Currently limited to a single value.</td>
+</tr>
+<tr>
+<td><code>rules[].enabled</code></td>
+<td><code>enum: true, false</code></td>
+<td>No</td>
+<td>Routing rule status.</td>
+</tr>
+<tr>
+<td><code>rules[].matchers</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>Matching patterns to forward to your actions.</td>
+</tr>
+<tr>
+<td><code>rules[].matchers[].field</code></td>
+<td><code>enum: to</code></td>
+<td>No</td>
+<td>Field for type matcher.</td>
+</tr>
+<tr>
+<td><code>rules[].matchers[].type</code></td>
+<td><code>enum: all, literal</code></td>
+<td>Yes</td>
+<td>Type of matcher.</td>
+</tr>
+<tr>
+<td><code>rules[].matchers[].value</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Value for matcher.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses">Responses</h4>
+<h5 id="200-account-routing-rules-plan-response" class="status" data-status="2xx">200: Account routing rules plan response</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="400-error-2062-unknown-email-routing-domain-a-desired-address-or-catch-all-target-does-not-resolve-to-an-email-routing-enabled-domain-in-this-account" class="status" data-status="4xx">400: Error 2062: Unknown Email Routing domain. A desired address or catch-all target does not resolve to an Email Routing-enabled domain in this account</h5>
+<h5 id="403-authentication-error-or-missing-account-rule-list-permission" class="status" data-status="4xx">403: Authentication error or missing account rule list permission</h5>
+<h5 id="422-invalid-plan-input-such-as-malformed-matchersactions-duplicate-targets-or-an-owner_worker_tag-that-does-not-resolve-to-a-known-worker-script" class="status" data-status="4xx">422: Invalid plan input, such as malformed matchers/actions, duplicate targets, or an owner_worker_tag that does not resolve to a known Worker script</h5>
+</main></div>
+<script src="../assets/search.js" defer></script></body></html>

@@ -1,0 +1,22 @@
+# BasicEmailAccountRulesPlanResponseSingleFlow
+
+main: kit: flow: BasicEmailAccountRulesPlanResponseSingleFlow:
+{
+  entity: "email_account_rules_plan_response_single",
+  kind: "basic",
+  name: "BasicEmailAccountRulesPlanResponseSingleFlow",
+  step: [
+    {
+      i: {
+        ref: "email_account_rules_plan_response_single_ref01"
+      }
+
+      m: {
+        account_id: "account01"
+      }
+
+      o: "create"
+    }
+  ],
+  "key$": "BasicEmailAccountRulesPlanResponseSingleFlow"
+}

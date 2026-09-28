@@ -1,0 +1,1701 @@
+# Entity: email_security
+
+main: kit: entity: email_security: {
+
+  alias: field: {}
+
+  fields: {
+    action: {
+      h: "Action"
+      n: "action"
+      r: true
+      sh: "The action the job performs on every message matching the search parameters."
+      t: "`$STRING`"
+    }
+    comment: {
+      h: "Comment"
+      n: "comment"
+      r: false
+      sh: "Optional note describing the job."
+      t: "`$STRING`"
+    }
+    destination: {
+      h: "Destination"
+      n: "destination"
+      op: {
+        create: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      r: false
+      sh: "Required when action is 'MOVE'."
+      t: "`$ANY`"
+    }
+    errors: {
+      h: "Errors"
+      n: "errors"
+      r: true
+      t: "`$ARRAY`"
+    }
+    expected_disposition: {
+      de: true
+      h: "Expected Disposition"
+      n: "expected_disposition"
+      r: false
+      sh: "Nonfunctional field."
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: true
+      sh: "Unique identifier for a message retrieved from investigation."
+      t: "`$STRING`"
+    }
+    ids: {
+      h: "Ids"
+      n: "ids"
+      r: true
+      sh: "List of message IDs to move."
+      t: "`$ARRAY`"
+    }
+    messages: {
+      h: "Messages"
+      n: "messages"
+      r: true
+      t: "`$ARRAY`"
+    }
+    postfix_ids: {
+      de: true
+      h: "Postfix Ids"
+      n: "postfix_ids"
+      r: false
+      sh: "Deprecated, use `ids` instead."
+      t: "`$ARRAY`"
+    }
+    result: {
+      h: "Result"
+      n: "result"
+      r: true
+      t: "`$OBJECT`"
+    }
+    result_info: {
+      h: "Result Info"
+      n: "result_info"
+      r: true
+      t: "`$OBJECT`"
+    }
+    search_params: {
+      h: "Search Params"
+      n: "search_params"
+      r: true
+      t: "`$OBJECT`"
+    }
+    success: {
+      h: "Success"
+      n: "success"
+      r: true
+      sh: "Whether the API call was successful."
+      t: "`$BOOLEAN`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "email_security"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /accounts/{account_id}/email-security/investigate/bulk/{job_id}/cancel"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "f174e90a-fafe-4643-bbbc-4a0ed4fc8415"
+                k: "param"
+                n: "bulk_id"
+                or: "job_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/accounts/{account_id}/email-security/investigate/bulk/{job_id}/cancel"
+          q: {
+            "$action": "cancel"
+            exist: [
+              "account_id"
+              "bulk_id"
+            ]
+          }
+          r: {
+            param: {
+              job_id: "bulk_id"
+            }
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "email-security"
+            }
+            {
+              lit: "investigate"
+            }
+            {
+              lit: "bulk"
+            }
+            {
+              var: "bulk_id"
+            }
+            {
+              lit: "cancel"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /accounts/{account_id}/email-security/investigate/{investigate_id}/move"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "4Njp3P0STMz2c02Q-2024-01-05T10:00:00-12345678"
+                k: "param"
+                n: "investigate_id"
+                or: "investigate_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/accounts/{account_id}/email-security/investigate/{investigate_id}/move"
+          q: {
+            "$action": "move"
+            exist: [
+              "account_id"
+              "investigate_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "email-security"
+            }
+            {
+              lit: "investigate"
+            }
+            {
+              var: "investigate_id"
+            }
+            {
+              lit: "move"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /accounts/{account_id}/email-security/investigate/{investigate_id}/reclassify"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "4Njp3P0STMz2c02Q-2024-01-05T10:00:00-12345678"
+                k: "param"
+                n: "investigate_id"
+                or: "investigate_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/accounts/{account_id}/email-security/investigate/{investigate_id}/reclassify"
+          q: {
+            "$action": "reclassify"
+            exist: [
+              "account_id"
+              "investigate_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "email-security"
+            }
+            {
+              lit: "investigate"
+            }
+            {
+              var: "investigate_id"
+            }
+            {
+              lit: "reclassify"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /accounts/{account_id}/email-security/investigate/bulk"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/accounts/{account_id}/email-security/investigate/bulk"
+          q: {
+            exist: [
+              "account_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "email-security"
+            }
+            {
+              lit: "investigate"
+            }
+            {
+              lit: "bulk"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /accounts/{account_id}/email-security/investigate/move"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/accounts/{account_id}/email-security/investigate/move"
+          q: {
+            exist: [
+              "account_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "email-security"
+            }
+            {
+              lit: "investigate"
+            }
+            {
+              lit: "move"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /accounts/{account_id}/email-security/investigate/preview"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/accounts/{account_id}/email-security/investigate/preview"
+          q: {
+            exist: [
+              "account_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "email-security"
+            }
+            {
+              lit: "investigate"
+            }
+            {
+              lit: "preview"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /accounts/{account_id}/email-security/investigate/release"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/accounts/{account_id}/email-security/investigate/release"
+          q: {
+            exist: [
+              "account_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "email-security"
+            }
+            {
+              lit: "investigate"
+            }
+            {
+              lit: "release"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /accounts/{account_id}/email-security/submissions"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/accounts/{account_id}/email-security/submissions"
+          q: {
+            "$action": "submission"
+            exist: [
+              "account_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "email-security"
+            }
+            {
+              lit: "submissions"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /accounts/{account_id}/email-security/investigate"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "alert_id"
+                or: "alert_id"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "cursor"
+                or: "cursor"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "delivery_status"
+                or: "delivery_status"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: true
+                k: "query"
+                n: "detections_only"
+                or: "detections_only"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                ex: "example.com"
+                k: "query"
+                n: "domain"
+                or: "domain"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: "2022-07-25T14:30:00Z"
+                k: "query"
+                n: "end"
+                or: "end"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "final_disposition"
+                or: "final_disposition"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "message_action"
+                or: "message_action"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "message_id"
+                or: "message_id"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "metric"
+                or: "metric"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: 1
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 20
+                k: "query"
+                n: "per_page"
+                or: "per_page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: "bob jones"
+                k: "query"
+                n: "query"
+                or: "query"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: "me@example.com"
+                k: "query"
+                n: "recipient"
+                or: "recipient"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: "noreply@example.com"
+                k: "query"
+                n: "sender"
+                or: "sender"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: "192.0.2.1"
+                k: "query"
+                n: "smtp_helo_ip"
+                or: "smtp_helo_ip"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: "2022-06-25T14:30:00Z"
+                k: "query"
+                n: "start"
+                or: "start"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "subject"
+                or: "subject"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/email-security/investigate"
+          q: {
+            "$action": "investigate"
+            exist: [
+              "account_id"
+              "alert_id"
+              "cursor"
+              "delivery_status"
+              "detections_only"
+              "domain"
+              "end"
+              "final_disposition"
+              "message_action"
+              "message_id"
+              "metric"
+              "page"
+              "per_page"
+              "query"
+              "recipient"
+              "sender"
+              "smtp_helo_ip"
+              "start"
+              "subject"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "email-security"
+            }
+            {
+              lit: "investigate"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /accounts/{account_id}/email-security/submissions"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "direction"
+                or: "direction"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: "2022-07-25T14:30:00Z"
+                k: "query"
+                n: "end"
+                or: "end"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "escalated_from_user"
+                or: "escalated_from_user"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                ex: "requested_at"
+                k: "query"
+                n: "order"
+                or: "order"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "original_disposition"
+                or: "original_disposition"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "outcome_disposition"
+                or: "outcome_disposition"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: 1
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 20
+                k: "query"
+                n: "per_page"
+                or: "per_page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "query"
+                or: "query"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "requested_disposition"
+                or: "requested_disposition"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: "2022-06-25T14:30:00Z"
+                k: "query"
+                n: "start"
+                or: "start"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "status"
+                or: "status"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "submission_id"
+                or: "submission_id"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "type"
+                or: "type"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/email-security/submissions"
+          q: {
+            "$action": "submission"
+            exist: [
+              "account_id"
+              "direction"
+              "end"
+              "escalated_from_user"
+              "order"
+              "original_disposition"
+              "outcome_disposition"
+              "page"
+              "per_page"
+              "query"
+              "requested_disposition"
+              "start"
+              "status"
+              "submission_id"
+              "type"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "email-security"
+            }
+            {
+              lit: "submissions"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /accounts/{account_id}/email-security/phishguard/reports"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                ex: "2020-09-01T00:00:00Z"
+                k: "query"
+                n: "end"
+                or: "end"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: "2020-08-01T00:00:00Z"
+                k: "query"
+                n: "from_date"
+                or: "from_date"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: 1
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 20
+                k: "query"
+                n: "per_page"
+                or: "per_page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: "2020-08-01T00:00:00Z"
+                k: "query"
+                n: "start"
+                or: "start"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: "2020-09-01T00:00:00Z"
+                k: "query"
+                n: "to_date"
+                or: "to_date"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/email-security/phishguard/reports"
+          q: {
+            exist: [
+              "account_id"
+              "end"
+              "from_date"
+              "page"
+              "per_page"
+              "start"
+              "to_date"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "email-security"
+            }
+            {
+              lit: "phishguard"
+            }
+            {
+              lit: "reports"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /accounts/{account_id}/email-security/investigate/bulk"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "action_type"
+                or: "action_type"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: 1
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 20
+                k: "query"
+                n: "per_page"
+                or: "per_page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "status"
+                or: "status"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/email-security/investigate/bulk"
+          q: {
+            exist: [
+              "account_id"
+              "action_type"
+              "page"
+              "per_page"
+              "status"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "email-security"
+            }
+            {
+              lit: "investigate"
+            }
+            {
+              lit: "bulk"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /accounts/{account_id}/email-security/investigate/bulk/{job_id}/messages"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "f174e90a-fafe-4643-bbbc-4a0ed4fc8415"
+                k: "param"
+                n: "bulk_id"
+                or: "job_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                ex: 1
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 20
+                k: "query"
+                n: "per_page"
+                or: "per_page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "status"
+                or: "status"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/email-security/investigate/bulk/{job_id}/messages"
+          q: {
+            exist: [
+              "account_id"
+              "bulk_id"
+              "page"
+              "per_page"
+              "status"
+            ]
+          }
+          r: {
+            param: {
+              job_id: "bulk_id"
+            }
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "email-security"
+            }
+            {
+              lit: "investigate"
+            }
+            {
+              lit: "bulk"
+            }
+            {
+              var: "bulk_id"
+            }
+            {
+              lit: "messages"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /accounts/{account_id}/email-security/investigate/{investigate_id}/action_log"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "4Njp3P0STMz2c02Q-2024-01-05T10:00:00-12345678"
+                k: "param"
+                n: "investigate_id"
+                or: "investigate_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                ex: 1
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 20
+                k: "query"
+                n: "per_page"
+                or: "per_page"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/email-security/investigate/{investigate_id}/action_log"
+          q: {
+            exist: [
+              "account_id"
+              "investigate_id"
+              "page"
+              "per_page"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "email-security"
+            }
+            {
+              lit: "investigate"
+            }
+            {
+              var: "investigate_id"
+            }
+            {
+              lit: "action_log"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /accounts/{account_id}/email-security/investigate/{investigate_id}/detections"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "4Njp3P0STMz2c02Q-2024-01-05T10:00:00-12345678"
+                k: "param"
+                n: "investigate_id"
+                or: "investigate_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/email-security/investigate/{investigate_id}/detections"
+          q: {
+            exist: [
+              "account_id"
+              "investigate_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "email-security"
+            }
+            {
+              lit: "investigate"
+            }
+            {
+              var: "investigate_id"
+            }
+            {
+              lit: "detections"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /accounts/{account_id}/email-security/investigate/{investigate_id}/preview"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "4Njp3P0STMz2c02Q-2024-01-05T10:00:00-12345678"
+                k: "param"
+                n: "investigate_id"
+                or: "investigate_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/email-security/investigate/{investigate_id}/preview"
+          q: {
+            exist: [
+              "account_id"
+              "investigate_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "email-security"
+            }
+            {
+              lit: "investigate"
+            }
+            {
+              var: "investigate_id"
+            }
+            {
+              lit: "preview"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /accounts/{account_id}/email-security/investigate/{investigate_id}/raw"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "4Njp3P0STMz2c02Q-2024-01-05T10:00:00-12345678"
+                k: "param"
+                n: "investigate_id"
+                or: "investigate_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/email-security/investigate/{investigate_id}/raw"
+          q: {
+            exist: [
+              "account_id"
+              "investigate_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "email-security"
+            }
+            {
+              lit: "investigate"
+            }
+            {
+              var: "investigate_id"
+            }
+            {
+              lit: "raw"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /accounts/{account_id}/email-security/investigate/{investigate_id}/trace"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "4Njp3P0STMz2c02Q-2024-01-05T10:00:00-12345678"
+                k: "param"
+                n: "investigate_id"
+                or: "investigate_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/email-security/investigate/{investigate_id}/trace"
+          q: {
+            exist: [
+              "account_id"
+              "investigate_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "email-security"
+            }
+            {
+              lit: "investigate"
+            }
+            {
+              var: "investigate_id"
+            }
+            {
+              lit: "trace"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /accounts/{account_id}/email-security/investigate/{investigate_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "4Njp3P0STMz2c02Q-2024-01-05T10:00:00-12345678"
+                k: "param"
+                n: "investigate_id"
+                or: "investigate_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "submission"
+                or: "submission"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/email-security/investigate/{investigate_id}"
+          q: {
+            exist: [
+              "account_id"
+              "investigate_id"
+              "submission"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "email-security"
+            }
+            {
+              lit: "investigate"
+            }
+            {
+              var: "investigate_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /accounts/{account_id}/email-security/investigate/bulk/{job_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "f174e90a-fafe-4643-bbbc-4a0ed4fc8415"
+                k: "param"
+                n: "job_id"
+                or: "job_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/email-security/investigate/bulk/{job_id}"
+          q: {
+            exist: [
+              "account_id"
+              "job_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "email-security"
+            }
+            {
+              lit: "investigate"
+            }
+            {
+              lit: "bulk"
+            }
+            {
+              var: "job_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    remove: {
+      name: "remove"
+      points: [
+        {
+          co: {
+            id: "DELETE /accounts/{account_id}/email-security/investigate/bulk/{job_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "f174e90a-fafe-4643-bbbc-4a0ed4fc8415"
+                k: "param"
+                n: "job_id"
+                or: "job_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/accounts/{account_id}/email-security/investigate/bulk/{job_id}"
+          q: {
+            exist: [
+              "account_id"
+              "job_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "email-security"
+            }
+            {
+              lit: "investigate"
+            }
+            {
+              lit: "bulk"
+            }
+            {
+              var: "job_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

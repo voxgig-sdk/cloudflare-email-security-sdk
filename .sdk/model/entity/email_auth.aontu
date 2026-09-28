@@ -1,0 +1,208 @@
+# Entity: email_auth
+
+main: kit: entity: email_auth: {
+
+  alias: field: {}
+
+  fields: {
+    enabled: {
+      h: "Enabled"
+      n: "enabled"
+      r: false
+      sh: "Enable or disable DMARC reports for this zone"
+      t: "`$BOOLEAN`"
+    }
+    result: {
+      h: "Result"
+      n: "result"
+      op: {
+        load: {
+          req: false
+          type: "`$OBJECT`"
+        }
+      }
+      r: true
+      sh: "Recursive SPF inspection tree"
+      t: "`$OBJECT`"
+    }
+    skip_wizard: {
+      h: "Skip Wizard"
+      n: "skip_wizard"
+      r: false
+      sh: "Skip the DMARC setup wizard"
+      t: "`$BOOLEAN`"
+    }
+  }
+
+  name: "email_auth"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /zones/{zone_id}/email/auth/spf/inspect"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "zone_id"
+                or: "zone_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                ex: "e5bb46707a802688812d5d1c9f7977d4"
+                k: "query"
+                n: "id"
+                or: "id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/zones/{zone_id}/email/auth/spf/inspect"
+          q: {
+            exist: [
+              "id"
+              "zone_id"
+            ]
+          }
+          s: [
+            {
+              lit: "zones"
+            }
+            {
+              var: "zone_id"
+            }
+            {
+              lit: "email"
+            }
+            {
+              lit: "auth"
+            }
+            {
+              lit: "spf"
+            }
+            {
+              lit: "inspect"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /zones/{zone_id}/email/auth/dmarc-reports"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "zone_id"
+                or: "zone_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/zones/{zone_id}/email/auth/dmarc-reports"
+          q: {
+            exist: [
+              "zone_id"
+            ]
+          }
+          s: [
+            {
+              lit: "zones"
+            }
+            {
+              var: "zone_id"
+            }
+            {
+              lit: "email"
+            }
+            {
+              lit: "auth"
+            }
+            {
+              lit: "dmarc-reports"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          co: {
+            id: "PATCH /zones/{zone_id}/email/auth/dmarc-reports"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "zone_id"
+                or: "zone_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "PATCH"
+          o: "/zones/{zone_id}/email/auth/dmarc-reports"
+          q: {
+            exist: [
+              "zone_id"
+            ]
+          }
+          s: [
+            {
+              lit: "zones"
+            }
+            {
+              var: "zone_id"
+            }
+            {
+              lit: "email"
+            }
+            {
+              lit: "auth"
+            }
+            {
+              lit: "dmarc-reports"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

@@ -1,0 +1,1252 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>EmailSending | Cloudflare Email Security</title><link rel="stylesheet" href="../assets/style.css"></head>
+<body><a class="skip" href="#content">Skip to content</a>
+<header class="site-header"><a class="site-title" href="../index.html">Cloudflare Email Security<span>SDK documentation</span></a><div class="site-links"><a class="repo-link" href="https://github.com/voxgig-sdk/cloudflare-email-security-sdk">voxgig-sdk/cloudflare-email-security-sdk</a></div></header>
+<div class="site-notice" role="note"></div>
+<div class="shell"><nav class="site-nav" aria-label="Documentation"><div class="search"><label for="search">Search documentation</label><input id="search" type="search" data-base="../" placeholder="Find a guide or reference"><div id="results" aria-live="polite"></div></div><details><summary>Overview</summary><a href="../index.html">Cloudflare Email Security</a></details>
+<details open><summary>API</summary><a href="../api/index.html">API overview</a>
+<a href="../api/email_account_rules_plan_response_single.html">EmailAccountRulesPlanResponseSingle</a>
+<a href="../api/email_account_rules_response_collection.html">EmailAccountRulesResponseCollection</a>
+<a href="../api/email_auth.html">EmailAuth</a>
+<a href="../api/email_catch_all_rule_response_single.html">EmailCatchAllRuleResponseSingle</a>
+<a href="../api/email_destination_address_response_single.html">EmailDestinationAddressResponseSingle</a>
+<a href="../api/email_destination_addresses_response_collection.html">EmailDestinationAddressesResponseCollection</a>
+<a href="../api/email_dns_settings_response_collection.html">EmailDnsSettingsResponseCollection</a>
+<a href="../api/email_email_settings_response_single.html">EmailEmailSettingsResponseSingle</a>
+<a href="../api/email_routing_suppression.html">EmailRoutingSuppression</a>
+<a href="../api/email_rule_response_single.html">EmailRuleResponseSingle</a>
+<a href="../api/email_rules_response_collection.html">EmailRulesResponseCollection</a>
+<a href="../api/email_security.html">EmailSecurity</a>
+<a href="../api/email_security_analytics.html">EmailSecurityAnalytics</a>
+<a href="../api/email_security_setting.html">EmailSecuritySetting</a>
+<a aria-current="page" href="../api/email_sending.html">EmailSending</a><div class="nav-sections"><a class="nav-section" href="#post-accountsaccount_idemailsendingsend">POST /accounts/{account_id}/email/sending/send</a>
+<a class="nav-section" href="#post-accountsaccount_idemailsendingsend_raw">POST /accounts/{account_id}/email/sending/send_raw</a>
+<a class="nav-section" href="#get-accountsaccount_idemailsendingmessagesmessage_id">GET /accounts/{account_id}/email/sending/messages/{message_id}</a></div>
+<a href="../api/email_sending_limits_response_single.html">EmailSendingLimitsResponseSingle</a>
+<a href="../api/email_sending_reputation_response_single.html">EmailSendingReputationResponseSingle</a>
+<a href="../api/email_sending_subdomain_dns_status.html">EmailSendingSubdomainDnsStatus</a>
+<a href="../api/email_sending_subdomain_preview.html">EmailSendingSubdomainPreview</a>
+<a href="../api/email_sending_subdomain_reputation_complaint.html">EmailSendingSubdomainReputationComplaint</a>
+<a href="../api/email_sending_subdomain_response_single.html">EmailSendingSubdomainResponseSingle</a>
+<a href="../api/email_sending_subdomains_response_collection.html">EmailSendingSubdomainsResponseCollection</a>
+<a href="../api/email_sending_suppression.html">EmailSendingSuppression</a>
+<a href="../api/subdomain.html">Subdomain</a></details>
+<details><summary>Guides</summary><a href="../guides/authentication.html">Authentication</a>
+<a href="../guides/first-call.html">Make your first API call</a>
+<a href="../guides/errors.html">Handle errors</a>
+<a href="../guides/concepts.html">Entities, SDKs, and tools</a></details>
+<details><summary>SDKs</summary><a href="../sdks/go.html">Golang</a>
+<a href="../sdks/lua.html">Lua</a>
+<a href="../sdks/php.html">PHP</a>
+<a href="../sdks/py.html">Python</a>
+<a href="../sdks/rb.html">Ruby</a>
+<a href="../sdks/ts.html">TypeScript</a></details>
+<details><summary>Tools</summary><a href="../tools/go-cli.html">Go CLI</a>
+<a href="../tools/go-mcp.html">Go MCP server</a></details>
+<details><summary>Features</summary><a href="../features/test.html">Test transport</a></details></nav><main id="content"><div class="page-context"><span class="section-dot" aria-hidden="true"></span>API</div><h1 id="emailsending">EmailSending</h1>
+<h2 id="operations">Operations</h2>
+<p>Every route this entity exposes. Each route links to its own reference on this page.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Route</th>
+<th>SDK operation</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-accountsaccount_idemailsendingsend"><code>/accounts/{account_id}/email/sending/send</code></a></td>
+<td><code>create</code></td>
+<td>Email sending results</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-accountsaccount_idemailsendingsend_raw"><code>/accounts/{account_id}/email/sending/send_raw</code></a></td>
+<td><code>create</code></td>
+<td>Email sending results</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-accountsaccount_idemailsendingmessagesmessage_id"><code>/accounts/{account_id}/email/sending/messages/{message_id}</code></a></td>
+<td><code>load</code></td>
+<td>The raw RFC 5322 MIME message</td>
+</tr>
+</tbody>
+</table>
+<h2 id="examples">Examples</h2>
+<p>One example per SDK, generated from the API model. The argument names are the parameters and fields of this entity, and the values are placeholders. The examples are not compiled or executed.</p>
+<h3 id="golang">Golang</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/go.html#set-up-the-client">Golang setup</a>, then call the operations:</p>
+<pre><code class="language-go">email_sending, err := client.EmailSending(nil).Load(map[string]any{&quot;account_id&quot;: &quot;example&quot;, &quot;message_id&quot;: &quot;example&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(email_sending)
+created, err := client.EmailSending(nil).Create(map[string]any{&quot;account_id&quot;: &quot;example&quot;, &quot;errors&quot;: []any{}, &quot;from&quot;: &quot;example&quot;, &quot;messages&quot;: []any{}, &quot;mime_message&quot;: &quot;example&quot;, &quot;recipients&quot;: []any{}, &quot;result&quot;: map[string]any{}, &quot;result_info&quot;: map[string]any{}, &quot;subject&quot;: &quot;example&quot;, &quot;success&quot;: true}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(created)
+</code></pre>
+<h3 id="lua">Lua</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/lua.html#set-up-the-client">Lua setup</a>, then call the operations:</p>
+<pre><code class="language-lua">local email_sending, err = client:EmailSending():load({ account_id = &quot;example&quot;, message_id = &quot;example&quot; })
+local created, err = client:EmailSending():create({ account_id = &quot;example&quot;, errors = {}, from = &quot;example&quot;, messages = {}, mime_message = &quot;example&quot;, recipients = {}, result = {}, result_info = {}, subject = &quot;example&quot;, success = true })
+</code></pre>
+<h3 id="php">PHP</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/php.html#set-up-the-client">PHP setup</a>, then call the operations:</p>
+<pre><code class="language-php">$email_sending = $client-&gt;EmailSending()-&gt;load([&quot;account_id&quot; =&gt; &quot;example&quot;, &quot;message_id&quot; =&gt; &quot;example&quot;]);
+$created = $client-&gt;EmailSending()-&gt;create([&quot;account_id&quot; =&gt; &quot;example&quot;, &quot;errors&quot; =&gt; [], &quot;from&quot; =&gt; &quot;example&quot;, &quot;messages&quot; =&gt; [], &quot;mime_message&quot; =&gt; &quot;example&quot;, &quot;recipients&quot; =&gt; [], &quot;result&quot; =&gt; [], &quot;result_info&quot; =&gt; [], &quot;subject&quot; =&gt; &quot;example&quot;, &quot;success&quot; =&gt; true]);
+</code></pre>
+<h3 id="python">Python</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/py.html#set-up-the-client">Python setup</a>, then call the operations:</p>
+<pre><code class="language-py">email_sending = client.EmailSending().load({&quot;account_id&quot;: &quot;example&quot;, &quot;message_id&quot;: &quot;example&quot;})
+created = client.EmailSending().create({ &quot;account_id&quot;: &quot;example&quot;, &quot;errors&quot;: [], &quot;from&quot;: &quot;example&quot;, &quot;messages&quot;: [], &quot;mime_message&quot;: &quot;example&quot;, &quot;recipients&quot;: [], &quot;result&quot;: {}, &quot;result_info&quot;: {}, &quot;subject&quot;: &quot;example&quot;, &quot;success&quot;: True })
+</code></pre>
+<h3 id="ruby">Ruby</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/rb.html#set-up-the-client">Ruby setup</a>, then call the operations:</p>
+<pre><code class="language-rb">email_sending = client.EmailSending.load({ &quot;account_id&quot; =&gt; &quot;example&quot;, &quot;message_id&quot; =&gt; &quot;example&quot; })
+created = client.EmailSending.create({ &quot;account_id&quot; =&gt; &quot;example&quot;, &quot;errors&quot; =&gt; [], &quot;from&quot; =&gt; &quot;example&quot;, &quot;messages&quot; =&gt; [], &quot;mime_message&quot; =&gt; &quot;example&quot;, &quot;recipients&quot; =&gt; [], &quot;result&quot; =&gt; {}, &quot;result_info&quot; =&gt; {}, &quot;subject&quot; =&gt; &quot;example&quot;, &quot;success&quot; =&gt; true })
+</code></pre>
+<h3 id="typescript">TypeScript</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/ts.html#set-up-the-client">TypeScript setup</a>, then call the operations:</p>
+<pre><code class="language-ts">const email_sending = await client.EmailSending().load({ account_id: &quot;example&quot;, message_id: &quot;example&quot; })
+const created = await client.EmailSending().create({ account_id: &quot;example&quot;, errors: [], from: &quot;example&quot;, messages: [], mime_message: &quot;example&quot;, recipients: [], result: {}, result_info: {}, subject: &quot;example&quot;, success: true })
+</code></pre>
+<h2 id="fields">Fields</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>attachments</code></td>
+<td><code>array</code></td>
+<td>No</td>
+<td>File attachments and inline images.</td>
+</tr>
+<tr>
+<td><code>bcc</code></td>
+<td><code>any</code></td>
+<td>No</td>
+<td>Blind carbon copy recipient(s).</td>
+</tr>
+<tr>
+<td><code>cc</code></td>
+<td><code>any</code></td>
+<td>No</td>
+<td>Carbon copy recipient(s).</td>
+</tr>
+<tr>
+<td><code>errors</code></td>
+<td><code>array</code></td>
+<td>Yes</td>
+<td>Errors</td>
+</tr>
+<tr>
+<td><code>from</code></td>
+<td><code>any</code></td>
+<td>Yes</td>
+<td>Sender email address.</td>
+</tr>
+<tr>
+<td><code>headers</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Custom email headers as key-value pairs.</td>
+</tr>
+<tr>
+<td><code>html</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>HTML body of the email.</td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array</code></td>
+<td>Yes</td>
+<td>Messages</td>
+</tr>
+<tr>
+<td><code>mime_message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The full MIME-encoded email message.</td>
+</tr>
+<tr>
+<td><code>recipients</code></td>
+<td><code>array</code></td>
+<td>Yes</td>
+<td>List of recipient email addresses.</td>
+</tr>
+<tr>
+<td><code>reply_to</code></td>
+<td><code>any</code></td>
+<td>No</td>
+<td>Reply-to address.</td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Result</td>
+</tr>
+<tr>
+<td><code>result_info</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Result Info</td>
+</tr>
+<tr>
+<td><code>subject</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Email subject line.</td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Success</td>
+</tr>
+<tr>
+<td><code>text</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Plain text body of the email.</td>
+</tr>
+<tr>
+<td><code>to</code></td>
+<td><code>any</code></td>
+<td>No</td>
+<td>Recipient(s).</td>
+</tr>
+</tbody>
+</table>
+<h2 id="create">create</h2>
+<h3 id="post-accountsaccount_idemailsendingsend" class="operation" data-method="post"><code>POST</code> /accounts/{account_id}/email/sending/send</h3>
+<p>Operation ID: <code>email-sending-account-send-builder</code>.</p>
+<p>Authentication: API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>) or bearer token (<code>api_token</code>).</p>
+<h4 id="parameters">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Identifier of the account. |</p>
+<h4 id="request-body">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>attachments</code></td>
+<td><code>array of object or object</code></td>
+<td>No</td>
+<td>File attachments and inline images.</td>
+</tr>
+<tr>
+<td><code>bcc</code></td>
+<td><code>string or object or array of string or object</code></td>
+<td>No</td>
+<td>Blind carbon copy recipient(s). Optional. A single email string, a named address object, or an array of either.</td>
+</tr>
+<tr>
+<td><code>cc</code></td>
+<td><code>string or object or array of string or object</code></td>
+<td>No</td>
+<td>Carbon copy recipient(s). Optional. A single email string, a named address object, or an array of either.</td>
+</tr>
+<tr>
+<td><code>from</code></td>
+<td><code>string or object</code></td>
+<td>Yes</td>
+<td>Sender email address. Either a plain string or an object with address and name.</td>
+</tr>
+<tr>
+<td><code>headers</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Custom email headers as key-value pairs.</td>
+</tr>
+<tr>
+<td><code>html</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>HTML body of the email. Provide at least one of text or html (non-empty).</td>
+</tr>
+<tr>
+<td><code>reply_to</code></td>
+<td><code>string or object</code></td>
+<td>No</td>
+<td>Reply-to address. Either a plain string or an object with address and name.</td>
+</tr>
+<tr>
+<td><code>subject</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Email subject line.</td>
+</tr>
+<tr>
+<td><code>text</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Plain text body of the email. Provide at least one of text or html (non-empty).</td>
+</tr>
+<tr>
+<td><code>to</code></td>
+<td><code>string or object or array of string or object</code></td>
+<td>No</td>
+<td>Recipient(s). Optional if cc or bcc is provided. A single email string, a named address object, or an array of either.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses">Responses</h4>
+<h5 id="200-email-sending-results" class="status" data-status="2xx">200: Email sending results</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.delivered</code></td>
+<td><code>array of string</code></td>
+<td>Yes</td>
+<td>Email addresses to which the message was delivered immediately.</td>
+</tr>
+<tr>
+<td><code>result.message_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Message ID of the sent email.</td>
+</tr>
+<tr>
+<td><code>result.permanent_bounces</code></td>
+<td><code>array of string</code></td>
+<td>Yes</td>
+<td>Email addresses that permanently bounced.</td>
+</tr>
+<tr>
+<td><code>result.queued</code></td>
+<td><code>array of string</code></td>
+<td>Yes</td>
+<td>Email addresses for which delivery was queued for later.</td>
+</tr>
+<tr>
+<td><code>result.suppressed_recipients</code></td>
+<td><code>array of string</code></td>
+<td>Yes</td>
+<td>Email addresses dropped because they are on the suppression list. Returned when suppressed-recipient dropping is enabled for the sending subdomain; otherwise the request fails instead.</td>
+</tr>
+<tr>
+<td><code>result_info</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result_info.count</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result_info.cursor</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result_info.page</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result_info.per_page</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result_info.total_count</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: true</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="400-invalid-request-generally-because-of-the-formatcontent-of-the-email-send-request-no-email-will-be-sent-when-this-happens" class="status" data-status="4xx">400: Invalid request, generally because of the format/content of the email send request. No email will be sent when this happens</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>enum: email.sending.error.invalid_request_schema, email.sending.error.email.invalid, email.sending.error.email.no_content_length, email.sending.error.email.too_big, email.sending.error.email.recipient_suppressed</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="403-email-sending-is-disabled-or-the-sending-domain-is-not-configured-for-email-sending" class="status" data-status="4xx">403: Email sending is disabled, or the sending domain is not configured for email sending</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>enum: email.sending.error.email.sending_disabled, email.sending.error.email.sender_not_configured</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="409-email-sending-setup-is-still-in-progress-retry-later-no-email-was-sent" class="status" data-status="4xx">409: Email Sending setup is still in progress. Retry later; no email was sent</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>enum: email.sending.error.email.sending_not_ready</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="429-accountzone-has-surpassed-the-rate-at-which-it-can-send-email-please-try-again-later-no-email-will-be-sent-when-this-happens" class="status" data-status="4xx">429: Account/zone has surpassed the rate at which it can send email, please try again later. No email will be sent when this happens</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>enum: email.sending.error.throttled</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="500-an-unexpected-error-while-processing-the-email-send-request-no-email-will-be-sent-when-this-happens" class="status" data-status="5xx">500: An unexpected error while processing the email send request. No email will be sent when this happens</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>enum: email.sending.error.internal_server</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="post-accountsaccount_idemailsendingsend_raw" class="operation" data-method="post"><code>POST</code> /accounts/{account_id}/email/sending/send_raw</h3>
+<p>Operation ID: <code>email-sending-account-send-raw-message</code>.</p>
+<p>Authentication: API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>) or bearer token (<code>api_token</code>).</p>
+<h4 id="parameters-1">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Identifier of the account. |</p>
+<h4 id="request-body-1">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>from</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Sender email address.</td>
+</tr>
+<tr>
+<td><code>mime_message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The full MIME-encoded email message. Should include standard RFC 5322 headers such as From, To, Subject, and Content-Type. The from and recipients fields in the request body control SMTP envelope routing; the From and To headers in the MIME message control what the recipient's email client displays.</td>
+</tr>
+<tr>
+<td><code>recipients</code></td>
+<td><code>array of string</code></td>
+<td>Yes</td>
+<td>List of recipient email addresses.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses-1">Responses</h4>
+<h5 id="200-email-sending-results-1" class="status" data-status="2xx">200: Email sending results</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.delivered</code></td>
+<td><code>array of string</code></td>
+<td>Yes</td>
+<td>Email addresses to which the message was delivered immediately.</td>
+</tr>
+<tr>
+<td><code>result.message_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Message ID of the sent email.</td>
+</tr>
+<tr>
+<td><code>result.permanent_bounces</code></td>
+<td><code>array of string</code></td>
+<td>Yes</td>
+<td>Email addresses that permanently bounced.</td>
+</tr>
+<tr>
+<td><code>result.queued</code></td>
+<td><code>array of string</code></td>
+<td>Yes</td>
+<td>Email addresses for which delivery was queued for later.</td>
+</tr>
+<tr>
+<td><code>result.suppressed_recipients</code></td>
+<td><code>array of string</code></td>
+<td>Yes</td>
+<td>Email addresses dropped because they are on the suppression list. Returned when suppressed-recipient dropping is enabled for the sending subdomain; otherwise the request fails instead.</td>
+</tr>
+<tr>
+<td><code>result_info</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result_info.count</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result_info.cursor</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result_info.page</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result_info.per_page</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result_info.total_count</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: true</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="400-invalid-request-generally-because-of-the-formatcontent-of-the-email-send-request-no-email-will-be-sent-when-this-happens-1" class="status" data-status="4xx">400: Invalid request, generally because of the format/content of the email send request. No email will be sent when this happens</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>enum: email.sending.error.invalid_request_schema, email.sending.error.email.invalid, email.sending.error.email.no_content_length, email.sending.error.email.too_big, email.sending.error.email.recipient_suppressed</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="403-email-sending-is-disabled-or-the-sending-domain-is-not-configured-for-email-sending-1" class="status" data-status="4xx">403: Email sending is disabled, or the sending domain is not configured for email sending</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>enum: email.sending.error.email.sending_disabled, email.sending.error.email.sender_not_configured</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="409-email-sending-setup-is-still-in-progress-retry-later-no-email-was-sent-1" class="status" data-status="4xx">409: Email Sending setup is still in progress. Retry later; no email was sent</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>enum: email.sending.error.email.sending_not_ready</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="429-accountzone-has-surpassed-the-rate-at-which-it-can-send-email-please-try-again-later-no-email-will-be-sent-when-this-happens-1" class="status" data-status="4xx">429: Account/zone has surpassed the rate at which it can send email, please try again later. No email will be sent when this happens</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>enum: email.sending.error.throttled</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="500-an-unexpected-error-while-processing-the-email-send-request-no-email-will-be-sent-when-this-happens-1" class="status" data-status="5xx">500: An unexpected error while processing the email send request. No email will be sent when this happens</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>enum: email.sending.error.internal_server</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="load">load</h2>
+<h3 id="get-accountsaccount_idemailsendingmessagesmessage_id" class="operation" data-method="get"><code>GET</code> /accounts/{account_id}/email/sending/messages/{message_id}</h3>
+<p>Operation ID: <code>email-sending-get-email-message</code>.</p>
+<p>Authentication: API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>) or bearer token (<code>api_token</code>).</p>
+<h4 id="parameters-2">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>message_id</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="responses-2">Responses</h4>
+<h5 id="200-the-raw-rfc-5322-mime-message" class="status" data-status="2xx">200: The raw RFC 5322 MIME message</h5>
+<p><code>message/rfc822</code></p>
+<p>The response is <code>string (binary)</code>.</p>
+<h5 id="404-account-or-message-not-found" class="status" data-status="4xx">404: Account or message not found</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="500-an-unexpected-error-occurred" class="status" data-status="5xx">500: An unexpected error occurred</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</main></div>
+<script src="../assets/search.js" defer></script></body></html>

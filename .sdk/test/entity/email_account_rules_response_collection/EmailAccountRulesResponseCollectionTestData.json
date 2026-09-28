@@ -1,0 +1,36 @@
+{
+  "existing": {
+    "email_account_rules_response_collection": {
+      "EMAIL_ACCOUNT_RULES_RESPONSE_COLLECTION00": {
+        "result": [],
+        "result_info": {},
+        "account_id": "ACCOUNT01"
+      },
+      "EMAIL_ACCOUNT_RULES_RESPONSE_COLLECTION01": {
+        "result": [],
+        "result_info": {},
+        "account_id": "ACCOUNT01"
+      },
+      "EMAIL_ACCOUNT_RULES_RESPONSE_COLLECTION02": {
+        "result": [],
+        "result_info": {},
+        "account_id": "ACCOUNT01"
+      }
+    }
+  },
+  "new": {
+    "email_account_rules_response_collection": {
+      "email_account_rules_response_collection_ref01": {
+        "result": [],
+        "result_info": {}
+      }
+    }
+  },
+  "requests": {
+    "GET /accounts/{account_id}/email/routing/rules": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

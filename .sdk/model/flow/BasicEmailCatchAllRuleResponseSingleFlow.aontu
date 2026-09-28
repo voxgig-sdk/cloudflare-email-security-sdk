@@ -1,0 +1,51 @@
+# BasicEmailCatchAllRuleResponseSingleFlow
+
+main: kit: flow: BasicEmailCatchAllRuleResponseSingleFlow:
+{
+  entity: "email_catch_all_rule_response_single",
+  kind: "basic",
+  name: "BasicEmailCatchAllRuleResponseSingleFlow",
+  step: [
+    {
+      i: {
+        ref: "email_catch_all_rule_response_single_ref01",
+        srcdatavar: "email_catch_all_rule_response_single_ref01_data",
+        suffix: "_up0",
+        textfield: "name"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-email_catch_all_rule_response_single_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "email_catch_all_rule_response_single_ref01",
+        srcdatavar: "email_catch_all_rule_response_single_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "email_catch_all_rule_response_single01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-email_catch_all_rule_response_single_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicEmailCatchAllRuleResponseSingleFlow"
+}

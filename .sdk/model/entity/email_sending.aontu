@@ -1,0 +1,331 @@
+# Entity: email_sending
+
+main: kit: entity: email_sending: {
+
+  alias: field: {}
+
+  fields: {
+    attachments: {
+      h: "Attachments"
+      n: "attachments"
+      r: false
+      sh: "File attachments and inline images."
+      t: "`$ARRAY`"
+    }
+    bcc: {
+      h: "Bcc"
+      n: "bcc"
+      r: false
+      sh: "Blind carbon copy recipient(s)."
+      t: "`$ANY`"
+      union: {
+        branches: 3
+        count: 2
+        depth: 3
+      }
+    }
+    cc: {
+      h: "Cc"
+      n: "cc"
+      r: false
+      sh: "Carbon copy recipient(s)."
+      t: "`$ANY`"
+      union: {
+        branches: 3
+        count: 2
+        depth: 3
+      }
+    }
+    errors: {
+      h: "Errors"
+      n: "errors"
+      r: true
+      t: "`$ARRAY`"
+    }
+    from: {
+      h: "From"
+      n: "from"
+      r: true
+      sh: "Sender email address."
+      t: "`$ANY`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 0
+      }
+    }
+    headers: {
+      h: "Headers"
+      n: "headers"
+      r: false
+      sh: "Custom email headers as key-value pairs."
+      t: "`$OBJECT`"
+    }
+    html: {
+      h: "Html"
+      n: "html"
+      r: false
+      sh: "HTML body of the email."
+      t: "`$STRING`"
+    }
+    messages: {
+      h: "Messages"
+      n: "messages"
+      r: true
+      t: "`$ARRAY`"
+    }
+    mime_message: {
+      h: "Mime Message"
+      n: "mime_message"
+      r: true
+      sh: "The full MIME-encoded email message."
+      t: "`$STRING`"
+    }
+    recipients: {
+      h: "Recipients"
+      n: "recipients"
+      r: true
+      sh: "List of recipient email addresses."
+      t: "`$ARRAY`"
+    }
+    reply_to: {
+      h: "Reply To"
+      n: "reply_to"
+      r: false
+      sh: "Reply-to address."
+      t: "`$ANY`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 0
+      }
+    }
+    result: {
+      h: "Result"
+      n: "result"
+      r: true
+      t: "`$OBJECT`"
+    }
+    result_info: {
+      h: "Result Info"
+      n: "result_info"
+      r: true
+      t: "`$OBJECT`"
+    }
+    subject: {
+      h: "Subject"
+      n: "subject"
+      r: true
+      sh: "Email subject line."
+      t: "`$STRING`"
+    }
+    success: {
+      h: "Success"
+      n: "success"
+      r: true
+      t: "`$BOOLEAN`"
+    }
+    text: {
+      h: "Text"
+      n: "text"
+      r: false
+      sh: "Plain text body of the email."
+      t: "`$STRING`"
+    }
+    to: {
+      h: "To"
+      n: "to"
+      r: false
+      sh: "Recipient(s)."
+      t: "`$ANY`"
+      union: {
+        branches: 3
+        count: 2
+        depth: 3
+      }
+    }
+  }
+
+  name: "email_sending"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /accounts/{account_id}/email/sending/send"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/accounts/{account_id}/email/sending/send"
+          q: {
+            exist: [
+              "account_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "email"
+            }
+            {
+              lit: "sending"
+            }
+            {
+              lit: "send"
+            }
+          ]
+          t: {
+            req: {
+              attachments: "`reqdata.attachment`"
+              bcc: "`reqdata.bcc`"
+              cc: "`reqdata.cc`"
+              from: "`reqdata.from`"
+              headers: "`reqdata.header`"
+              html: "`reqdata.html`"
+              reply_to: "`reqdata.reply_to`"
+              subject: "`reqdata.subject`"
+              text: "`reqdata.text`"
+              to: "`reqdata.to`"
+            }
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /accounts/{account_id}/email/sending/send_raw"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/accounts/{account_id}/email/sending/send_raw"
+          q: {
+            exist: [
+              "account_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "email"
+            }
+            {
+              lit: "sending"
+            }
+            {
+              lit: "send_raw"
+            }
+          ]
+          t: {
+            req: {
+              from: "`reqdata.from`"
+              mime_message: "`reqdata.mime_message`"
+              recipients: "`reqdata.recipient`"
+            }
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /accounts/{account_id}/email/sending/messages/{message_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "12345"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "<aB3xK9mP@example.com>"
+                k: "param"
+                n: "message_id"
+                or: "message_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/email/sending/messages/{message_id}"
+          q: {
+            exist: [
+              "account_id"
+              "message_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "email"
+            }
+            {
+              lit: "sending"
+            }
+            {
+              lit: "messages"
+            }
+            {
+              var: "message_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

@@ -1,0 +1,280 @@
+# Entity: email_destination_address_response_single
+
+main: kit: entity: email_destination_address_response_single: {
+
+  alias: field: {}
+
+  fields: {
+    email: {
+      h: "Email"
+      n: "email"
+      r: true
+      sh: "The contact email address of the user."
+      t: "`$STRING`"
+    }
+    result: {
+      h: "Result"
+      n: "result"
+      r: false
+      t: "`$OBJECT`"
+    }
+    status: {
+      h: "Status"
+      n: "status"
+      r: true
+      sh: "Destination address status."
+      t: "`$STRING`"
+    }
+  }
+
+  name: "email_destination_address_response_single"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /accounts/{account_id}/email/routing/addresses"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/accounts/{account_id}/email/routing/addresses"
+          q: {
+            exist: [
+              "account_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "email"
+            }
+            {
+              lit: "routing"
+            }
+            {
+              lit: "addresses"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /accounts/{account_id}/email/routing/addresses/{destination_address_identifier}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "ea95132c15732412d22c1476fa83f27a"
+                k: "param"
+                n: "destination_address_identifier"
+                or: "destination_address_identifier"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/email/routing/addresses/{destination_address_identifier}"
+          q: {
+            exist: [
+              "account_id"
+              "destination_address_identifier"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "email"
+            }
+            {
+              lit: "routing"
+            }
+            {
+              lit: "addresses"
+            }
+            {
+              var: "destination_address_identifier"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    remove: {
+      name: "remove"
+      points: [
+        {
+          co: {
+            id: "DELETE /accounts/{account_id}/email/routing/addresses/{destination_address_identifier}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "ea95132c15732412d22c1476fa83f27a"
+                k: "param"
+                n: "destination_address_identifier"
+                or: "destination_address_identifier"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/accounts/{account_id}/email/routing/addresses/{destination_address_identifier}"
+          q: {
+            exist: [
+              "account_id"
+              "destination_address_identifier"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "email"
+            }
+            {
+              lit: "routing"
+            }
+            {
+              lit: "addresses"
+            }
+            {
+              var: "destination_address_identifier"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          co: {
+            id: "PATCH /accounts/{account_id}/email/routing/addresses/{destination_address_identifier}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "ea95132c15732412d22c1476fa83f27a"
+                k: "param"
+                n: "destination_address_identifier"
+                or: "destination_address_identifier"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "PATCH"
+          o: "/accounts/{account_id}/email/routing/addresses/{destination_address_identifier}"
+          q: {
+            exist: [
+              "account_id"
+              "destination_address_identifier"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "email"
+            }
+            {
+              lit: "routing"
+            }
+            {
+              lit: "addresses"
+            }
+            {
+              var: "destination_address_identifier"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

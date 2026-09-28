@@ -1,0 +1,64 @@
+{
+  "existing": {
+    "email_catch_all_rule_response_single": {
+      "EMAIL_CATCH_ALL_RULE_RESPONSE_SINGLE00": {
+        "actions": [],
+        "enabled": false,
+        "matchers": [],
+        "name": "s49",
+        "owner_worker_tag": "s4a",
+        "result": {},
+        "source": "s4c",
+        "zone_id": "ZONE01",
+        "id": "EMAIL_CATCH_ALL_RULE_RESPONSE_SINGLE00"
+      },
+      "EMAIL_CATCH_ALL_RULE_RESPONSE_SINGLE01": {
+        "actions": [],
+        "enabled": false,
+        "matchers": [],
+        "name": "s8f",
+        "owner_worker_tag": "s90",
+        "result": {},
+        "source": "s92",
+        "zone_id": "ZONE01",
+        "id": "EMAIL_CATCH_ALL_RULE_RESPONSE_SINGLE01"
+      },
+      "EMAIL_CATCH_ALL_RULE_RESPONSE_SINGLE02": {
+        "actions": [],
+        "enabled": false,
+        "matchers": [],
+        "name": "sd5",
+        "owner_worker_tag": "sd6",
+        "result": {},
+        "source": "sd8",
+        "zone_id": "ZONE01",
+        "id": "EMAIL_CATCH_ALL_RULE_RESPONSE_SINGLE02"
+      }
+    }
+  },
+  "new": {
+    "email_catch_all_rule_response_single": {
+      "email_catch_all_rule_response_single_ref01": {
+        "actions": [],
+        "enabled": false,
+        "matchers": [],
+        "name": "s11b",
+        "owner_worker_tag": "s11c",
+        "result": {},
+        "source": "s11e"
+      }
+    }
+  },
+  "requests": {
+    "GET /zones/{zone_id}/email/routing/rules/catch_all": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /zones/{zone_id}/email/routing/rules/catch_all": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

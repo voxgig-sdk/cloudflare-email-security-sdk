@@ -1,0 +1,70 @@
+<?php
+declare(strict_types=1);
+
+// CloudflareEmailSecurity SDK utility registration
+
+require_once __DIR__ . '/../core/UtilityType.php';
+require_once __DIR__ . '/Clean.php';
+require_once __DIR__ . '/Done.php';
+require_once __DIR__ . '/MakeError.php';
+require_once __DIR__ . '/FeatureAdd.php';
+require_once __DIR__ . '/FeatureHook.php';
+require_once __DIR__ . '/FeatureInit.php';
+require_once __DIR__ . '/Fetcher.php';
+require_once __DIR__ . '/MakeFetchDef.php';
+require_once __DIR__ . '/MakeContext.php';
+require_once __DIR__ . '/MakeOptions.php';
+require_once __DIR__ . '/MakeRequest.php';
+require_once __DIR__ . '/MakeResponse.php';
+require_once __DIR__ . '/MakeResult.php';
+require_once __DIR__ . '/MakePoint.php';
+require_once __DIR__ . '/MakeSpec.php';
+require_once __DIR__ . '/MakeUrl.php';
+require_once __DIR__ . '/Param.php';
+require_once __DIR__ . '/PrepareAuth.php';
+require_once __DIR__ . '/PrepareBody.php';
+require_once __DIR__ . '/Graphql.php';
+require_once __DIR__ . '/PrepareHeaders.php';
+require_once __DIR__ . '/PrepareMethod.php';
+require_once __DIR__ . '/PrepareParams.php';
+require_once __DIR__ . '/PreparePath.php';
+require_once __DIR__ . '/PrepareQuery.php';
+require_once __DIR__ . '/ResultBasic.php';
+require_once __DIR__ . '/ResultBody.php';
+require_once __DIR__ . '/ResultHeaders.php';
+require_once __DIR__ . '/TransformRequest.php';
+require_once __DIR__ . '/TransformResponse.php';
+
+CloudflareEmailSecurityUtility::setRegistrar(function (CloudflareEmailSecurityUtility $u): void {
+    $u->clean = [CloudflareEmailSecurityClean::class, 'call'];
+    $u->done = [CloudflareEmailSecurityDone::class, 'call'];
+    $u->make_error = [CloudflareEmailSecurityMakeError::class, 'call'];
+    $u->feature_add = [CloudflareEmailSecurityFeatureAdd::class, 'call'];
+    $u->feature_hook = [CloudflareEmailSecurityFeatureHook::class, 'call'];
+    $u->feature_init = [CloudflareEmailSecurityFeatureInit::class, 'call'];
+    $u->fetcher = [CloudflareEmailSecurityFetcher::class, 'call'];
+    $u->make_fetch_def = [CloudflareEmailSecurityMakeFetchDef::class, 'call'];
+    $u->make_context = [CloudflareEmailSecurityMakeContext::class, 'call'];
+    $u->make_options = [CloudflareEmailSecurityMakeOptions::class, 'call'];
+    $u->make_request = [CloudflareEmailSecurityMakeRequest::class, 'call'];
+    $u->make_response = [CloudflareEmailSecurityMakeResponse::class, 'call'];
+    $u->make_result = [CloudflareEmailSecurityMakeResult::class, 'call'];
+    $u->make_point = [CloudflareEmailSecurityMakePoint::class, 'call'];
+    $u->make_spec = [CloudflareEmailSecurityMakeSpec::class, 'call'];
+    $u->make_url = [CloudflareEmailSecurityMakeUrl::class, 'call'];
+    $u->param = [CloudflareEmailSecurityParam::class, 'call'];
+    $u->prepare_auth = [CloudflareEmailSecurityPrepareAuth::class, 'call'];
+    $u->prepare_body = [CloudflareEmailSecurityPrepareBody::class, 'call'];
+    $u->prepare_headers = [CloudflareEmailSecurityPrepareHeaders::class, 'call'];
+    $u->prepare_method = [CloudflareEmailSecurityPrepareMethod::class, 'call'];
+    $u->prepare_params = [CloudflareEmailSecurityPrepareParams::class, 'call'];
+    $u->prepare_path = [CloudflareEmailSecurityPreparePath::class, 'call'];
+    $u->prepare_query = [CloudflareEmailSecurityPrepareQuery::class, 'call'];
+    $u->graphql_body = [CloudflareEmailSecurityGraphql::class, 'body'];
+    $u->graphql_errors = [CloudflareEmailSecurityGraphql::class, 'errors'];
+    $u->result_basic = [CloudflareEmailSecurityResultBasic::class, 'call'];
+    $u->result_body = [CloudflareEmailSecurityResultBody::class, 'call'];
+    $u->result_headers = [CloudflareEmailSecurityResultHeaders::class, 'call'];
+    $u->transform_request = [CloudflareEmailSecurityTransformRequest::class, 'call'];
+    $u->transform_response = [CloudflareEmailSecurityTransformResponse::class, 'call'];
+});

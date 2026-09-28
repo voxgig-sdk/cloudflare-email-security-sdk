@@ -1,0 +1,36 @@
+{
+  "existing": {
+    "email_destination_addresses_response_collection": {
+      "EMAIL_DESTINATION_ADDRESSES_RESPONSE_COLLECTION00": {
+        "result": [],
+        "result_info": {},
+        "account_id": "ACCOUNT01"
+      },
+      "EMAIL_DESTINATION_ADDRESSES_RESPONSE_COLLECTION01": {
+        "result": [],
+        "result_info": {},
+        "account_id": "ACCOUNT01"
+      },
+      "EMAIL_DESTINATION_ADDRESSES_RESPONSE_COLLECTION02": {
+        "result": [],
+        "result_info": {},
+        "account_id": "ACCOUNT01"
+      }
+    }
+  },
+  "new": {
+    "email_destination_addresses_response_collection": {
+      "email_destination_addresses_response_collection_ref01": {
+        "result": [],
+        "result_info": {}
+      }
+    }
+  },
+  "requests": {
+    "GET /accounts/{account_id}/email/routing/addresses": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

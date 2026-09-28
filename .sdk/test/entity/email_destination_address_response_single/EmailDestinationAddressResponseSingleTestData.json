@@ -1,0 +1,61 @@
+{
+  "existing": {
+    "email_destination_address_response_single": {
+      "EMAIL_DESTINATION_ADDRESS_RESPONSE_SINGLE00": {
+        "email": "s1e",
+        "result": {},
+        "status": "s20",
+        "account_id": "ACCOUNT01",
+        "destination_address_identifier": "DESTINATION_ADDRESS_IDENTIFIER01",
+        "id": "EMAIL_DESTINATION_ADDRESS_RESPONSE_SINGLE00"
+      },
+      "EMAIL_DESTINATION_ADDRESS_RESPONSE_SINGLE01": {
+        "email": "s3c",
+        "result": {},
+        "status": "s3e",
+        "account_id": "ACCOUNT01",
+        "destination_address_identifier": "DESTINATION_ADDRESS_IDENTIFIER01",
+        "id": "EMAIL_DESTINATION_ADDRESS_RESPONSE_SINGLE01"
+      },
+      "EMAIL_DESTINATION_ADDRESS_RESPONSE_SINGLE02": {
+        "email": "s5a",
+        "result": {},
+        "status": "s5c",
+        "account_id": "ACCOUNT01",
+        "destination_address_identifier": "DESTINATION_ADDRESS_IDENTIFIER01",
+        "id": "EMAIL_DESTINATION_ADDRESS_RESPONSE_SINGLE02"
+      }
+    }
+  },
+  "new": {
+    "email_destination_address_response_single": {
+      "email_destination_address_response_single_ref01": {
+        "email": "s78",
+        "result": {},
+        "status": "s7a"
+      }
+    }
+  },
+  "requests": {
+    "POST /accounts/{account_id}/email/routing/addresses": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/email/routing/addresses/{destination_address_identifier}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /accounts/{account_id}/email/routing/addresses/{destination_address_identifier}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /accounts/{account_id}/email/routing/addresses/{destination_address_identifier}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

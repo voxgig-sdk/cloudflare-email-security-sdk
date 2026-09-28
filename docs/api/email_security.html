@@ -1,0 +1,1745 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>EmailSecurity | Cloudflare Email Security</title><link rel="stylesheet" href="../assets/style.css"></head>
+<body><a class="skip" href="#content">Skip to content</a>
+<header class="site-header"><a class="site-title" href="../index.html">Cloudflare Email Security<span>SDK documentation</span></a><div class="site-links"><a class="repo-link" href="https://github.com/voxgig-sdk/cloudflare-email-security-sdk">voxgig-sdk/cloudflare-email-security-sdk</a></div></header>
+<div class="site-notice" role="note"></div>
+<div class="shell"><nav class="site-nav" aria-label="Documentation"><div class="search"><label for="search">Search documentation</label><input id="search" type="search" data-base="../" placeholder="Find a guide or reference"><div id="results" aria-live="polite"></div></div><details><summary>Overview</summary><a href="../index.html">Cloudflare Email Security</a></details>
+<details open><summary>API</summary><a href="../api/index.html">API overview</a>
+<a href="../api/email_account_rules_plan_response_single.html">EmailAccountRulesPlanResponseSingle</a>
+<a href="../api/email_account_rules_response_collection.html">EmailAccountRulesResponseCollection</a>
+<a href="../api/email_auth.html">EmailAuth</a>
+<a href="../api/email_catch_all_rule_response_single.html">EmailCatchAllRuleResponseSingle</a>
+<a href="../api/email_destination_address_response_single.html">EmailDestinationAddressResponseSingle</a>
+<a href="../api/email_destination_addresses_response_collection.html">EmailDestinationAddressesResponseCollection</a>
+<a href="../api/email_dns_settings_response_collection.html">EmailDnsSettingsResponseCollection</a>
+<a href="../api/email_email_settings_response_single.html">EmailEmailSettingsResponseSingle</a>
+<a href="../api/email_routing_suppression.html">EmailRoutingSuppression</a>
+<a href="../api/email_rule_response_single.html">EmailRuleResponseSingle</a>
+<a href="../api/email_rules_response_collection.html">EmailRulesResponseCollection</a>
+<a aria-current="page" href="../api/email_security.html">EmailSecurity</a><div class="nav-sections"><a class="nav-section" href="#post-accountsaccount_idemail-securityinvestigatebulkjob_idcancel">POST /accounts/{account_id}/email-security/investigate/bulk/{job_id}/cancel</a>
+<a class="nav-section" href="#post-accountsaccount_idemail-securityinvestigateinvestigate_idmove">POST /accounts/{account_id}/email-security/investigate/{investigate_id}/move</a>
+<a class="nav-section" href="#post-accountsaccount_idemail-securityinvestigateinvestigate_idreclassify">POST /accounts/{account_id}/email-security/investigate/{investigate_id}/reclassify</a>
+<a class="nav-section" href="#post-accountsaccount_idemail-securityinvestigatebulk">POST /accounts/{account_id}/email-security/investigate/bulk</a>
+<a class="nav-section" href="#post-accountsaccount_idemail-securityinvestigatemove">POST /accounts/{account_id}/email-security/investigate/move</a>
+<a class="nav-section" href="#post-accountsaccount_idemail-securityinvestigatepreview">POST /accounts/{account_id}/email-security/investigate/preview</a>
+<a class="nav-section" href="#post-accountsaccount_idemail-securityinvestigaterelease">POST /accounts/{account_id}/email-security/investigate/release</a>
+<a class="nav-section" href="#post-accountsaccount_idemail-securitysubmissions">POST /accounts/{account_id}/email-security/submissions</a>
+<a class="nav-section" href="#get-accountsaccount_idemail-securityinvestigate">GET /accounts/{account_id}/email-security/investigate</a>
+<a class="nav-section" href="#get-accountsaccount_idemail-securitysubmissions">GET /accounts/{account_id}/email-security/submissions</a>
+<a class="nav-section" href="#get-accountsaccount_idemail-securityphishguardreports">GET /accounts/{account_id}/email-security/phishguard/reports</a>
+<a class="nav-section" href="#get-accountsaccount_idemail-securityinvestigatebulk">GET /accounts/{account_id}/email-security/investigate/bulk</a>
+<a class="nav-section" href="#get-accountsaccount_idemail-securityinvestigatebulkjob_idmessages">GET /accounts/{account_id}/email-security/investigate/bulk/{job_id}/messages</a>
+<a class="nav-section" href="#get-accountsaccount_idemail-securityinvestigateinvestigate_idaction_log">GET /accounts/{account_id}/email-security/investigate/{investigate_id}/action_log</a>
+<a class="nav-section" href="#get-accountsaccount_idemail-securityinvestigateinvestigate_iddetections">GET /accounts/{account_id}/email-security/investigate/{investigate_id}/detections</a>
+<a class="nav-section" href="#get-accountsaccount_idemail-securityinvestigateinvestigate_idpreview">GET /accounts/{account_id}/email-security/investigate/{investigate_id}/preview</a>
+<a class="nav-section" href="#get-accountsaccount_idemail-securityinvestigateinvestigate_idraw">GET /accounts/{account_id}/email-security/investigate/{investigate_id}/raw</a>
+<a class="nav-section" href="#get-accountsaccount_idemail-securityinvestigateinvestigate_idtrace">GET /accounts/{account_id}/email-security/investigate/{investigate_id}/trace</a>
+<a class="nav-section" href="#get-accountsaccount_idemail-securityinvestigateinvestigate_id">GET /accounts/{account_id}/email-security/investigate/{investigate_id}</a>
+<a class="nav-section" href="#get-accountsaccount_idemail-securityinvestigatebulkjob_id">GET /accounts/{account_id}/email-security/investigate/bulk/{job_id}</a>
+<a class="nav-section" href="#delete-accountsaccount_idemail-securityinvestigatebulkjob_id">DELETE /accounts/{account_id}/email-security/investigate/bulk/{job_id}</a></div>
+<a href="../api/email_security_analytics.html">EmailSecurityAnalytics</a>
+<a href="../api/email_security_setting.html">EmailSecuritySetting</a>
+<a href="../api/email_sending.html">EmailSending</a>
+<a href="../api/email_sending_limits_response_single.html">EmailSendingLimitsResponseSingle</a>
+<a href="../api/email_sending_reputation_response_single.html">EmailSendingReputationResponseSingle</a>
+<a href="../api/email_sending_subdomain_dns_status.html">EmailSendingSubdomainDnsStatus</a>
+<a href="../api/email_sending_subdomain_preview.html">EmailSendingSubdomainPreview</a>
+<a href="../api/email_sending_subdomain_reputation_complaint.html">EmailSendingSubdomainReputationComplaint</a>
+<a href="../api/email_sending_subdomain_response_single.html">EmailSendingSubdomainResponseSingle</a>
+<a href="../api/email_sending_subdomains_response_collection.html">EmailSendingSubdomainsResponseCollection</a>
+<a href="../api/email_sending_suppression.html">EmailSendingSuppression</a>
+<a href="../api/subdomain.html">Subdomain</a></details>
+<details><summary>Guides</summary><a href="../guides/authentication.html">Authentication</a>
+<a href="../guides/first-call.html">Make your first API call</a>
+<a href="../guides/errors.html">Handle errors</a>
+<a href="../guides/concepts.html">Entities, SDKs, and tools</a></details>
+<details><summary>SDKs</summary><a href="../sdks/go.html">Golang</a>
+<a href="../sdks/lua.html">Lua</a>
+<a href="../sdks/php.html">PHP</a>
+<a href="../sdks/py.html">Python</a>
+<a href="../sdks/rb.html">Ruby</a>
+<a href="../sdks/ts.html">TypeScript</a></details>
+<details><summary>Tools</summary><a href="../tools/go-cli.html">Go CLI</a>
+<a href="../tools/go-mcp.html">Go MCP server</a></details>
+<details><summary>Features</summary><a href="../features/test.html">Test transport</a></details></nav><main id="content"><div class="page-context"><span class="section-dot" aria-hidden="true"></span>API</div><h1 id="emailsecurity">EmailSecurity</h1>
+<h2 id="operations">Operations</h2>
+<p>Every route this entity exposes. Each route links to its own reference on this page.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Route</th>
+<th>SDK operation</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-accountsaccount_idemail-securityinvestigatebulkjob_idcancel"><code>/accounts/{account_id}/email-security/investigate/bulk/{job_id}/cancel</code></a></td>
+<td><code>create</code></td>
+<td>Job cancelled</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-accountsaccount_idemail-securityinvestigateinvestigate_idmove"><code>/accounts/{account_id}/email-security/investigate/{investigate_id}/move</code></a></td>
+<td><code>create</code></td>
+<td>Move operation results</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-accountsaccount_idemail-securityinvestigateinvestigate_idreclassify"><code>/accounts/{account_id}/email-security/investigate/{investigate_id}/reclassify</code></a></td>
+<td><code>create</code></td>
+<td>Reclassification request accepted</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-accountsaccount_idemail-securityinvestigatebulk"><code>/accounts/{account_id}/email-security/investigate/bulk</code></a></td>
+<td><code>create</code></td>
+<td>Bulk job created</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-accountsaccount_idemail-securityinvestigatemove"><code>/accounts/{account_id}/email-security/investigate/move</code></a></td>
+<td><code>create</code></td>
+<td>Bulk move operation results</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-accountsaccount_idemail-securityinvestigatepreview"><code>/accounts/{account_id}/email-security/investigate/preview</code></a></td>
+<td><code>create</code></td>
+<td>Email preview</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-accountsaccount_idemail-securityinvestigaterelease"><code>/accounts/{account_id}/email-security/investigate/release</code></a></td>
+<td><code>create</code></td>
+<td>Release operation results</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-accountsaccount_idemail-securitysubmissions"><code>/accounts/{account_id}/email-security/submissions</code></a></td>
+<td><code>create</code></td>
+<td>Submission accepted</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-accountsaccount_idemail-securityinvestigate"><code>/accounts/{account_id}/email-security/investigate</code></a></td>
+<td><code>list</code></td>
+<td>Search results for the provided query</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-accountsaccount_idemail-securitysubmissions"><code>/accounts/{account_id}/email-security/submissions</code></a></td>
+<td><code>list</code></td>
+<td>List of submissions</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-accountsaccount_idemail-securityphishguardreports"><code>/accounts/{account_id}/email-security/phishguard/reports</code></a></td>
+<td><code>list</code></td>
+<td>List of PhishGuard reports</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-accountsaccount_idemail-securityinvestigatebulk"><code>/accounts/{account_id}/email-security/investigate/bulk</code></a></td>
+<td><code>list</code></td>
+<td>Jobs retrieved successfully</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-accountsaccount_idemail-securityinvestigatebulkjob_idmessages"><code>/accounts/{account_id}/email-security/investigate/bulk/{job_id}/messages</code></a></td>
+<td><code>list</code></td>
+<td>Messages for the bulk job</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-accountsaccount_idemail-securityinvestigateinvestigate_idaction_log"><code>/accounts/{account_id}/email-security/investigate/{investigate_id}/action_log</code></a></td>
+<td><code>list</code></td>
+<td>Action log for the email</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-accountsaccount_idemail-securityinvestigateinvestigate_iddetections"><code>/accounts/{account_id}/email-security/investigate/{investigate_id}/detections</code></a></td>
+<td><code>list</code></td>
+<td>Email message detection details</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-accountsaccount_idemail-securityinvestigateinvestigate_idpreview"><code>/accounts/{account_id}/email-security/investigate/{investigate_id}/preview</code></a></td>
+<td><code>list</code></td>
+<td>Email preview</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-accountsaccount_idemail-securityinvestigateinvestigate_idraw"><code>/accounts/{account_id}/email-security/investigate/{investigate_id}/raw</code></a></td>
+<td><code>list</code></td>
+<td>Raw email content</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-accountsaccount_idemail-securityinvestigateinvestigate_idtrace"><code>/accounts/{account_id}/email-security/investigate/{investigate_id}/trace</code></a></td>
+<td><code>list</code></td>
+<td>Email trace</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-accountsaccount_idemail-securityinvestigateinvestigate_id"><code>/accounts/{account_id}/email-security/investigate/{investigate_id}</code></a></td>
+<td><code>load</code></td>
+<td>Email message details</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-accountsaccount_idemail-securityinvestigatebulkjob_id"><code>/accounts/{account_id}/email-security/investigate/bulk/{job_id}</code></a></td>
+<td><code>load</code></td>
+<td>Job details retrieved</td>
+</tr>
+<tr>
+<td><code>DELETE</code></td>
+<td><a href="#delete-accountsaccount_idemail-securityinvestigatebulkjob_id"><code>/accounts/{account_id}/email-security/investigate/bulk/{job_id}</code></a></td>
+<td><code>remove</code></td>
+<td>Job deleted</td>
+</tr>
+</tbody>
+</table>
+<h2 id="examples">Examples</h2>
+<p>One example per SDK, generated from the API model. The argument names are the parameters and fields of this entity, and the values are placeholders. The examples are not compiled or executed.</p>
+<h3 id="golang">Golang</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/go.html#set-up-the-client">Golang setup</a>, then call the operations:</p>
+<pre><code class="language-go">email_securitys, err := client.EmailSecurity(nil).List(map[string]any{&quot;account_id&quot;: &quot;example&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(email_securitys)
+email_security, err := client.EmailSecurity(nil).Load(map[string]any{&quot;account_id&quot;: &quot;example&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(email_security)
+created, err := client.EmailSecurity(nil).Create(map[string]any{&quot;account_id&quot;: &quot;example&quot;, &quot;action&quot;: &quot;example&quot;, &quot;errors&quot;: []any{}, &quot;id&quot;: &quot;example&quot;, &quot;ids&quot;: []any{}, &quot;messages&quot;: []any{}, &quot;result&quot;: map[string]any{}, &quot;result_info&quot;: map[string]any{}, &quot;search_params&quot;: map[string]any{}, &quot;success&quot;: true}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(created)
+removed, err := client.EmailSecurity(nil).Remove(map[string]any{&quot;account_id&quot;: &quot;example&quot;, &quot;job_id&quot;: &quot;example&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(removed)
+</code></pre>
+<h3 id="lua">Lua</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/lua.html#set-up-the-client">Lua setup</a>, then call the operations:</p>
+<pre><code class="language-lua">local email_securitys, err = client:EmailSecurity():list({ account_id = &quot;example&quot; })
+local email_security, err = client:EmailSecurity():load({ account_id = &quot;example&quot; })
+local created, err = client:EmailSecurity():create({ account_id = &quot;example&quot;, action = &quot;example&quot;, errors = {}, id = &quot;example&quot;, ids = {}, messages = {}, result = {}, result_info = {}, search_params = {}, success = true })
+local removed, err = client:EmailSecurity():remove({ account_id = &quot;example&quot;, job_id = &quot;example&quot; })
+</code></pre>
+<h3 id="php">PHP</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/php.html#set-up-the-client">PHP setup</a>, then call the operations:</p>
+<pre><code class="language-php">$email_securitys = $client-&gt;EmailSecurity()-&gt;list([&quot;account_id&quot; =&gt; &quot;example&quot;]);
+$email_security = $client-&gt;EmailSecurity()-&gt;load([&quot;account_id&quot; =&gt; &quot;example&quot;]);
+$created = $client-&gt;EmailSecurity()-&gt;create([&quot;account_id&quot; =&gt; &quot;example&quot;, &quot;action&quot; =&gt; &quot;example&quot;, &quot;errors&quot; =&gt; [], &quot;id&quot; =&gt; &quot;example&quot;, &quot;ids&quot; =&gt; [], &quot;messages&quot; =&gt; [], &quot;result&quot; =&gt; [], &quot;result_info&quot; =&gt; [], &quot;search_params&quot; =&gt; [], &quot;success&quot; =&gt; true]);
+$client-&gt;EmailSecurity()-&gt;remove([&quot;account_id&quot; =&gt; &quot;example&quot;, &quot;job_id&quot; =&gt; &quot;example&quot;]);
+</code></pre>
+<h3 id="python">Python</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/py.html#set-up-the-client">Python setup</a>, then call the operations:</p>
+<pre><code class="language-py">email_securitys = client.EmailSecurity().list({&quot;account_id&quot;: &quot;example&quot;})
+email_security = client.EmailSecurity().load({&quot;account_id&quot;: &quot;example&quot;})
+created = client.EmailSecurity().create({ &quot;account_id&quot;: &quot;example&quot;, &quot;action&quot;: &quot;example&quot;, &quot;errors&quot;: [], &quot;id&quot;: &quot;example&quot;, &quot;ids&quot;: [], &quot;messages&quot;: [], &quot;result&quot;: {}, &quot;result_info&quot;: {}, &quot;search_params&quot;: {}, &quot;success&quot;: True })
+client.EmailSecurity().remove({&quot;account_id&quot;: &quot;example&quot;, &quot;job_id&quot;: &quot;example&quot;})
+</code></pre>
+<h3 id="ruby">Ruby</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/rb.html#set-up-the-client">Ruby setup</a>, then call the operations:</p>
+<pre><code class="language-rb">email_securitys = client.EmailSecurity.list({ &quot;account_id&quot; =&gt; &quot;example&quot; })
+email_security = client.EmailSecurity.load({ &quot;account_id&quot; =&gt; &quot;example&quot; })
+created = client.EmailSecurity.create({ &quot;account_id&quot; =&gt; &quot;example&quot;, &quot;action&quot; =&gt; &quot;example&quot;, &quot;errors&quot; =&gt; [], &quot;id&quot; =&gt; &quot;example&quot;, &quot;ids&quot; =&gt; [], &quot;messages&quot; =&gt; [], &quot;result&quot; =&gt; {}, &quot;result_info&quot; =&gt; {}, &quot;search_params&quot; =&gt; {}, &quot;success&quot; =&gt; true })
+client.EmailSecurity.remove({ &quot;account_id&quot; =&gt; &quot;example&quot;, &quot;job_id&quot; =&gt; &quot;example&quot; })
+</code></pre>
+<h3 id="typescript">TypeScript</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/ts.html#set-up-the-client">TypeScript setup</a>, then call the operations:</p>
+<pre><code class="language-ts">const email_securitys = await client.EmailSecurity().list({ account_id: &quot;example&quot; })
+const email_security = await client.EmailSecurity().load({ account_id: &quot;example&quot; })
+const created = await client.EmailSecurity().create({ account_id: &quot;example&quot;, action: &quot;example&quot;, errors: [], id: &quot;example&quot;, ids: [], messages: [], result: {}, result_info: {}, search_params: {}, success: true })
+await client.EmailSecurity().remove({ account_id: &quot;example&quot;, job_id: &quot;example&quot; })
+</code></pre>
+<h2 id="fields">Fields</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>action</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The action the job performs on every message matching the search parameters.</td>
+</tr>
+<tr>
+<td><code>comment</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Optional note describing the job.</td>
+</tr>
+<tr>
+<td><code>destination</code></td>
+<td><code>any</code></td>
+<td>No</td>
+<td>Required when action is 'MOVE'.</td>
+</tr>
+<tr>
+<td><code>errors</code></td>
+<td><code>array</code></td>
+<td>Yes</td>
+<td>Errors</td>
+</tr>
+<tr>
+<td><code>expected_disposition</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Nonfunctional field.</td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Unique identifier for a message retrieved from investigation.</td>
+</tr>
+<tr>
+<td><code>ids</code></td>
+<td><code>array</code></td>
+<td>Yes</td>
+<td>List of message IDs to move.</td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array</code></td>
+<td>Yes</td>
+<td>Messages</td>
+</tr>
+<tr>
+<td><code>postfix_ids</code></td>
+<td><code>array</code></td>
+<td>No</td>
+<td>Deprecated, use <code>ids</code> instead.</td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Result</td>
+</tr>
+<tr>
+<td><code>result_info</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Result Info</td>
+</tr>
+<tr>
+<td><code>search_params</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Search Params</td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="create">create</h2>
+<h3 id="post-accountsaccount_idemail-securityinvestigatebulkjob_idcancel" class="operation" data-method="post"><code>POST</code> /accounts/{account_id}/email-security/investigate/bulk/{job_id}/cancel</h3>
+<p>Operation ID: <code>email_security_cancel_bulk_job</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Account identifier tag. |
+| <code>job_id</code> | <code>path</code> | <code>string (uuid)</code> | Yes | Identifier of the bulk action job to cancel. |</p>
+<h4 id="responses">Responses</h4>
+<h5 id="200-job-cancelled" class="status" data-status="2xx">200: Job cancelled</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="4xx-client-error">4XX: Client error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="post-accountsaccount_idemail-securityinvestigateinvestigate_idmove" class="operation" data-method="post"><code>POST</code> /accounts/{account_id}/email-security/investigate/{investigate_id}/move</h3>
+<p>Operation ID: <code>email_security_post_message_move</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-1">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Account identifier tag. |
+| <code>investigate_id</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="request-body">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>destination</code></td>
+<td><code>enum: Inbox, JunkEmail, DeletedItems, RecoverableItemsDeletions, RecoverableItemsPurges</code></td>
+<td>Yes</td>
+<td>The mailbox folder to move messages to.</td>
+</tr>
+<tr>
+<td><code>expected_disposition</code></td>
+<td><code>enum: MALICIOUS, MALICIOUS-BEC, SUSPICIOUS, SPOOF, SPAM, BULK, ...</code></td>
+<td>No</td>
+<td>Nonfunctional field. End of life: December 1, 2026.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses-1">Responses</h4>
+<h5 id="200-move-operation-results" class="status" data-status="2xx">200: Move operation results</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="4xx-client-error-1">4XX: Client error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="post-accountsaccount_idemail-securityinvestigateinvestigate_idreclassify" class="operation" data-method="post"><code>POST</code> /accounts/{account_id}/email-security/investigate/{investigate_id}/reclassify</h3>
+<p>Operation ID: <code>email_security_post_reclassify</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-2">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Account identifier tag. |
+| <code>investigate_id</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="request-body-1">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>eml_content</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Base64 encoded content of the EML file.</td>
+</tr>
+<tr>
+<td><code>escalated_submission_id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Submission ID of the original user submission, when reclassifying an escalated user report.</td>
+</tr>
+<tr>
+<td><code>expected_disposition</code></td>
+<td><code>enum: NONE, BULK, MALICIOUS, SPAM, SPOOF, SUSPICIOUS</code></td>
+<td>Yes</td>
+<td>The disposition the message should have.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses-2">Responses</h4>
+<h5 id="202-reclassification-request-accepted" class="status" data-status="2xx">202: Reclassification request accepted</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="4xx-client-error-2">4XX: Client error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="post-accountsaccount_idemail-securityinvestigatebulk" class="operation" data-method="post"><code>POST</code> /accounts/{account_id}/email-security/investigate/bulk</h3>
+<p>Operation ID: <code>email_security_create_bulk_job</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-3">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Account identifier tag. |</p>
+<h4 id="request-body-2">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>action</code></td>
+<td><code>enum: MOVE, RELEASE</code></td>
+<td>Yes</td>
+<td>The action the job performs on every message matching the search parameters.</td>
+</tr>
+<tr>
+<td><code>comment</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Optional note describing the job.</td>
+</tr>
+<tr>
+<td><code>destination</code></td>
+<td><code>enum: Inbox, JunkEmail, DeletedItems, RecoverableItemsDeletions, RecoverableItemsPurges</code></td>
+<td>No</td>
+<td>Required when action is 'MOVE'.</td>
+</tr>
+<tr>
+<td><code>expected_disposition</code></td>
+<td><code>enum: MALICIOUS, MALICIOUS-BEC, SUSPICIOUS, SPOOF, SPAM, BULK, ...</code></td>
+<td>No</td>
+<td>Nonfunctional field. End of life: December 1, 2026.</td>
+</tr>
+<tr>
+<td><code>search_params</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>search_params.action_log</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Deprecated, use <code>GET /investigate/&amp;#123;</code>investigate_id<code>&amp;#125;/</code>action_log`` instead. End of life: November 1, 2026.</td>
+</tr>
+<tr>
+<td><code>search_params.alert_id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Alert ID of the detection to filter by.</td>
+</tr>
+<tr>
+<td><code>search_params.delivery_status</code></td>
+<td><code>enum: delivered, moved, quarantined, rejected, deferred, bounced, ...</code></td>
+<td>No</td>
+<td>Delivery status to filter by.</td>
+</tr>
+<tr>
+<td><code>search_params.detections_only</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Whether to include only detections in search results.</td>
+</tr>
+<tr>
+<td><code>search_params.domain</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Match messages that mention this domain, sender domain, recipient domain, or a domain in a link.</td>
+</tr>
+<tr>
+<td><code>search_params.end</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>End of search date range.</td>
+</tr>
+<tr>
+<td><code>search_params.exact_subject</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Match messages whose subject line equals this value exactly.</td>
+</tr>
+<tr>
+<td><code>search_params.final_disposition</code></td>
+<td><code>enum: MALICIOUS, MALICIOUS-BEC, SUSPICIOUS, SPOOF, SPAM, BULK, ...</code></td>
+<td>No</td>
+<td>Dispositions to filter by.</td>
+</tr>
+<tr>
+<td><code>search_params.message_action</code></td>
+<td><code>enum: PREVIEW, QUARANTINE_RELEASED, MOVED</code></td>
+<td>No</td>
+<td>Message actions to filter by.</td>
+</tr>
+<tr>
+<td><code>search_params.message_id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Message-ID header value to filter by.</td>
+</tr>
+<tr>
+<td><code>search_params.metric</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Metric name to filter the search by.</td>
+</tr>
+<tr>
+<td><code>search_params.query</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Space-delimited search term. Case-insensitive.</td>
+</tr>
+<tr>
+<td><code>search_params.recipient</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Match messages whose recipient is this email address or domain.</td>
+</tr>
+<tr>
+<td><code>search_params.sender</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Match messages whose sender is this email address or domain.</td>
+</tr>
+<tr>
+<td><code>search_params.smtp_helo_ip</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Matches messages whose SMTP HELO server IP address equals this value.</td>
+</tr>
+<tr>
+<td><code>search_params.start</code></td>
+<td><code>string (date-time)</code></td>
+<td>No</td>
+<td>Beginning of search date range.</td>
+</tr>
+<tr>
+<td><code>search_params.subject</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Match messages whose subject contains these keywords, in any order.</td>
+</tr>
+<tr>
+<td><code>search_params.submissions</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Whether to search reclassification submissions instead of original messages.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses-3">Responses</h4>
+<h5 id="201-bulk-job-created" class="status" data-status="2xx">201: Bulk job created</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="4xx-client-error-3">4XX: Client error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="post-accountsaccount_idemail-securityinvestigatemove" class="operation" data-method="post"><code>POST</code> /accounts/{account_id}/email-security/investigate/move</h3>
+<p>Operation ID: <code>email_security_post_bulk_move</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-4">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Account identifier tag. |</p>
+<h4 id="request-body-3">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>destination</code></td>
+<td><code>enum: Inbox, JunkEmail, DeletedItems, RecoverableItemsDeletions, RecoverableItemsPurges</code></td>
+<td>Yes</td>
+<td>The mailbox folder to move messages to.</td>
+</tr>
+<tr>
+<td><code>expected_disposition</code></td>
+<td><code>enum: MALICIOUS, MALICIOUS-BEC, SUSPICIOUS, SPOOF, SPAM, BULK, ...</code></td>
+<td>No</td>
+<td>Nonfunctional field. End of life: December 1, 2026.</td>
+</tr>
+<tr>
+<td><code>ids</code></td>
+<td><code>array of string</code></td>
+<td>Yes</td>
+<td>List of message IDs to move.</td>
+</tr>
+<tr>
+<td><code>postfix_ids</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td>Deprecated, use <code>ids</code> instead. End of life: November 1, 2026.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses-4">Responses</h4>
+<h5 id="200-bulk-move-operation-results" class="status" data-status="2xx">200: Bulk move operation results</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="4xx-client-error-4">4XX: Client error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="post-accountsaccount_idemail-securityinvestigatepreview" class="operation" data-method="post"><code>POST</code> /accounts/{account_id}/email-security/investigate/preview</h3>
+<p>Operation ID: <code>email_security_post_preview</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-5">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Account identifier tag. |</p>
+<h4 id="request-body-4">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Unique identifier for a message retrieved from investigation.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses-5">Responses</h4>
+<h5 id="200-email-preview" class="status" data-status="2xx">200: Email preview</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="4xx-client-error-5">4XX: Client error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="post-accountsaccount_idemail-securityinvestigaterelease" class="operation" data-method="post"><code>POST</code> /accounts/{account_id}/email-security/investigate/release</h3>
+<p>Operation ID: <code>email_security_post_release</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-6">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Account identifier tag. |</p>
+<h4 id="request-body-5">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ids</code></td>
+<td><code>array of string</code></td>
+<td>Yes</td>
+<td>Investigate IDs of the messages to release.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses-6">Responses</h4>
+<h5 id="200-release-operation-results" class="status" data-status="2xx">200: Release operation results</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="4xx-client-error-6">4XX: Client error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="post-accountsaccount_idemail-securitysubmissions" class="operation" data-method="post"><code>POST</code> /accounts/{account_id}/email-security/submissions</h3>
+<p>Operation ID: <code>email_security_create_submissions</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-7">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Account identifier tag. |</p>
+<h4 id="request-body-6">Request body</h4>
+<p><code>application/json</code></p>
+<p>The request body is <code>object or object</code>.</p>
+<h4 id="responses-7">Responses</h4>
+<h5 id="202-submission-accepted" class="status" data-status="2xx">202: Submission accepted</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="4xx-client-error-7">4XX: Client error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="list">list</h2>
+<h3 id="get-accountsaccount_idemail-securityinvestigate" class="operation" data-method="get"><code>GET</code> /accounts/{account_id}/email-security/investigate</h3>
+<p>Operation ID: <code>email_security_investigate</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-8">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Account identifier tag. |
+| <code>start</code> | <code>query</code> | <code>string (date-time)</code> | No | The beginning of the search date range. Defaults to <code>now - 30 days</code>. Must not be in the future. |
+| <code>end</code> | <code>query</code> | <code>string (date-time)</code> | No | The end of the search date range. Defaults to <code>now</code>. |
+| <code>query</code> | <code>query</code> | <code>string</code> | No | Space-delimited term matched case-insensitively against message metadata, sender, recipient, subject, attachment names and hashes, and message ID. |
+| <code>detections_only</code> | <code>query</code> | <code>boolean</code> | No | Whether to include only detections in search results. |
+| <code>final_disposition</code> | <code>query</code> | <code>enum: MALICIOUS, SUSPICIOUS, SPOOF, SPAM, BULK, NONE</code> | No | Dispositions to filter by. |
+| <code>metric</code> | <code>query</code> | <code>string</code> | No | Metric to aggregate the results by. |
+| <code>message_action</code> | <code>query</code> | <code>enum: PREVIEW, QUARANTINE_RELEASED, MOVED</code> | No | Message actions to filter by. |
+| <code>recipient</code> | <code>query</code> | <code>string</code> | No | Filter by recipient. Matches an email address or a domain. |
+| <code>sender</code> | <code>query</code> | <code>string</code> | No | Filter by sender. Matches an email address or a domain. |
+| <code>smtp_helo_ip</code> | <code>query</code> | <code>string</code> | No | Matches messages whose SMTP HELO server IP address equals this value. |
+| <code>alert_id</code> | <code>query</code> | <code>string</code> | No | Filter by alert ID. |
+| <code>domain</code> | <code>query</code> | <code>string</code> | No | Filter by a domain found in the email, sender domain, recipient domain, or a domain in a link. |
+| <code>message_id</code> | <code>query</code> | <code>string</code> | No | Filter by the RFC 5322 Message-ID header. |
+| <code>subject</code> | <code>query</code> | <code>string</code> | No | Search for messages containing individual keywords in any order within the subject. |
+| <code>delivery_status</code> | <code>query</code> | <code>enum: delivered, moved, quarantined, rejected, deferred, bounced, ...</code> | No | Delivery status to filter by. |
+| <code>cursor</code> | <code>query</code> | <code>string</code> | No | Pagination cursor from the previous response's <code>result_info</code>. |
+| <code>per_page</code> | <code>query</code> | <code>integer</code> | No | The number of results per page. Maximum value is 1000. |
+| <code>page</code> | <code>query</code> | <code>integer</code> | No | Deprecated: Use cursor pagination instead. End of life: November 1, 2026. |</p>
+<h4 id="responses-8">Responses</h4>
+<h5 id="200-search-results-for-the-provided-query" class="status" data-status="2xx">200: Search results for the provided query</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="202-the-search-is-taking-longer-than-expected-use-the-location-header-to-poll-for-results" class="status" data-status="2xx">202: The search is taking longer than expected. Use the Location header to poll for results</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="4xx-client-error-8">4XX: Client error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-accountsaccount_idemail-securitysubmissions" class="operation" data-method="get"><code>GET</code> /accounts/{account_id}/email-security/submissions</h3>
+<p>Operation ID: <code>email_security_submissions</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-9">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Account identifier tag. |
+| <code>start</code> | <code>query</code> | <code>string (date-time)</code> | No | The beginning of the search date range. Defaults to <code>now - 30 days</code>. |
+| <code>end</code> | <code>query</code> | <code>string (date-time)</code> | No | The end of the search date range. Defaults to <code>now</code>. |
+| <code>type</code> | <code>query</code> | <code>enum: TEAM, USER</code> | No | Filter by who created the submission, <code>TEAM</code> for security team members or <code>USER</code> for end users. |
+| <code>submission_id</code> | <code>query</code> | <code>string</code> | No | Filter by a specific submission ID. |
+| <code>original_disposition</code> | <code>query</code> | <code>enum: MALICIOUS, SUSPICIOUS, SPOOF, SPAM, BULK, NONE</code> | No |  |
+| <code>requested_disposition</code> | <code>query</code> | <code>enum: MALICIOUS, SUSPICIOUS, SPOOF, SPAM, BULK, NONE</code> | No |  |
+| <code>outcome_disposition</code> | <code>query</code> | <code>enum: MALICIOUS, SUSPICIOUS, SPOOF, SPAM, BULK, NONE</code> | No |  |
+| <code>status</code> | <code>query</code> | <code>string</code> | No | Filter by review status, <code>escalated</code>, <code>reviewed</code>, or <code>unreviewed</code>. |
+| <code>query</code> | <code>query</code> | <code>string</code> | No | Search term for filtering submissions. |
+| <code>escalated_from_user</code> | <code>query</code> | <code>boolean</code> | No | When true, return only submissions that were escalated by an end user (vs. by the security team). When false, return only submissions that were not escalated by an end user. When omitted, no filter is applied. |
+| <code>order</code> | <code>query</code> | <code>enum: submission_id, subject, original_disposition, requested_disposition, outcome_disposition, requested_at</code> | No | Field to sort by. |
+| <code>direction</code> | <code>query</code> | <code>enum: asc, desc</code> | No | The sorting direction. |
+| <code>page</code> | <code>query</code> | <code>integer</code> | No | Current page within paginated list of results. |
+| <code>per_page</code> | <code>query</code> | <code>integer</code> | No | The number of results per page. Maximum value is 1000. |</p>
+<h4 id="responses-9">Responses</h4>
+<h5 id="200-list-of-submissions" class="status" data-status="2xx">200: List of submissions</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object and object</code>.</p>
+<h5 id="4xx-client-error-9">4XX: Client error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-accountsaccount_idemail-securityphishguardreports" class="operation" data-method="get"><code>GET</code> /accounts/{account_id}/email-security/phishguard/reports</h3>
+<p>Operation ID: <code>email_security_get_phishguard_reports</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-10">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Account identifier tag. |
+| <code>start</code> | <code>query</code> | <code>string (date-time)</code> | No | Start of the time range (RFC3339). Takes precedence over <code>from_date</code>. |
+| <code>end</code> | <code>query</code> | <code>string (date-time)</code> | No | End of the time range (RFC3339). Takes precedence over <code>to_date</code>. |
+| <code>from_date</code> | <code>query</code> | <code>string (date)</code> | No | Deprecated, use <code>start</code> instead. Start date in YYYY-MM-DD format. |
+| <code>to_date</code> | <code>query</code> | <code>string (date)</code> | No | Deprecated, use <code>end</code> instead. End date in YYYY-MM-DD format. |
+| <code>page</code> | <code>query</code> | <code>integer</code> | No | Current page within paginated list of results. |
+| <code>per_page</code> | <code>query</code> | <code>integer</code> | No | The number of results per page. Maximum value is 1000. |</p>
+<h4 id="responses-10">Responses</h4>
+<h5 id="200-list-of-phishguard-reports" class="status" data-status="2xx">200: List of PhishGuard reports</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object and object</code>.</p>
+<h5 id="4xx-client-error-10">4XX: Client error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-accountsaccount_idemail-securityinvestigatebulk" class="operation" data-method="get"><code>GET</code> /accounts/{account_id}/email-security/investigate/bulk</h3>
+<p>Operation ID: <code>email_security_get_bulk_jobs</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-11">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Account identifier tag. |
+| <code>page</code> | <code>query</code> | <code>integer</code> | No | Current page within paginated list of results. |
+| <code>per_page</code> | <code>query</code> | <code>integer</code> | No | The number of results per page. Maximum value is 1000. |
+| <code>action_type</code> | <code>query</code> | <code>enum: MOVE, RELEASE</code> | No | Filter jobs by the action they perform. |
+| <code>status</code> | <code>query</code> | <code>enum: PENDING, DISCOVERING, PROCESSING, COMPLETED, FAILED, CANCELLED</code> | No | Filter jobs by their processing status. |</p>
+<h4 id="responses-11">Responses</h4>
+<h5 id="200-jobs-retrieved-successfully" class="status" data-status="2xx">200: Jobs retrieved successfully</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="4xx-client-error-11">4XX: Client error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-accountsaccount_idemail-securityinvestigatebulkjob_idmessages" class="operation" data-method="get"><code>GET</code> /accounts/{account_id}/email-security/investigate/bulk/{job_id}/messages</h3>
+<p>Operation ID: <code>email_security_get_bulk_job_messages</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-12">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Account identifier tag. |
+| <code>job_id</code> | <code>path</code> | <code>string (uuid)</code> | Yes | Identifier of the bulk action job whose messages to list. |
+| <code>page</code> | <code>query</code> | <code>integer</code> | No | Current page within paginated list of results. |
+| <code>per_page</code> | <code>query</code> | <code>integer</code> | No | The number of results per page. Maximum value is 1000. |
+| <code>status</code> | <code>query</code> | <code>enum: PENDING, PROCESSING, COMPLETED, FAILED, CANCELLED, SKIPPED</code> | No | Filter the job's messages by their processing status. |</p>
+<h4 id="responses-12">Responses</h4>
+<h5 id="200-messages-for-the-bulk-job" class="status" data-status="2xx">200: Messages for the bulk job</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="4xx-client-error-12">4XX: Client error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-accountsaccount_idemail-securityinvestigateinvestigate_idaction_log" class="operation" data-method="get"><code>GET</code> /accounts/{account_id}/email-security/investigate/{investigate_id}/action_log</h3>
+<p>Operation ID: <code>email_security_get_message_action_log</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-13">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Account identifier tag. |
+| <code>investigate_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>page</code> | <code>query</code> | <code>integer</code> | No | Current page within paginated list of results. |
+| <code>per_page</code> | <code>query</code> | <code>integer</code> | No | The number of results per page. Maximum value is 1000. |</p>
+<h4 id="responses-13">Responses</h4>
+<h5 id="200-action-log-for-the-email" class="status" data-status="2xx">200: Action log for the email</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object and object</code>.</p>
+<h5 id="4xx-client-error-13">4XX: Client error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-accountsaccount_idemail-securityinvestigateinvestigate_iddetections" class="operation" data-method="get"><code>GET</code> /accounts/{account_id}/email-security/investigate/{investigate_id}/detections</h3>
+<p>Operation ID: <code>email_security_get_message_detections</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-14">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Account identifier tag. |
+| <code>investigate_id</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="responses-14">Responses</h4>
+<h5 id="200-email-message-detection-details" class="status" data-status="2xx">200: Email message detection details</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="4xx-client-error-14">4XX: Client error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-accountsaccount_idemail-securityinvestigateinvestigate_idpreview" class="operation" data-method="get"><code>GET</code> /accounts/{account_id}/email-security/investigate/{investigate_id}/preview</h3>
+<p>Operation ID: <code>email_security_get_message_preview</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-15">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Account identifier tag. |
+| <code>investigate_id</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="responses-15">Responses</h4>
+<h5 id="200-email-preview-1" class="status" data-status="2xx">200: Email preview</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="4xx-client-error-15">4XX: Client error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-accountsaccount_idemail-securityinvestigateinvestigate_idraw" class="operation" data-method="get"><code>GET</code> /accounts/{account_id}/email-security/investigate/{investigate_id}/raw</h3>
+<p>Operation ID: <code>email_security_get_message_raw</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-16">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Account identifier tag. |
+| <code>investigate_id</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="responses-16">Responses</h4>
+<h5 id="200-raw-email-content" class="status" data-status="2xx">200: Raw email content</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="4xx-client-error-16">4XX: Client error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-accountsaccount_idemail-securityinvestigateinvestigate_idtrace" class="operation" data-method="get"><code>GET</code> /accounts/{account_id}/email-security/investigate/{investigate_id}/trace</h3>
+<p>Operation ID: <code>email_security_get_message_trace</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-17">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Account identifier tag. |
+| <code>investigate_id</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="responses-17">Responses</h4>
+<h5 id="200-email-trace" class="status" data-status="2xx">200: Email trace</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="4xx-client-error-17">4XX: Client error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="load">load</h2>
+<h3 id="get-accountsaccount_idemail-securityinvestigateinvestigate_id" class="operation" data-method="get"><code>GET</code> /accounts/{account_id}/email-security/investigate/{investigate_id}</h3>
+<p>Operation ID: <code>email_security_get_message</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-18">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Account identifier tag. |
+| <code>investigate_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>submission</code> | <code>query</code> | <code>boolean</code> | No | When true, search the submissions datastore only. When false or omitted, search the regular datastore only. |</p>
+<h4 id="responses-18">Responses</h4>
+<h5 id="200-email-message-details" class="status" data-status="2xx">200: Email message details</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="4xx-client-error-18">4XX: Client error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-accountsaccount_idemail-securityinvestigatebulkjob_id" class="operation" data-method="get"><code>GET</code> /accounts/{account_id}/email-security/investigate/bulk/{job_id}</h3>
+<p>Operation ID: <code>email_security_get_bulk_job</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-19">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Account identifier tag. |
+| <code>job_id</code> | <code>path</code> | <code>string (uuid)</code> | Yes | Identifier of the bulk action job. |</p>
+<h4 id="responses-19">Responses</h4>
+<h5 id="200-job-details-retrieved" class="status" data-status="2xx">200: Job details retrieved</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="4xx-client-error-19">4XX: Client error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="remove">remove</h2>
+<h3 id="delete-accountsaccount_idemail-securityinvestigatebulkjob_id" class="operation" data-method="delete"><code>DELETE</code> /accounts/{account_id}/email-security/investigate/bulk/{job_id}</h3>
+<p>Operation ID: <code>email_security_delete_bulk_job</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-20">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Account identifier tag. |
+| <code>job_id</code> | <code>path</code> | <code>string (uuid)</code> | Yes | Identifier of the bulk action job. |</p>
+<h4 id="responses-20">Responses</h4>
+<h5 id="200-job-deleted" class="status" data-status="2xx">200: Job deleted</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="4xx-client-error-20">4XX: Client error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+</main></div>
+<script src="../assets/search.js" defer></script></body></html>

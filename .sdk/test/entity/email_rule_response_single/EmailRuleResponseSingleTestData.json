@@ -1,0 +1,81 @@
+{
+  "existing": {
+    "email_rule_response_single": {
+      "EMAIL_RULE_RESPONSE_SINGLE00": {
+        "actions": [],
+        "enabled": false,
+        "matchers": [],
+        "name": "s53",
+        "owner_worker_tag": "s54",
+        "priority": 85,
+        "result": {},
+        "source": "s57",
+        "zone_id": "ZONE01",
+        "rule_identifier": "RULE_IDENTIFIER01",
+        "id": "EMAIL_RULE_RESPONSE_SINGLE00"
+      },
+      "EMAIL_RULE_RESPONSE_SINGLE01": {
+        "actions": [],
+        "enabled": false,
+        "matchers": [],
+        "name": "sa3",
+        "owner_worker_tag": "sa4",
+        "priority": 165,
+        "result": {},
+        "source": "sa7",
+        "zone_id": "ZONE01",
+        "rule_identifier": "RULE_IDENTIFIER01",
+        "id": "EMAIL_RULE_RESPONSE_SINGLE01"
+      },
+      "EMAIL_RULE_RESPONSE_SINGLE02": {
+        "actions": [],
+        "enabled": false,
+        "matchers": [],
+        "name": "sf3",
+        "owner_worker_tag": "sf4",
+        "priority": 245,
+        "result": {},
+        "source": "sf7",
+        "zone_id": "ZONE01",
+        "rule_identifier": "RULE_IDENTIFIER01",
+        "id": "EMAIL_RULE_RESPONSE_SINGLE02"
+      }
+    }
+  },
+  "new": {
+    "email_rule_response_single": {
+      "email_rule_response_single_ref01": {
+        "actions": [],
+        "enabled": false,
+        "matchers": [],
+        "name": "s143",
+        "owner_worker_tag": "s144",
+        "priority": 325,
+        "result": {},
+        "source": "s147"
+      }
+    }
+  },
+  "requests": {
+    "POST /zones/{zone_id}/email/routing/rules": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /zones/{zone_id}/email/routing/rules/{rule_identifier}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /zones/{zone_id}/email/routing/rules/{rule_identifier}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /zones/{zone_id}/email/routing/rules/{rule_identifier}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

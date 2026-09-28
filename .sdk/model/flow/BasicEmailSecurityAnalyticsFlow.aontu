@@ -1,0 +1,32 @@
+# BasicEmailSecurityAnalyticsFlow
+
+main: kit: flow: BasicEmailSecurityAnalyticsFlow:
+{
+  entity: "email_security_analytics",
+  kind: "basic",
+  name: "BasicEmailSecurityAnalyticsFlow",
+  step: [
+    {
+      i: {
+        ref: "email_security_analytics_ref01",
+        srcdatavar: "email_security_analytics_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "email_security_analytics01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-email_security_analytics_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicEmailSecurityAnalyticsFlow"
+}
